@@ -277,61 +277,70 @@ export default function App() {
         </div>
       </section>
 
-      {/* OKS MEMORIAL TRUST DOWNLOAD & ACTIVITIES CENTER */}
+      {/* OKS MEMORIAL TRUST COMPETITIONS & ACTIVITIES CENTER */}
       <section id="trust-downloads" className="py-24 bg-[#FAF9F6] border-t border-[#E2DED0]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
             <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">OKS Memorial Trust Community Hub</span>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold">Educational Activities & App Downloads</h2>
-            <p className="text-gray-600">Access and download our state-level competition assessment tools, English & Science multi-subject modules, and student guidebooks.</p>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold">Live Competitions & Assessment Portals</h2>
+            <p className="text-gray-600">Direct access to our live state-level assessment platforms for students and community members across KGF and Bangarpet.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Math, Science & English Platform */}
+            <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                  <Sparkles size={24} className="text-[#C5A059]" />
+                </div>
+                <h3 className="font-serif text-xl font-bold">Math, Science & English Suite</h3>
+                <p className="text-sm text-gray-600">Multi-subject competition and assessment platform designed to foster academic excellence across categories.</p>
+              </div>
+              <a 
+                href="https://mse-nine.vercel.app" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+              >
+                <ArrowRight size={16} className="mr-2" /> Attempt Test Portal
+              </a>
+            </div>
+
+            {/* English Competition Platform */}
             <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
                   <BookOpen size={24} className="text-[#C5A059]" />
                 </div>
                 <h3 className="font-serif text-xl font-bold">English Competition Platform</h3>
-                <p className="text-sm text-gray-600">Interactive 4-tier assessment tool covering advanced grammar, vocabulary, syntax, and reading comprehension across middle, high school, and undergraduate levels.</p>
+                <p className="text-sm text-gray-600">Interactive 4-tier assessment tool covering advanced grammar, vocabulary, syntax, and reading comprehension.</p>
               </div>
               <a 
-                href="#download-english-app" 
+                href="https://test1-zeta-sand-18.vercel.app" 
+                target="_blank" 
+                rel="noopener noreferrer" 
                 className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
               >
-                <Download size={16} className="mr-2" /> Download Assessment Tool
+                <ArrowRight size={16} className="mr-2" /> Attempt English Test
               </a>
             </div>
 
-            <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
-                  <Sparkles size={24} className="text-[#C5A059]" />
-                </div>
-                <h3 className="font-serif text-xl font-bold">Math & Science Multi-Subject Suite</h3>
-                <p className="text-sm text-gray-600">Comprehensive multi-category competition frameworks and practice modules designed to foster academic excellence across KGF and Bangarpet clusters.</p>
-              </div>
-              <a 
-                href="#download-math-science" 
-                className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
-              >
-                <Download size={16} className="mr-2" /> Download Math & Science Suite
-              </a>
-            </div>
-
+            {/* Chess Competition Platform */}
             <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
                   <Award size={24} className="text-[#C5A059]" />
                 </div>
-                <h3 className="font-serif text-xl font-bold">Digital Guidebooks Library</h3>
-                <p className="text-sm text-gray-600">8 comprehensive guidebooks authored by O V Suresh Babu on Neuro-Linguistic Programming, emotional intelligence, and cognitive architecture.</p>
+                <h3 className="font-serif text-xl font-bold">Chess Competition Portal</h3>
+                <p className="text-sm text-gray-600">Strategic tournament and event platform organized to encourage youth tactical skills and competitive sportsmanship.</p>
               </div>
               <a 
-                href="#books" 
+                href="https://chess2-umber.vercel.app" 
+                target="_blank" 
+                rel="noopener noreferrer" 
                 className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
               >
-                <ArrowRight size={16} className="mr-2" /> View Digital Library
+                <ArrowRight size={16} className="mr-2" /> Join Chess Event
               </a>
             </div>
           </div>
