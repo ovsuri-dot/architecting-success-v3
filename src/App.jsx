@@ -12,7 +12,11 @@ import {
   ArrowRight, 
   Download, 
   Sparkles,
-  UserCheck
+  UserCheck,
+  Home,
+  Layers,
+  FileText,
+  Send
 } from 'lucide-react';
 
 // ==========================================
@@ -105,6 +109,7 @@ const SITE_CONTENT = {
 };
 
 export default function App() {
+  const [activeTab, setActiveTab] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formStatus, setFormStatus] = useState({ submitted: false, message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -139,30 +144,27 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-[#0B132B] font-sans selection:bg-[#C5A059] selection:text-white">
+    <div className="min-h-screen bg-[#FAF9F6] text-[#0B132B] font-sans selection:bg-[#C5A059] selection:text-white pb-20 md:pb-0">
       
-      {/* HEADER / NAVIGATION */}
-      <header className="sticky top-0 z-50 bg-[#FAF9F6]/90 backdrop-blur-md border-b border-[#E2DED0]">
+      {/* SUPER APP HEADER / NAVBAR */}
+      <header className="sticky top-0 z-50 bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#E2DED0]">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-[#0B132B] text-[#C5A059] flex items-center justify-center font-serif font-bold text-lg">
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('home')}>
+            <div className="w-10 h-10 rounded-full bg-[#0B132B] text-[#C5A059] flex items-center justify-center font-serif font-bold text-lg shadow-md">
               SB
             </div>
             <div>
               <span className="font-serif font-bold text-xl tracking-wide block">ArchitectingSuccess<span className="text-[#C5A059]">.in</span></span>
-              <span className="text-xs text-gray-600 tracking-wider uppercase">{SITE_CONTENT.profile.name}</span>
+              <span className="text-xs text-gray-600 tracking-wider uppercase">Super App Hub</span>
             </div>
           </div>
 
-          <nav className="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
-            <a href="#about" className="hover:text-[#C5A059] transition">About</a>
-            <a href="#credentials" className="hover:text-[#C5A059] transition">Credentials</a>
-            <a href="#pillars" className="hover:text-[#C5A059] transition">Expertise</a>
-            <a href="#books" className="hover:text-[#C5A059] transition">Digital Library</a>
-            <a href="#trust-downloads" className="hover:text-[#C5A059] transition">OKS Trust</a>
-            <a href="#contact" className="px-5 py-2.5 bg-[#0B132B] text-white rounded-none hover:bg-[#C5A059] hover:text-[#0B132B] transition duration-300">
-              Inquire
-            </a>
+          {/* Desktop App Navigation */}
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium tracking-wide">
+            <button onClick={() => setActiveTab('home')} className={`transition hover:text-[#C5A059] ${activeTab === 'home' ? 'text-[#C5A059] font-bold' : ''}`}>Dashboard</button>
+            <button onClick={() => setActiveTab('library')} className={`transition hover:text-[#C5A059] ${activeTab === 'library' ? 'text-[#C5A059] font-bold' : ''}`}>Digital Library</button>
+            <button onClick={() => setActiveTab('competitions')} className={`transition hover:text-[#C5A059] ${activeTab === 'competitions' ? 'text-[#C5A059] font-bold' : ''}`}>OKS Trust Portals</button>
+            <button onClick={() => setActiveTab('contact')} className={`transition hover:text-[#C5A059] ${activeTab === 'contact' ? 'text-[#C5A059] font-bold' : ''}`}>Inquire</button>
           </nav>
 
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden text-[#0B132B]">
@@ -173,295 +175,272 @@ export default function App() {
         {/* Mobile Dropdown */}
         {mobileMenuOpen && (
           <div className="md:hidden absolute top-20 left-0 w-full bg-[#FAF9F6] border-b border-[#E2DED0] px-6 py-6 space-y-4 shadow-xl">
-            <a href="#about" onClick={() => setMobileMenuOpen(false)} className="block text-lg font-medium">About</a>
-            <a href="#credentials" onClick={() => setMobileMenuOpen(false)} className="block text-lg font-medium">Credentials</a>
-            <a href="#pillars" onClick={() => setMobileMenuOpen(false)} className="block text-lg font-medium">Expertise</a>
-            <a href="#books" onClick={() => setMobileMenuOpen(false)} className="block text-lg font-medium">Digital Library</a>
-            <a href="#trust-downloads" onClick={() => setMobileMenuOpen(false)} className="block text-lg font-medium">OKS Trust</a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block text-lg font-medium text-[#C5A059]">Inquire</a>
+            <button onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Dashboard</button>
+            <button onClick={() => { setActiveTab('library'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Digital Library</button>
+            <button onClick={() => { setActiveTab('competitions'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">OKS Trust Portals</button>
+            <button onClick={() => { setActiveTab('contact'); setMobileMenuOpen(false); }} className="block text-lg font-medium text-[#C5A059] w-full text-left">Inquire</button>
           </div>
         )}
       </header>
 
-      {/* HERO & INTRODUCTION SECTION */}
-      <section id="about" className="relative overflow-hidden py-16 md:py-24 bg-gradient-to-b from-[#FAF9F6] to-[#F2EFE9]">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Column: Headline & Introduction */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-[#C5A059]/10 text-[#C5A059] text-xs font-semibold tracking-widest uppercase border border-[#C5A059]/20">
-              <Sparkles size={14} />
-              <span>{SITE_CONTENT.profile.role}</span>
-            </div>
-            
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0B132B]">
-              Mastering the Blueprint of <span className="text-[#C5A059] italic">Human Excellence</span>.
-            </h1>
-            
-            <p className="text-lg text-gray-700 leading-relaxed font-sans">
-              {SITE_CONTENT.profile.bioSummary}
-            </p>
+      {/* MAIN VIEW AREA (TAB SWITCHER) */}
+      <main>
+        {activeTab === 'home' && (
+          <div>
+            {/* HERO & INTRODUCTION */}
+            <section className="relative overflow-hidden py-16 md:py-24 bg-gradient-to-b from-[#FAF9F6] to-[#F2EFE9]">
+              <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div className="lg:col-span-7 space-y-6">
+                  <div className="inline-flex items-center space-x-2 px-3 py-1 bg-[#C5A059]/10 text-[#C5A059] text-xs font-semibold tracking-widest uppercase border border-[#C5A059]/20">
+                    <Sparkles size={14} />
+                    <span>{SITE_CONTENT.profile.role}</span>
+                  </div>
+                  
+                  <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0B132B]">
+                    Mastering the Blueprint of <span className="text-[#C5A059] italic">Human Excellence</span>.
+                  </h1>
+                  
+                  <p className="text-lg text-gray-700 leading-relaxed font-sans">
+                    {SITE_CONTENT.profile.bioSummary}
+                  </p>
 
-            {/* Key Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-4 bg-white border border-[#E2DED0]">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Corporate Leadership</span>
-                <span className="font-serif font-bold text-base text-[#0B132B]">{SITE_CONTENT.profile.designation}</span>
-              </div>
-              <div className="p-4 bg-white border border-[#E2DED0]">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Social Impact</span>
-                <span className="font-serif font-bold text-base text-[#0B132B]">{SITE_CONTENT.profile.trust}</span>
-              </div>
-            </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div className="p-4 bg-white border border-[#E2DED0]">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Corporate Leadership</span>
+                      <span className="font-serif font-bold text-base text-[#0B132B]">{SITE_CONTENT.profile.designation}</span>
+                    </div>
+                    <div className="p-4 bg-white border border-[#E2DED0]">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Social Impact</span>
+                      <span className="font-serif font-bold text-base text-[#0B132B]">{SITE_CONTENT.profile.trust}</span>
+                    </div>
+                  </div>
 
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-2">
-              <a href="#contact" className="inline-flex items-center justify-center px-8 py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition">
-                Book Consultation <ArrowRight className="ml-2" size={18} />
-              </a>
-              <a href="#books" className="inline-flex items-center justify-center px-8 py-4 border border-[#0B132B] text-[#0B132B] font-medium hover:bg-[#0B132B] hover:text-white transition">
-                Explore Guidebooks
-              </a>
-            </div>
-          </div>
-
-          {/* Right Column: Compact Executive Portrait Card */}
-          <div className="lg:col-span-5">
-            <div className="bg-[#0B132B] p-8 text-white shadow-2xl relative overflow-hidden border border-[#C5A059]/30">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-[#C5A059]/10 rounded-full blur-3xl pointer-events-none"></div>
-              
-              {/* Compact Framed Portrait */}
-              <div className="w-52 h-52 sm:w-56 sm:h-56 mx-auto mb-6 rounded-lg overflow-hidden border-2 border-[#C5A059]/60 bg-[#16213E] shadow-lg">
-                <img 
-                  src={SITE_CONTENT.profile.photoUrl} 
-                  alt={SITE_CONTENT.profile.name}
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-
-              <div className="text-center space-y-1">
-                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Executive Profile</span>
-                <h3 className="font-serif text-2xl font-bold">{SITE_CONTENT.profile.name}</h3>
-                <p className="text-sm text-gray-300">{SITE_CONTENT.profile.designation}</p>
-              </div>
-
-              <div className="border-t border-white/10 mt-6 pt-5 space-y-3 text-sm text-gray-300">
-                <div className="flex items-center space-x-3">
-                  <UserCheck size={16} className="text-[#C5A059] shrink-0" />
-                  <span>{SITE_CONTENT.profile.trust}</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <ShieldCheck size={16} className="text-[#C5A059] shrink-0" />
-                  <span>{SITE_CONTENT.profile.experience}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* CREDENTIALS BADGES */}
-      <section id="credentials" className="py-20 bg-white border-y border-[#E2DED0]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <h2 className="font-serif text-3xl font-bold">Accreditations & Certifications</h2>
-            <p className="text-gray-600">Globally recognized credentials in cognitive frameworks and human psychology.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {SITE_CONTENT.credentials.map((cred, index) => (
-              <div key={index} className="p-6 bg-[#FAF9F6] border border-[#E2DED0] space-y-3 hover:border-[#C5A059] transition">
-                <Award className="text-[#C5A059]" size={28} />
-                <h3 className="font-serif font-bold text-lg">{cred.title}</h3>
-                <p className="text-xs text-gray-500 uppercase tracking-wider">{cred.org}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PILLARS / EXPERTISE */}
-      <section id="pillars" className="py-24 max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold">Core Pillars of Practice</h2>
-          <p className="text-gray-600">Systematic methodologies designed to architect sustainable personal and professional success.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {SITE_CONTENT.pillars.map((pillar, index) => (
-            <div key={index} className="bg-white p-8 border border-[#E2DED0] shadow-sm flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
-                  <Brain size={24} />
-                </div>
-                <h3 className="font-serif text-2xl font-bold">{pillar.title}</h3>
-                <p className="text-sm font-semibold text-[#C5A059]">{pillar.subtitle}</p>
-                <p className="text-gray-600 text-sm leading-relaxed">{pillar.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* DIGITAL LIBRARY */}
-      <section id="books" className="py-24 bg-[#0B132B] text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-            <div className="space-y-4 max-w-xl">
-              <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Published Wisdom</span>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold">The Digital Book Library</h2>
-              <p className="text-gray-300">Comprehensive guidebooks authored by O V Suresh Babu on behavioral architecture, emotional intelligence, and cognitive mastery.</p>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {SITE_CONTENT.books.map((book, index) => (
-              <div key={index} className="p-6 bg-white/5 border border-white/10 hover:border-[#C5A059] transition flex flex-col justify-between space-y-6">
-                <div className="space-y-4">
-                  <BookOpen className="text-[#C5A059]" size={32} />
-                  <div className="space-y-2">
-                    <span className="text-xs text-[#C5A059] uppercase tracking-wider">{book.category}</span>
-                    <h3 className="font-serif font-bold text-lg leading-snug">{book.title}</h3>
+                  <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-2">
+                    <button onClick={() => setActiveTab('competitions')} className="inline-flex items-center justify-center px-8 py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                      Access Test Portals <ArrowRight className="ml-2" size={18} />
+                    </button>
+                    <button onClick={() => setActiveTab('library')} className="inline-flex items-center justify-center px-8 py-4 border border-[#0B132B] text-[#0B132B] font-medium hover:bg-[#0B132B] hover:text-white transition">
+                      Explore Digital Library
+                    </button>
                   </div>
                 </div>
-                <a 
-                  href={book.downloadUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center justify-center w-full py-2.5 px-4 bg-[#C5A059] text-[#0B132B] font-semibold text-sm hover:bg-white transition"
+
+                {/* Portrait Card */}
+                <div className="lg:col-span-5">
+                  <div className="bg-[#0B132B] p-8 text-white shadow-2xl relative overflow-hidden border border-[#C5A059]/30">
+                    <div className="absolute top-0 right-0 w-48 h-48 bg-[#C5A059]/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div className="w-52 h-52 sm:w-56 sm:h-56 mx-auto mb-6 rounded-lg overflow-hidden border-2 border-[#C5A059]/60 bg-[#16213E] shadow-lg">
+                      <img 
+                        src={SITE_CONTENT.profile.photoUrl} 
+                        alt={SITE_CONTENT.profile.name}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                    <div className="text-center space-y-1">
+                      <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Executive Profile</span>
+                      <h3 className="font-serif text-2xl font-bold">{SITE_CONTENT.profile.name}</h3>
+                      <p className="text-sm text-gray-300">{SITE_CONTENT.profile.designation}</p>
+                    </div>
+                    <div className="border-t border-white/10 mt-6 pt-5 space-y-3 text-sm text-gray-300">
+                      <div className="flex items-center space-x-3">
+                        <UserCheck size={16} className="text-[#C5A059] shrink-0" />
+                        <span>{SITE_CONTENT.profile.trust}</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <ShieldCheck size={16} className="text-[#C5A059] shrink-0" />
+                        <span>{SITE_CONTENT.profile.experience}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* CREDENTIALS BADGES */}
+            <section className="py-20 bg-white border-y border-[#E2DED0]">
+              <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                  <h2 className="font-serif text-3xl font-bold">Accreditations & Certifications</h2>
+                  <p className="text-gray-600">Globally recognized credentials in cognitive frameworks and human psychology.</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {SITE_CONTENT.credentials.map((cred, index) => (
+                    <div key={index} className="p-6 bg-[#FAF9F6] border border-[#E2DED0] space-y-3 hover:border-[#C5A059] transition">
+                      <Award className="text-[#C5A059]" size={28} />
+                      <h3 className="font-serif font-bold text-lg">{cred.title}</h3>
+                      <p className="text-xs text-gray-500 uppercase tracking-wider">{cred.org}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </div>
+        )}
+
+        {activeTab === 'library' && (
+          <section className="py-20 bg-[#0B132B] text-white min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6">
+              <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Published Wisdom</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">The Digital Book Library</h2>
+                <p className="text-gray-300">Download and read comprehensive guidebooks authored by O V Suresh Babu.</p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {SITE_CONTENT.books.map((book, index) => (
+                  <div key={index} className="p-6 bg-white/5 border border-white/10 hover:border-[#C5A059] transition flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <BookOpen className="text-[#C5A059]" size={32} />
+                      <div className="space-y-2">
+                        <span className="text-xs text-[#C5A059] uppercase tracking-wider">{book.category}</span>
+                        <h3 className="font-serif font-bold text-lg leading-snug">{book.title}</h3>
+                      </div>
+                    </div>
+                    <a 
+                      href={book.downloadUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center justify-center w-full py-2.5 px-4 bg-[#C5A059] text-[#0B132B] font-semibold text-sm hover:bg-white transition"
+                    >
+                      <Download size={16} className="mr-2" /> Download Guide
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {activeTab === 'competitions' && (
+          <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6">
+              <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">OKS Memorial Trust Hub</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">Live Competitions & Assessment Portals</h2>
+                <p className="text-gray-600">Direct access to state-level assessment platforms for students across KGF and Bangarpet.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Math, Science & English Platform */}
+                <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                      <Sparkles size={24} className="text-[#C5A059]" />
+                    </div>
+                    <h3 className="font-serif text-xl font-bold">Math, Science & English Suite</h3>
+                    <p className="text-sm text-gray-600">Multi-subject competition and assessment platform designed to foster academic excellence across categories.</p>
+                  </div>
+                  <a 
+                    href="https://mse-nine.vercel.app" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                  >
+                    <ArrowRight size={16} className="mr-2" /> Attempt Test Portal
+                  </a>
+                </div>
+
+                {/* English Competition Platform */}
+                <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                      <BookOpen size={24} className="text-[#C5A059]" />
+                    </div>
+                    <h3 className="font-serif text-xl font-bold">English Competition Platform</h3>
+                    <p className="text-sm text-gray-600">Interactive 4-tier assessment tool covering advanced grammar, vocabulary, syntax, and reading comprehension.</p>
+                  </div>
+                  <a 
+                    href="https://test1-zeta-sand-18.vercel.app" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                  >
+                    <ArrowRight size={16} className="mr-2" /> Attempt English Test
+                  </a>
+                </div>
+
+                {/* Chess Competition Platform */}
+                <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                      <Award size={24} className="text-[#C5A059]" />
+                    </div>
+                    <h3 className="font-serif text-xl font-bold">Chess Competition Portal</h3>
+                    <p className="text-sm text-gray-600">Strategic tournament and event platform organized to encourage youth tactical skills and competitive sportsmanship.</p>
+                  </div>
+                  <a 
+                    href="https://chess2-umber.vercel.app" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                  >
+                    <ArrowRight size={16} className="mr-2" /> Join Chess Event
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {activeTab === 'contact' && (
+          <section className="py-20 max-w-4xl mx-auto px-6 min-h-[80vh]">
+            <div className="bg-white p-8 md:p-12 border border-[#E2DED0] shadow-sm space-y-8">
+              <div className="text-center space-y-2">
+                <h2 className="font-serif text-3xl font-bold">Initiate Your Transformation</h2>
+                <p className="text-gray-600 text-sm">Send a direct inquiry routed securely to O V Suresh Babu.</p>
+              </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Full Name</label>
+                  <input required type="text" name="name" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your name" />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Email Address</label>
+                  <input required type="email" name="email" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your email" />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Message or Inquiry</label>
+                  <textarea required rows={4} name="message" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Describe your coaching or program requirements"></textarea>
+                </div>
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition disabled:opacity-50"
                 >
-                  <Download size={16} className="mr-2" /> Download Guide
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* OKS MEMORIAL TRUST COMPETITIONS & ACTIVITIES CENTER */}
-      <section id="trust-downloads" className="py-24 bg-[#FAF9F6] border-t border-[#E2DED0]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">OKS Memorial Trust Community Hub</span>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold">Live Competitions & Assessment Portals</h2>
-            <p className="text-gray-600">Direct access to our live state-level assessment platforms for students and community members across KGF and Bangarpet.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Math, Science & English Platform */}
-            <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
-                  <Sparkles size={24} className="text-[#C5A059]" />
-                </div>
-                <h3 className="font-serif text-xl font-bold">Math, Science & English Suite</h3>
-                <p className="text-sm text-gray-600">Multi-subject competition and assessment platform designed to foster academic excellence across categories.</p>
-              </div>
-              <a 
-                href="https://mse-nine.vercel.app" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
-              >
-                <ArrowRight size={16} className="mr-2" /> Attempt Test Portal
-              </a>
+                  {isSubmitting ? 'Sending Inquiry...' : 'Submit Inquiry'}
+                </button>
+                {formStatus.message && (
+                  <p className={`text-sm font-medium text-center ${formStatus.submitted ? 'text-green-700' : 'text-red-600'}`}>
+                    {formStatus.message}
+                  </p>
+                )}
+              </form>
             </div>
+          </section>
+        )}
+      </main>
 
-            {/* English Competition Platform */}
-            <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
-                  <BookOpen size={24} className="text-[#C5A059]" />
-                </div>
-                <h3 className="font-serif text-xl font-bold">English Competition Platform</h3>
-                <p className="text-sm text-gray-600">Interactive 4-tier assessment tool covering advanced grammar, vocabulary, syntax, and reading comprehension.</p>
-              </div>
-              <a 
-                href="https://test1-zeta-sand-18.vercel.app" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
-              >
-                <ArrowRight size={16} className="mr-2" /> Attempt English Test
-              </a>
-            </div>
-
-            {/* Chess Competition Platform */}
-            <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
-                  <Award size={24} className="text-[#C5A059]" />
-                </div>
-                <h3 className="font-serif text-xl font-bold">Chess Competition Portal</h3>
-                <p className="text-sm text-gray-600">Strategic tournament and event platform organized to encourage youth tactical skills and competitive sportsmanship.</p>
-              </div>
-              <a 
-                href="https://chess2-umber.vercel.app" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
-              >
-                <ArrowRight size={16} className="mr-2" /> Join Chess Event
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CONTACT / INQUIRY SECTION */}
-      <section id="contact" className="py-24 max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className="space-y-8">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold">Initiate Your Transformation</h2>
-            <p className="text-gray-700 leading-relaxed">
-              Whether you are an executive seeking advanced leadership coaching, an organization requiring behavioral architecture training, or an educational partner connecting with OKS Memorial Trust, reach out directly.
-            </p>
-            <div className="space-y-4 text-gray-700">
-              <div className="flex items-center space-x-4">
-                <Mail className="text-[#C5A059]" size={20} />
-                <span className="font-medium">{SITE_CONTENT.profile.email}</span>
-              </div>
-              <div className="flex items-center space-x-4">
-                <Phone className="text-[#C5A059]" size={20} />
-                <span className="font-medium">{SITE_CONTENT.profile.phone}</span>
-              </div>
-              <div className="flex items-center space-x-4">
-                <MapPin className="text-[#C5A059]" size={20} />
-                <span className="font-medium">{SITE_CONTENT.profile.location}</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-8 border border-[#E2DED0] shadow-sm">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Full Name</label>
-                <input required type="text" name="name" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your name" />
-              </div>
-              <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Email Address</label>
-                <input required type="email" name="email" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your email" />
-              </div>
-              <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Message or Inquiry</label>
-                <textarea required rows={4} name="message" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Describe your coaching or program requirements"></textarea>
-              </div>
-              <button 
-                type="submit" 
-                disabled={isSubmitting}
-                className="w-full py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition disabled:opacity-50"
-              >
-                {isSubmitting ? 'Sending Inquiry...' : 'Submit Inquiry'}
-              </button>
-              {formStatus.message && (
-                <p className={`text-sm font-medium text-center ${formStatus.submitted ? 'text-green-700' : 'text-red-600'}`}>
-                  {formStatus.message}
-                </p>
-              )}
-            </form>
-          </div>
-        </div>
-      </section>
+      {/* MOBILE BOTTOM NAVIGATION BAR (Super App Bottom Bar) */}
+      <nav className="md:hidden fixed bottom-0 left-0 w-full bg-[#0B132B] text-white border-t border-white/10 z-50 flex justify-around py-3">
+        <button onClick={() => setActiveTab('home')} className={`flex flex-col items-center space-y-1 ${activeTab === 'home' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <Home size={20} />
+          <span className="text-[10px] tracking-wider uppercase font-medium">Home</span>
+        </button>
+        <button onClick={() => setActiveTab('library')} className={`flex flex-col items-center space-y-1 ${activeTab === 'library' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <BookOpen size={20} />
+          <span className="text-[10px] tracking-wider uppercase font-medium">Library</span>
+        </button>
+        <button onClick={() => setActiveTab('competitions')} className={`flex flex-col items-center space-y-1 ${activeTab === 'competitions' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <Layers size={20} />
+          <span className="text-[10px] tracking-wider uppercase font-medium">Portals</span>
+        </button>
+        <button onClick={() => setActiveTab('contact')} className={`flex flex-col items-center space-y-1 ${activeTab === 'contact' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <Send size={20} />
+          <span className="text-[10px] tracking-wider uppercase font-medium">Inquire</span>
+        </button>
+      </nav>
 
       {/* FOOTER */}
-      <footer className="bg-[#0B132B] text-white py-12 border-t border-white/10">
+      <footer className="bg-[#0B132B] text-white py-12 border-t border-white/10 hidden md:block">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 text-sm text-gray-400">
           <p>© {new Date().getFullYear()} ArchitectingSuccess.in & OKS Memorial Trust. All rights reserved.</p>
           <p>{SITE_CONTENT.profile.name} | {SITE_CONTENT.profile.designation}</p>
