@@ -21,9 +21,11 @@ import {
 const SITE_CONTENT = {
   profile: {
     name: "O V Suresh Babu",
-    designation: "Deputy General Manager & Executive Coach",
+    designation: "Deputy General Manager, BEML Limited",
     role: "Executive Coach, Behavioral Architect & NLP Master Trainer",
     experience: "15+ Years of Transformational Leadership",
+    photoUrl: "https://drive.google.com/thumbnail?id=1Ku7vuSj3C_oF7v3UjfR9zkH_R_exnMMd&sz=w1000",
+    bioSummary: "A seasoned corporate leader and behavioral strategist combining over 15 years of executive coaching and Neuro-Linguistic Programming mastery with senior operational leadership at BEML Limited. Dedicated to empowering executives, students, and communities through cognitive science, emotional intelligence, and educational equity.",
     email: "ovsuri@gmail.com",
     phone: "+91 9481311666",
     location: "Kolar Gold Fields / Bangalore, Karnataka, India",
@@ -156,21 +158,38 @@ export default function App() {
         )}
       </header>
 
-      {/* HERO SECTION */}
-      <section id="about" className="relative overflow-hidden py-24 md:py-32 bg-gradient-to-b from-[#FAF9F6] to-[#F2EFE9]">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
+      {/* HERO & INTRODUCTION SECTION */}
+      <section id="about" className="relative overflow-hidden py-20 md:py-28 bg-gradient-to-b from-[#FAF9F6] to-[#F2EFE9]">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Column: Headline & Introduction */}
+          <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center space-x-2 px-3 py-1 bg-[#C5A059]/10 text-[#C5A059] text-xs font-semibold tracking-widest uppercase border border-[#C5A059]/20">
               <Sparkles size={14} />
               <span>{SITE_CONTENT.profile.role}</span>
             </div>
-            <h1 className="font-serif text-4xl md:text-6xl font-bold leading-tight text-[#0B132B]">
+            
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0B132B]">
               Mastering the Blueprint of <span className="text-[#C5A059] italic">Human Excellence</span>.
             </h1>
+            
             <p className="text-lg text-gray-700 leading-relaxed font-sans">
-              Bridging decades of executive leadership at BEML Limited with world-class behavioral architecture, Neuro-Linguistic Programming, and Emotional Intelligence mastery.
+              {SITE_CONTENT.profile.bioSummary}
             </p>
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+
+            {/* Key Highlights Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div className="p-4 bg-white border border-[#E2DED0]">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Corporate Leadership</span>
+                <span className="font-serif font-bold text-base text-[#0B132B]">{SITE_CONTENT.profile.designation}</span>
+              </div>
+              <div className="p-4 bg-white border border-[#E2DED0]">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Social Impact</span>
+                <span className="font-serif font-bold text-base text-[#0B132B]">{SITE_CONTENT.profile.trust}</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-2">
               <a href="#contact" className="inline-flex items-center justify-center px-8 py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition">
                 Book Consultation <ArrowRight className="ml-2" size={18} />
               </a>
@@ -179,26 +198,40 @@ export default function App() {
               </a>
             </div>
           </div>
-          <div className="relative">
-            <div className="w-full aspect-square bg-[#0B132B] p-8 flex flex-col justify-between text-white shadow-2xl relative overflow-hidden">
+
+          {/* Right Column: Portrait Card */}
+          <div className="lg:col-span-5">
+            <div className="bg-[#0B132B] p-6 md:p-8 text-white shadow-2xl relative overflow-hidden border border-[#C5A059]/30">
               <div className="absolute top-0 right-0 w-48 h-48 bg-[#C5A059]/10 rounded-full blur-3xl pointer-events-none"></div>
-              <div className="space-y-2">
-                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Leadership & Legacy</span>
+              
+              {/* Framed Portrait Container */}
+              <div className="w-full aspect-[4/5] mb-6 overflow-hidden border-2 border-[#C5A059]/40 bg-[#16213E] relative">
+                <img 
+                  src={SITE_CONTENT.profile.photoUrl} 
+                  alt={SITE_CONTENT.profile.name}
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Executive Profile</span>
                 <h3 className="font-serif text-2xl font-bold">{SITE_CONTENT.profile.name}</h3>
                 <p className="text-sm text-gray-300">{SITE_CONTENT.profile.designation}</p>
               </div>
-              <div className="border-t border-white/10 pt-6 space-y-3 text-sm text-gray-300">
+
+              <div className="border-t border-white/10 mt-5 pt-4 space-y-2.5 text-sm text-gray-300">
                 <div className="flex items-center space-x-3">
-                  <UserCheck size={16} className="text-[#C5A059]" />
+                  <UserCheck size={16} className="text-[#C5A059] shrink-0" />
                   <span>{SITE_CONTENT.profile.trust}</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <ShieldCheck size={16} className="text-[#C5A059]" />
-                  <span>15+ Years Transformational Experience</span>
+                  <ShieldCheck size={16} className="text-[#C5A059] shrink-0" />
+                  <span>{SITE_CONTENT.profile.experience}</span>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
