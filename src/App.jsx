@@ -24,7 +24,7 @@ const SITE_CONTENT = {
     designation: "Deputy General Manager, BEML Limited",
     role: "Executive Coach, Behavioral Architect & NLP Master Trainer",
     experience: "15+ Years of Transformational Leadership",
-    photoUrl: "https://drive.google.com/thumbnail?id=1Ku7vuSj3C_oF7v3UjfR9zkH_R_exnMMd&sz=w1000",
+    photoUrl: "https://drive.google.com/thumbnail?id=1Ku7vuSj3C_oF7v3UjfR9zkH_R_exnMMd&sz=w500",
     bioSummary: "A seasoned corporate leader and behavioral strategist combining over 15 years of executive coaching and Neuro-Linguistic Programming mastery with senior operational leadership at BEML Limited. Dedicated to empowering executives, students, and communities through cognitive science, emotional intelligence, and educational equity.",
     email: "ovsuri@gmail.com",
     phone: "+91 9481311666",
@@ -159,7 +159,7 @@ export default function App() {
       </header>
 
       {/* HERO & INTRODUCTION SECTION */}
-      <section id="about" className="relative overflow-hidden py-20 md:py-28 bg-gradient-to-b from-[#FAF9F6] to-[#F2EFE9]">
+      <section id="about" className="relative overflow-hidden py-16 md:py-24 bg-gradient-to-b from-[#FAF9F6] to-[#F2EFE9]">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Headline & Introduction */}
@@ -199,13 +199,13 @@ export default function App() {
             </div>
           </div>
 
-          {/* Right Column: Portrait Card */}
+          {/* Right Column: Compact Executive Portrait Card */}
           <div className="lg:col-span-5">
-            <div className="bg-[#0B132B] p-6 md:p-8 text-white shadow-2xl relative overflow-hidden border border-[#C5A059]/30">
+            <div className="bg-[#0B132B] p-8 text-white shadow-2xl relative overflow-hidden border border-[#C5A059]/30">
               <div className="absolute top-0 right-0 w-48 h-48 bg-[#C5A059]/10 rounded-full blur-3xl pointer-events-none"></div>
               
-              {/* Framed Portrait Container */}
-              <div className="w-full aspect-[4/5] mb-6 overflow-hidden border-2 border-[#C5A059]/40 bg-[#16213E] relative">
+              {/* Compact Framed Portrait */}
+              <div className="w-52 h-52 sm:w-56 sm:h-56 mx-auto mb-6 rounded-lg overflow-hidden border-2 border-[#C5A059]/60 bg-[#16213E] shadow-lg">
                 <img 
                   src={SITE_CONTENT.profile.photoUrl} 
                   alt={SITE_CONTENT.profile.name}
@@ -213,13 +213,13 @@ export default function App() {
                 />
               </div>
 
-              <div className="space-y-1">
+              <div className="text-center space-y-1">
                 <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Executive Profile</span>
                 <h3 className="font-serif text-2xl font-bold">{SITE_CONTENT.profile.name}</h3>
                 <p className="text-sm text-gray-300">{SITE_CONTENT.profile.designation}</p>
               </div>
 
-              <div className="border-t border-white/10 mt-5 pt-4 space-y-2.5 text-sm text-gray-300">
+              <div className="border-t border-white/10 mt-6 pt-5 space-y-3 text-sm text-gray-300">
                 <div className="flex items-center space-x-3">
                   <UserCheck size={16} className="text-[#C5A059] shrink-0" />
                   <span>{SITE_CONTENT.profile.trust}</span>
