@@ -64,13 +64,41 @@ const SITE_CONTENT = {
       category: "NLP & Mastery", 
       downloadUrl: "https://drive.google.com/uc?export=download&id=1BelUlS4iDLinaCKsQcqY7kc6Pj8tV8oI" 
     },
-    { title: "Architecting Success through Emotional Intelligence", category: "EQ Leadership", downloadUrl: "#" },
-    { title: "The Architecture of Lasting Love", category: "Relationship Dynamics", downloadUrl: "#" },
-    { title: "The Pressure-Proof Student", category: "Child Psychology & Youth", downloadUrl: "#" },
-    { title: "The Architecture of Inner Peace", category: "CBT & Mental Clarity", downloadUrl: "#" },
-    { title: "Architects of Influence", category: "Body Language & Non-Verbal", downloadUrl: "#" },
-    { title: "The Harmony Equation", category: "Behavioral Balance", downloadUrl: "#" },
-    { title: "The Mind's Blueprint", category: "Cognitive Architecture", downloadUrl: "#" }
+    { 
+      title: "Architecting Success through Emotional Intelligence", 
+      category: "EQ Leadership", 
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1tnSouZUINYnJ1d34q6p0fxvRxX1eMFXV" 
+    },
+    { 
+      title: "The Architecture of Lasting Love", 
+      category: "Relationship Dynamics", 
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1giygkYWzKFMXrq6HWNMNqd9shrCU2YyK" 
+    },
+    { 
+      title: "The Pressure-Proof Student", 
+      category: "Child Psychology & Youth", 
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1SQ8C_23mQGgl4I5jcy4G9Au88JqR4mrL" 
+    },
+    { 
+      title: "The Architecture of Inner Peace", 
+      category: "CBT & Mental Clarity", 
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1Qu1lWNRDnSaShmzDJcxmaOU2JoqmWmPh" 
+    },
+    { 
+      title: "Architects of Influence", 
+      category: "Body Language & Non-Verbal", 
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1tXuUfxay7o9C-aFknNVAqHpzkZemlrBc" 
+    },
+    { 
+      title: "The Harmony Equation", 
+      category: "Behavioral Balance", 
+      downloadUrl: "https://drive.google.com/uc?export=download&id=17qwzXfk_Usj_6dOsbHIlThF0qdGXKrJn" 
+    },
+    { 
+      title: "The Mind's Blueprint", 
+      category: "Cognitive Architecture", 
+      downloadUrl: "#" 
+    }
   ]
 };
 
