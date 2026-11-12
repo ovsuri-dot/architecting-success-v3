@@ -107,10 +107,35 @@ const SITE_CONTENT = {
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formStatus, setFormStatus] = useState({ submitted: false, message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormStatus({ submitted: true, message: 'Thank you. Your inquiry has been securely routed to O V Suresh Babu.' });
+    setIsSubmitting(true);
+    setFormStatus({ submitted: false, message: '' });
+
+    const formData = new FormData(e.target);
+    formData.append("access_key", "99445c6e-1616-4dff-b6a1-7acf8f7f4b4d");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormStatus({ submitted: true, message: 'Thank you. Your inquiry has been successfully sent to O V Suresh Babu.' });
+        e.target.reset();
+      } else {
+        setFormStatus({ submitted: false, message: data.message || 'Something went wrong. Please try again.' });
+      }
+    } catch (error) {
+      setFormStatus({ submitted: false, message: 'Network error. Please check your connection and try again.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -408,21 +433,27 @@ export default function App() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Full Name</label>
-                <input required type="text" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your name" />
+                <input required type="text" name="name" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your name" />
               </div>
               <div>
                 <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Email Address</label>
-                <input required type="email" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your email" />
+                <input required type="email" name="email" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your email" />
               </div>
               <div>
                 <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Message or Inquiry</label>
-                <textarea required rows={4} className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Describe your coaching or program requirements"></textarea>
+                <textarea required rows={4} name="message" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Describe your coaching or program requirements"></textarea>
               </div>
-              <button type="submit" className="w-full py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition">
-                Submit Inquiry
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="w-full py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition disabled:opacity-50"
+              >
+                {isSubmitting ? 'Sending Inquiry...' : 'Submit Inquiry'}
               </button>
-              {formStatus.submitted && (
-                <p className="text-sm text-green-700 font-medium text-center">{formStatus.message}</p>
+              {formStatus.message && (
+                <p className={`text-sm font-medium text-center ${formStatus.submitted ? 'text-green-700' : 'text-red-600'}`}>
+                  {formStatus.message}
+                </p>
               )}
             </form>
           </div>
