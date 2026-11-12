@@ -2,21 +2,17 @@ import React, { useState } from 'react';
 import { 
   ShieldCheck, 
   Brain, 
-  Compass, 
   BookOpen, 
   Award, 
   Mail, 
   Phone, 
   MapPin, 
-  ChevronRight, 
   Menu, 
   X, 
   ArrowRight, 
-  CheckCircle2, 
   Download, 
   Sparkles,
-  UserCheck,
-  Target
+  UserCheck
 } from 'lucide-react';
 
 // ==========================================
@@ -63,7 +59,11 @@ const SITE_CONTENT = {
     }
   ],
   books: [
-    { title: "Architecting Success through Neuro-Linguistic Programming", category: "NLP & Mastery", downloadUrl: "#" },
+    { 
+      title: "Architecting Success through Neuro-Linguistic Programming", 
+      category: "NLP & Mastery", 
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1BelUlS4iDLinaCKsQcqY7kc6Pj8tV8oI" 
+    },
     { title: "Architecting Success through Emotional Intelligence", category: "EQ Leadership", downloadUrl: "#" },
     { title: "The Architecture of Lasting Love", category: "Relationship Dynamics", downloadUrl: "#" },
     { title: "The Pressure-Proof Student", category: "Child Psychology & Youth", downloadUrl: "#" },
