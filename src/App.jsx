@@ -812,6 +812,20 @@ export default function App() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
+                {/* English Vocabulary Flashcards */}
+                <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                      <Sparkles size={24} className="text-[#C5A059]" />
+                    </div>
+                    <h3 className="font-serif text-xl font-bold">English Vocabulary Flashcards</h3>
+                    <p className="text-sm text-gray-600">Category-wise interactive flashcards with revealable answers, touch swipe, and navigation for vocabulary mastery.</p>
+                  </div>
+                  <a href="https://fc-sand.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                    <ArrowRight size={16} className="mr-2" /> Launch Flashcards
+                  </a>
+                </div>
+
                 {/* Quantitative Aptitude Test */}
                 <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
                   <div className="space-y-4">
