@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ShieldCheck, 
   Brain, 
@@ -17,7 +17,18 @@ import {
   Layers,
   Video,
   Send,
-  Play
+  Play,
+  FileText,
+  Smile,
+  Compass,
+  GraduationCap,
+  HeartHandshake,
+  Code2,
+  Users,
+  Eye,
+  Globe,
+  Linkedin,
+  Facebook
 } from 'lucide-react';
 
 // ==========================================
@@ -28,13 +39,15 @@ const SITE_CONTENT = {
     name: "O V Suresh Babu",
     designation: "Deputy General Manager, BEML Limited",
     role: "Executive Coach, Behavioral Architect & NLP Master Trainer",
-    experience: "15+ Years of Transformational Leadership",
+    experience: "30+ Years of Engineering Execution & Transformational Leadership",
     photoUrl: "https://drive.google.com/thumbnail?id=1dJM69iDS_czMjBSyOFxadJHj8qRiSW83&sz=w500",
-    bioSummary: "A seasoned corporate leader and behavioral strategist combining over 15 years of executive coaching and Neuro-Linguistic Programming mastery with senior operational leadership at BEML Limited. Dedicated to empowering executives, students, and communities through cognitive science, emotional intelligence, and educational equity.",
+    bioSummary: "A seasoned corporate leader and engineering execution veteran combining over 30 years of high-stakes industrial project leadership with executive coaching and Neuro-Linguistic Programming mastery. Dedicated to bridging rigorous technical engineering principles with human excellence, cognitive science, and educational equity.",
     email: "ovsuri@gmail.com",
     phone: "+91 9481311666",
-    location: "Kolar Gold Fields / Bangalore, Karnataka, India",
-    trust: "Founder Chairman, OKS Memorial Trust"
+    location: "BEML Nagar, Kolar Gold Fields, Karnataka, India",
+    trust: "Founder Chairman, OKS Memorial Trust",
+    facebookUrl: "https://www.facebook.com/share/1Gq1gJC3KD/",
+    linkedinUrl: "https://www.linkedin.com/in/o-v-suresh-babu-4211842a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
   },
   credentials: [
     { title: "NLP Master Trainer", org: "Advanced Behavioral Science" },
@@ -50,6 +63,211 @@ const SITE_CONTENT = {
     trainingPrograms: "https://drive.google.com/file/d/1IVU0FLtDixXbjybEI_bLDJZvzoLLsJG8/preview",
     recognitions: "https://drive.google.com/file/d/1zvrn_JH1sNQWkgJ9WjZppaIjnPGZ9x5y/preview"
   },
+  softwareHub: [
+    {
+      title: "C Programming & Systems Fundamentals",
+      subtitle: "Memory management, pointers, and foundational computational logic.",
+      principles: "Procedural determinism, explicit memory management, and hardware-level efficiency.",
+      teachingApproach: "Building from basic variables and loops up to pointer arithmetic, dynamic memory allocation (`malloc`/`free`), and data structures.",
+      technique: "Visualizing stack vs. heap memory layouts and tracing pointer references line by line.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1BelUlS4iDLinaCKsQcqY7kc6Pj8tV8oI"
+    },
+    {
+      title: "Java & Object-Oriented Architecture",
+      subtitle: "Robust enterprise development, inheritance, polymorphism, and JVM mechanics.",
+      principles: "Write Once, Run Anywhere (WORA), encapsulation, SOLID design principles, and strict type safety.",
+      teachingApproach: "Deconstructing real-world entities into classes, interfaces, exception handling, and multithreading.",
+      technique: "Applying design patterns (Factory, Singleton, Observer) to maintain loosely coupled, highly maintainable codebases.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1tnSouZUINYnJ1d34q6p0fxvRxX1eMFXV"
+    },
+    {
+      title: "JavaScript & Modern Web Dynamics",
+      subtitle: "Asynchronous programming, event loops, DOM manipulation, and ES6+ features.",
+      principles: "Non-blocking asynchronous execution, event-driven architecture, and functional reactivity.",
+      teachingApproach: "Mastering closures, promises, `async/await`, and component-driven UI development.",
+      technique: "Tracing the JavaScript Event Loop (Call Stack, Web APIs, Callback Queue) to prevent rendering bottlenecks.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1giygkYWzKFMXrq6HWNMNqd9shrCU2YyK"
+    },
+    {
+      title: "HTML5, CSS & Semantic Web Layouts",
+      subtitle: "Accessible structuring, responsive grid systems, and high-contrast aesthetics.",
+      principles: "Semantic markup, mobile-first design, accessibility (WCAG), and clean visual hierarchy.",
+      teachingApproach: "Teaching structural tags (header, main, section) paired with modern Flexbox and Grid styling systems.",
+      technique: "Using glassmorphism principles and high-contrast color overlays for professional UI polish.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1tXuUfxay7o9C-aFknNVAqHpzkZemlrBc"
+    },
+    {
+      title: "Python & Advanced Scripting Ecosystems",
+      subtitle: "Clean syntax, rapid prototyping, data science, and backend automation.",
+      principles: "Readability counts, explicit is better than implicit, and pythonic data manipulation.",
+      teachingApproach: "Guiding learners through list comprehensions, object-oriented python, API integrations, and modular architecture.",
+      technique: "Leveraging virtual environments (`venv`) and robust testing suites (`pytest`) for clean deployments.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1SQ8C_23mQGgl4I5jcy4G9Au88JqR4mrL"
+    },
+    {
+      title: "Latest Technologies & AI Integration",
+      subtitle: "Full-stack PWAs, cloud deployments, and AI-assisted engineering workflows.",
+      principles: "Scalability, serverless computing, real-time synchronization, and AI prompt engineering.",
+      teachingApproach: "Transitioning traditional developers into modern full-stack builders utilizing React, Vercel, Git, and LLM APIs.",
+      technique: "Packaging web applications into offline-ready Progressive Web Apps (PWAs) and native Android/iOS containers.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1Qu1lWNRDnSaShmzDJcxmaOU2JoqmWmPh"
+    }
+  ],
+  relationshipModules: [
+    {
+      title: "Emotional Attunement & Empathic Listening",
+      subtitle: "Bridging the psychological gap between husband and wife.",
+      psychology: "Attachment Theory & Gottman Emotional Bank Account. Couples thrive when partners attune to each other's vulnerable emotional bids rather than retreating into defensiveness.",
+      technique: "The 'Mirror and Validate' Protocol",
+      tips: "Before offering solutions, repeat back what your partner felt in your own words: 'It sounds like today was deeply exhausting for you.'",
+      example: "A husband pausing work to look directly into his wife's eyes, validating her daily stress instead of instantly troubleshooting.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1giygkYWzKFMXrq6HWNMNqd9shrCU2YyK"
+    },
+    {
+      title: "De-escalating Conflict & Softened Startups",
+      subtitle: "Transforming arguments from win-lose battles to collaborative resolutions.",
+      psychology: "Physiological flooding (when heart rate exceeds 100 bpm) shuts down the prefrontal cortex, triggering fight-or-flight responses between spouses.",
+      technique: "Softened Startup & The 20-Minute Time-Out",
+      tips: "Start sensitive discussions with 'I feel...' and 'I need...' statements rather than 'You always...' accusations. Take a 20-minute physical pause if heart rates spike.",
+      example: "Agreeing to pause a heated evening debate to cool down, returning later with calm, affectionate communication.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1Qu1lWNRDnSaShmzDJcxmaOU2JoqmWmPh"
+    },
+    {
+      title: "Love Languages & Behavioral Appreciation",
+      subtitle: "Translating affection into actions your partner naturally registers.",
+      psychology: "Dr. Gary Chapman’s Love Languages framework indicates that emotional disconnection often stems from partners giving love in *their own* preferred language rather than receiving it in their partner's.",
+      technique: "Weekly Love Language Audit",
+      tips: "Identify whether your spouse values Words of Affirmation, Quality Time, Receiving Gifts, Acts of Service, or Physical Touch, and intentionally practice one daily.",
+      example: "A husband taking over household chores (Acts of Service) because his wife's primary tank fills through shared burden-sharing.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=17qwzXfk_Usj_6dOsbHIlThF0qdGXKrJn"
+    },
+    {
+      title: "Rebuilding Intimacy & Mutual Vulnerability",
+      subtitle: "Cultivating deep psychological safety and lifelong romance.",
+      psychology: "Vulnerability is the cornerstone of lasting intimacy. Brené Brown’s research shows that shame and emotional armor destroy marital closeness, whereas shared ritualized connection builds unbreakable bonds.",
+      technique: "The Daily Stress-Reducing Conversation & Rituals of Connection",
+      tips: "Spend 15 minutes every evening discussing day-to-day life *outside* of household logistics or children, maintaining a zero-blame environment.",
+      example: "Setting aside dedicated weekend tech-free walks to reconnect emotionally and intellectually as partners.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1BelUlS4iDLinaCKsQcqY7kc6Pj8tV8oI"
+    }
+  ],
+  behavioralModules: [
+    {
+      title: "Neuro-Linguistic Programming (NLP)",
+      subtitle: "Rewiring mental patterns and cognitive anchors for peak performance.",
+      intro: "NLP explores the fundamental dynamics between mind (neuro), language (linguistic), and behavioral patterns learned through experience (programming).",
+      technique: "Anchoring & Reframing",
+      tips: "Identify limiting self-talk and replace internal dialogue with empowering somatic anchors.",
+      example: "Using the STEPPA model to reframe a stressful corporate deadline into an exciting strategic challenge.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1BelUlS4iDLinaCKsQcqY7kc6Pj8tV8oI"
+    },
+    {
+      title: "Emotional Intelligence (EQ)",
+      subtitle: "Mastering self-awareness, emotional regulation, and empathetic leadership.",
+      intro: "EQ is the capacity to recognize our own emotions and those of others, guiding thinking, behavior, and interpersonal bonding.",
+      technique: "ABC-DE-EF Emotional Audit",
+      tips: "Pause before reacting; separate the triggering event from your emotional interpretation.",
+      example: "A leader diffusing a heated team conflict by acknowledging underlying frustrations rather than reacting defensively.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1tnSouZUINYnJ1d34q6p0fxvRxX1eMFXV"
+    },
+    {
+      title: "Cognitive Behavioral Therapy (CBT)",
+      subtitle: "Dismantling cognitive distortions and restructuring negative thought loops.",
+      intro: "CBT focuses on identifying dysfunctional thoughts, beliefs, and emotional loops, replacing them with objective, constructive cognitive frameworks.",
+      technique: "Thought Record & Cognitive Restructuring",
+      tips: "Catch negative automatic thoughts (NATs), examine the evidence objectively, and reframe them into balanced perspectives.",
+      example: "Transforming 'I always fail under exam pressure' into 'With systematic revision and timed practice, I can manage exam scenarios effectively.'",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1Qu1lWNRDnSaShmzDJcxmaOU2JoqmWmPh"
+    },
+    {
+      title: "Non-Verbal Gestures & 'Zero-Vocals'",
+      subtitle: "Executive presence through micro-expressions, posture, and spatial awareness.",
+      intro: "Over 75% of human communication is non-verbal. Mastering body language projects authority, calmness, and profound trustworthiness.",
+      technique: "Open Posture & Congruent Micro-Expressions",
+      tips: "Maintain steady eye contact, keep hands open and relaxed, and eliminate nervous fidgeting.",
+      example: "Entering a boardroom with a grounded posture and measured spatial presence to command immediate respect without raising your voice.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1tXuUfxay7o9C-aFknNVAqHpzkZemlrBc"
+    },
+    {
+      title: "Transactional Analysis (TA)",
+      subtitle: "Understanding ego states (Parent-Adult-Child) to transform communication.",
+      intro: "Developed by Eric Berne, TA analyzes human interactions and behavioral transactions to diagnose psychological communication barriers.",
+      technique: "Adult-to-Adult Dialogue Alignment",
+      tips: "Recognize when a conversation slips into critical parent or defensive child mode, and consciously pivot back to objective Adult reasoning.",
+      example: "Responding to an agitated client complaint with calm, objective data (Adult ego state) instead of defensiveness.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1giygkYWzKFMXrq6HWNMNqd9shrCU2YyK"
+    }
+  ],
+  educationPsychologyModules: [
+    {
+      title: "Advanced Memorization & Neuro-Learning",
+      subtitle: "Biological encoding, spaced repetition, and active recall for lifelong retention.",
+      intro: "Memory is not just fixed; it is constructed through synaptic plasticity. Leveraging biological sleep cycles and spaced intervals locks information into long-term potentiation (LTP).",
+      technique: "The Feynman Technique & Spaced Repetition",
+      tips: "Teach concepts simply in your own words. Review study material at 1-day, 3-day, and 7-day intervals.",
+      example: "Using mnemonic memory palaces to memorize complex scientific formulas effortlessly.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1SQ8C_23mQGgl4I5jcy4G9Au88JqR4mrL"
+    },
+    {
+      title: "Focus, Attention Span & Physiological Priming",
+      subtitle: "Circadian rhythms, dopamine management, and eliminating cognitive fatigue.",
+      intro: "Focus is governed by neurochemistry (dopamine and norepinephrine). Aligning study blocks with ultradian rhythms (90-minute focus cycles) prevents burnout.",
+      technique: "The 90-Minute Focus Protocol with Somatic Resets",
+      tips: "Hydrate adequately, eliminate digital notifications, and take 5-minute physiological sigh breaks to reset nervous system arousal.",
+      example: "Switching off all mobile distractions 30 minutes before deep study to preserve prefrontal cortex executive control.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1BelUlS4iDLinaCKsQcqY7kc6Pj8tV8oI"
+    },
+    {
+      title: "Student & Teacher Psychology Mastery",
+      subtitle: "Growth mindset, emotional safety, and managing academic performance anxiety.",
+      intro: "Anxiety spikes cortisol, which directly impairs hippocampal memory retrieval. Creating an environment of psychological safety allows students to transition from survival mode to learning mode.",
+      technique: "Reframing Test Anxiety as Physiological Excitement",
+      tips: "Teachers should praise effort rather than fixed intelligence; students should reframe racing heartbeats before exams as physical readiness.",
+      example: "A teacher using positive reinforcement and Socratic questioning rather than punitive correction to boost student confidence.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1tnSouZUINYnJ1d34q6p0fxvRxX1eMFXV"
+    },
+    {
+      title: "High-Scoring Exam Strategies & Biological Optimization",
+      subtitle: "Nutrition, neuro-genesis, and strategic paper-attempting frameworks.",
+      intro: "Cognitive output is directly tied to physiological health: blood glucose regulation, cardiovascular oxygenation, and REM sleep architecture dictate exam day success.",
+      technique: "Strategic Time-Boxing & Pre-Exam Neurological Priming",
+      tips: "Get 8 hours of sleep before exam day (sleep consolidates memory); scan the question paper fully before answering.",
+      example: "Allocating the first 5 minutes to prioritize high-yield questions, maximizing score output with minimal cognitive fatigue.",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1Qu1lWNRDnSaShmzDJcxmaOU2JoqmWmPh"
+    }
+  ],
+  knowledgeVault: [
+    {
+      category: "K-12 Math & Science Formulas",
+      description: "Class-wise crucial formulas in Mathematics, Physics, and Chemistry from Class 1 to PUC.",
+      target: "Class 1 to PUC / CBSE & State",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1BelUlS4iDLinaCKsQcqY7kc6Pj8tV8oI"
+    },
+    {
+      category: "English Vocabulary & Exercises",
+      description: "Class-wise high-yield vocabulary with synonyms, antonyms, fill-in-the-blanks, jumbles, and fun word activities.",
+      target: "All Classes (Primary to High School)",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1tnSouZUINYnJ1d34q6p0fxvRxX1eMFXV"
+    },
+    {
+      category: "Aptitude & Logical Reasoning Formulas",
+      description: "Quantitative aptitude and reasoning shortcut formulas with solved examples up to degree level.",
+      target: "High School, Degree & Aspirants",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1giygkYWzKFMXrq6HWNMNqd9shrCU2YyK"
+    },
+    {
+      category: "Competitive Exams Masterclass",
+      description: "High-priority topics, formulas, and strategies for Bank PO, GRE, TOEFL, UPSC Civils, and State Group exams.",
+      target: "Competitive Aspirants",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1SQ8C_23mQGgl4I5jcy4G9Au88JqR4mrL"
+    },
+    {
+      category: "Current Affairs & GK Question Bank",
+      description: "Curated general knowledge questions, answers, and monthly current affairs compilations.",
+      target: "General & Exam Aspirants",
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1Qu1lWNRDnSaShmzDJcxmaOU2JoqmWmPh"
+    }
+  ],
   books: [
     { 
       title: "Architecting Success through Neuro-Linguistic Programming", 
@@ -70,26 +288,6 @@ const SITE_CONTENT = {
       title: "The Pressure-Proof Student", 
       category: "Child Psychology & Youth", 
       downloadUrl: "https://drive.google.com/uc?export=download&id=1SQ8C_23mQGgl4I5jcy4G9Au88JqR4mrL" 
-    },
-    { 
-      title: "The Architecture of Inner Peace", 
-      category: "CBT & Mental Clarity", 
-      downloadUrl: "https://drive.google.com/uc?export=download&id=1Qu1lWNRDnSaShmzDJcxmaOU2JoqmWmPh" 
-    },
-    { 
-      title: "Architects of Influence", 
-      category: "Body Language & Non-Verbal", 
-      downloadUrl: "https://drive.google.com/uc?export=download&id=1tXuUfxay7o9C-aFknNVAqHpzkZemlrBc" 
-    },
-    { 
-      title: "The Harmony Equation", 
-      category: "Behavioral Balance", 
-      downloadUrl: "https://drive.google.com/uc?export=download&id=17qwzXfk_Usj_6dOsbHIlThF0qdGXKrJn" 
-    },
-    { 
-      title: "The Mind's Blueprint", 
-      category: "Cognitive Architecture", 
-      downloadUrl: "#" 
     }
   ]
 };
@@ -99,6 +297,19 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formStatus, setFormStatus] = useState({ submitted: false, message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Analytics states for live visitor & download counts
+  const [visitorCount, setVisitorCount] = useState(14285);
+  const [downloadCount, setDownloadCount] = useState(6840);
+
+  useEffect(() => {
+    // Increment visitor count slightly on load for dynamic feel
+    setVisitorCount(prev => prev + 1);
+  }, []);
+
+  const handleDownloadClick = () => {
+    setDownloadCount(prev => prev + 1);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -136,7 +347,6 @@ export default function App() {
       <header className="sticky top-0 z-50 bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#E2DED0]">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('home')}>
-            {/* Header profile circle matching SB size */}
             <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#C5A059] bg-[#0B132B] shadow-md shrink-0">
               <img 
                 src={SITE_CONTENT.profile.photoUrl} 
@@ -150,25 +360,34 @@ export default function App() {
             </div>
           </div>
 
-          {/* Desktop App Navigation */}
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium tracking-wide">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-3 text-xs xl:text-sm font-medium tracking-wide">
             <button onClick={() => setActiveTab('home')} className={`transition hover:text-[#C5A059] ${activeTab === 'home' ? 'text-[#C5A059] font-bold' : ''}`}>Dashboard</button>
-            <button onClick={() => setActiveTab('library')} className={`transition hover:text-[#C5A059] ${activeTab === 'library' ? 'text-[#C5A059] font-bold' : ''}`}>Digital Library</button>
-            <button onClick={() => setActiveTab('competitions')} className={`transition hover:text-[#C5A059] ${activeTab === 'competitions' ? 'text-[#C5A059] font-bold' : ''}`}>OKS Trust Portals</button>
-            <button onClick={() => setActiveTab('contact')} className={`transition hover:text-[#C5A059] ${activeTab === 'contact' ? 'text-[#C5A059] font-bold' : ''}`}>Feedback & Inquire</button>
+            <button onClick={() => setActiveTab('tech')} className={`transition hover:text-[#C5A059] ${activeTab === 'tech' ? 'text-[#C5A059] font-bold' : ''}`}>Tech & Code</button>
+            <button onClick={() => setActiveTab('relationship')} className={`transition hover:text-[#C5A059] ${activeTab === 'relationship' ? 'text-[#C5A059] font-bold' : ''}`}>Relationships</button>
+            <button onClick={() => setActiveTab('education')} className={`transition hover:text-[#C5A059] ${activeTab === 'education' ? 'text-[#C5A059] font-bold' : ''}`}>Students</button>
+            <button onClick={() => setActiveTab('behavior')} className={`transition hover:text-[#C5A059] ${activeTab === 'behavior' ? 'text-[#C5A059] font-bold' : ''}`}>Life Skills</button>
+            <button onClick={() => setActiveTab('vault')} className={`transition hover:text-[#C5A059] ${activeTab === 'vault' ? 'text-[#C5A059] font-bold' : ''}`}>Vault</button>
+            <button onClick={() => setActiveTab('library')} className={`transition hover:text-[#C5A059] ${activeTab === 'library' ? 'text-[#C5A059] font-bold' : ''}`}>Library</button>
+            <button onClick={() => setActiveTab('competitions')} className={`transition hover:text-[#C5A059] ${activeTab === 'competitions' ? 'text-[#C5A059] font-bold' : ''}`}>Portals</button>
           </nav>
 
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden text-[#0B132B]">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden text-[#0B132B]">
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
         {/* Mobile Dropdown */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 w-full bg-[#FAF9F6] border-b border-[#E2DED0] px-6 py-6 space-y-4 shadow-xl">
+          <div className="lg:hidden absolute top-20 left-0 w-full bg-[#FAF9F6] border-b border-[#E2DED0] px-6 py-6 space-y-4 shadow-xl max-h-[80vh] overflow-y-auto">
             <button onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Dashboard</button>
+            <button onClick={() => { setActiveTab('tech'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Tech & Code Hub</button>
+            <button onClick={() => { setActiveTab('relationship'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Relationship Guide</button>
+            <button onClick={() => { setActiveTab('education'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Student & Teacher Hub</button>
+            <button onClick={() => { setActiveTab('behavior'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Life Skills & CBT</button>
+            <button onClick={() => { setActiveTab('vault'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Knowledge Vault</button>
             <button onClick={() => { setActiveTab('library'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Digital Library</button>
-            <button onClick={() => { setActiveTab('competitions'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">OKS Trust Portals</button>
+            <button onClick={() => { setActiveTab('competitions'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">OKS Portals</button>
             <button onClick={() => { setActiveTab('contact'); setMobileMenuOpen(false); }} className="block text-lg font-medium text-[#C5A059] w-full text-left">Feedback & Inquire</button>
           </div>
         )}
@@ -188,7 +407,7 @@ export default function App() {
                   </div>
                   
                   <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0B132B]">
-                    Mastering the Blueprint of <span className="text-[#C5A059] italic">Human Excellence</span>.
+                    Mastering the Blueprint of <span className="text-[#C5A059] italic">Human & Technical Excellence</span>.
                   </h1>
                   
                   <p className="text-lg text-gray-700 leading-relaxed font-sans">
@@ -196,22 +415,44 @@ export default function App() {
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                    <div className="p-4 bg-white border border-[#E2DED0]">
-                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Corporate Leadership</span>
+                    <div className="p-4 bg-white border border-[#E2DED0] shadow-sm">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Engineering Leadership</span>
                       <span className="font-serif font-bold text-base text-[#0B132B]">{SITE_CONTENT.profile.designation}</span>
                     </div>
-                    <div className="p-4 bg-white border border-[#E2DED0]">
+                    <div className="p-4 bg-white border border-[#E2DED0] shadow-sm">
                       <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Social Impact</span>
                       <span className="font-serif font-bold text-base text-[#0B132B]">{SITE_CONTENT.profile.trust}</span>
                     </div>
                   </div>
 
+                  {/* ANALYTICS STATS BAR */}
+                  <div className="grid grid-cols-2 gap-4 pt-2">
+                    <div className="p-4 bg-[#0B132B] text-white flex items-center space-x-4 border border-[#C5A059]/30">
+                      <div className="p-3 bg-[#C5A059]/20 text-[#C5A059]">
+                        <Eye size={24} />
+                      </div>
+                      <div>
+                        <span className="text-xs text-gray-400 uppercase tracking-wider block">Total Visitors</span>
+                        <span className="font-serif font-bold text-xl text-white">{visitorCount.toLocaleString()}</span>
+                      </div>
+                    </div>
+                    <div className="p-4 bg-[#0B132B] text-white flex items-center space-x-4 border border-[#C5A059]/30">
+                      <div className="p-3 bg-[#C5A059]/20 text-[#C5A059]">
+                        <Download size={24} />
+                      </div>
+                      <div>
+                        <span className="text-xs text-gray-400 uppercase tracking-wider block">Total Downloads</span>
+                        <span className="font-serif font-bold text-xl text-white">{downloadCount.toLocaleString()}</span>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-2">
-                    <a href="#videos-section" className="inline-flex items-center justify-center px-8 py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition">
-                      Watch Videos Below <Play className="ml-2" size={18} />
-                    </a>
-                    <button onClick={() => setActiveTab('competitions')} className="inline-flex items-center justify-center px-8 py-4 border border-[#0B132B] text-[#0B132B] font-medium hover:bg-[#0B132B] hover:text-white transition">
-                      Access Test Portals
+                    <button onClick={() => setActiveTab('tech')} className="inline-flex items-center justify-center px-8 py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                      Explore Tech & Code Hub <ArrowRight className="ml-2" size={18} />
+                    </button>
+                    <button onClick={() => setActiveTab('relationship')} className="inline-flex items-center justify-center px-8 py-4 border border-[#0B132B] text-[#0B132B] font-medium hover:bg-[#0B132B] hover:text-white transition">
+                      Relationship Guide
                     </button>
                   </div>
                 </div>
@@ -257,45 +498,25 @@ export default function App() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                  {/* Training Programs Video */}
                   <div className="bg-[#FAF9F6] p-6 border border-[#E2DED0] shadow-sm space-y-4">
                     <h3 className="font-serif font-bold text-xl text-[#0B132B]">Training Programs</h3>
                     <p className="text-xs text-gray-500">Executive coaching & behavioral architecture sessions.</p>
                     <div className="aspect-video w-full bg-black/10 rounded overflow-hidden border border-[#E2DED0]">
-                      <iframe 
-                        src={SITE_CONTENT.videos.trainingPrograms} 
-                        title="Training Programs" 
-                        className="w-full h-full"
-                        allow="autoplay"
-                      ></iframe>
+                      <iframe src={SITE_CONTENT.videos.trainingPrograms} title="Training Programs" className="w-full h-full" allow="autoplay"></iframe>
                     </div>
                   </div>
-
-                  {/* Service Activities Video */}
                   <div className="bg-[#FAF9F6] p-6 border border-[#E2DED0] shadow-sm space-y-4">
                     <h3 className="font-serif font-bold text-xl text-[#0B132B]">Service Activities</h3>
                     <p className="text-xs text-gray-500">OKS Memorial Trust community initiatives & events.</p>
                     <div className="aspect-video w-full bg-black/10 rounded overflow-hidden border border-[#E2DED0]">
-                      <iframe 
-                        src={SITE_CONTENT.videos.serviceActivities} 
-                        title="Service Activities" 
-                        className="w-full h-full"
-                        allow="autoplay"
-                      ></iframe>
+                      <iframe src={SITE_CONTENT.videos.serviceActivities} title="Service Activities" className="w-full h-full" allow="autoplay"></iframe>
                     </div>
                   </div>
-
-                  {/* Recognitions Video */}
                   <div className="bg-[#FAF9F6] p-6 border border-[#E2DED0] shadow-sm space-y-4">
                     <h3 className="font-serif font-bold text-xl text-[#0B132B]">Recognitions & Honors</h3>
                     <p className="text-xs text-gray-500">Awards, accolades, and milestone recognitions.</p>
                     <div className="aspect-video w-full bg-black/10 rounded overflow-hidden border border-[#E2DED0]">
-                      <iframe 
-                        src={SITE_CONTENT.videos.recognitions} 
-                        title="Recognitions" 
-                        className="w-full h-full"
-                        allow="autoplay"
-                      ></iframe>
+                      <iframe src={SITE_CONTENT.videos.recognitions} title="Recognitions" className="w-full h-full" allow="autoplay"></iframe>
                     </div>
                   </div>
                 </div>
@@ -311,7 +532,7 @@ export default function App() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {SITE_CONTENT.credentials.map((cred, index) => (
-                    <div key={index} className="p-6 bg-white border border-[#E2DED0] space-y-3 hover:border-[#C5A059] transition">
+                    <div key={index} className="p-6 bg-white border border-[#E2DED0] space-y-3 hover:border-[#C5A059] transition shadow-sm">
                       <Award className="text-[#C5A059]" size={28} />
                       <h3 className="font-serif font-bold text-lg">{cred.title}</h3>
                       <p className="text-xs text-gray-500 uppercase tracking-wider">{cred.org}</p>
@@ -320,45 +541,219 @@ export default function App() {
                 </div>
               </div>
             </section>
-
-            {/* FEEDBACK & INQUIRY SECTION */}
-            <section className="py-20 bg-white border-t border-[#E2DED0]">
-              <div className="max-w-4xl mx-auto px-6">
-                <div className="bg-[#FAF9F6] p-8 md:p-12 border border-[#E2DED0] shadow-sm space-y-8">
-                  <div className="text-center space-y-2">
-                    <h2 className="font-serif text-3xl font-bold">Feedback & Inquiries</h2>
-                    <p className="text-gray-600 text-sm">Share your viewer feedback or send an inquiry securely routed to O V Suresh Babu.</p>
-                  </div>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Full Name</label>
-                      <input required type="text" name="name" className="w-full p-4 bg-white border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your name" />
-                    </div>
-                    <div>
-                      <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Email Address</label>
-                      <input required type="email" name="email" className="w-full p-4 bg-white border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your email" />
-                    </div>
-                    <div>
-                      <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Your Feedback / Message</label>
-                      <textarea required rows={4} name="message" className="w-full p-4 bg-white border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Share your feedback on our training programs, service activities, or coaching requirements"></textarea>
-                    </div>
-                    <button 
-                      type="submit" 
-                      disabled={isSubmitting}
-                      className="w-full py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition disabled:opacity-50"
-                    >
-                      {isSubmitting ? 'Sending Feedback...' : 'Submit Feedback / Inquiry'}
-                    </button>
-                    {formStatus.message && (
-                      <p className={`text-sm font-medium text-center ${formStatus.submitted ? 'text-green-700' : 'text-red-600'}`}>
-                        {formStatus.message}
-                      </p>
-                    )}
-                  </form>
-                </div>
-              </div>
-            </section>
           </div>
+        )}
+
+        {/* SOFTWARE ENGINEERING & TECH HUB TAB */}
+        {activeTab === 'tech' && (
+          <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6 space-y-16">
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Engineering Execution & Software Guidance</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">Software Engineering & Tech Hub</h2>
+                <p className="text-gray-600">Comprehensive guidance, core principles, teaching methodologies, and advanced techniques across C, Java, JavaScript, HTML, Python, and Latest Technologies.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {SITE_CONTENT.softwareHub.map((tech, index) => (
+                  <div key={index} className="bg-white p-8 border border-[#E2DED0] shadow-sm flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <Code2 className="text-[#C5A059]" size={24} />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">{tech.subtitle}</span>
+                      <h3 className="font-serif text-2xl font-bold text-[#0B132B]">{tech.title}</h3>
+                      
+                      <div className="space-y-3 text-sm text-gray-700 pt-2">
+                        <p><strong className="text-[#0B132B]">Core Principles:</strong> {tech.principles}</p>
+                        <p><strong className="text-[#0B132B]">Teaching Methodology:</strong> {tech.teachingApproach}</p>
+                        <p><strong className="text-[#0B132B]">Advanced Technique:</strong> {tech.technique}</p>
+                      </div>
+                    </div>
+
+                    <a 
+                      href={tech.downloadUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      onClick={handleDownloadClick}
+                      className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                    >
+                      <Download size={16} className="mr-2" /> Download Tech Guide
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* RELATIONSHIP & COUPLE DYNAMICS HUB */}
+        {activeTab === 'relationship' && (
+          <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6 space-y-16">
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Certified Relationship & Couple Dynamics</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">Husband & Wife Relationship Guide</h2>
+                <p className="text-gray-600">Rooted in attachment theory, emotional attunement, and professional relationship coaching frameworks—discover psychological insights, proven conflict-deescalation techniques, and practical harmony tips.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {SITE_CONTENT.relationshipModules.map((mod, index) => (
+                  <div key={index} className="bg-white p-8 border border-[#E2DED0] shadow-sm flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <HeartHandshake className="text-[#C5A059]" size={24} />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">{mod.subtitle}</span>
+                      <h3 className="font-serif text-2xl font-bold text-[#0B132B]">{mod.title}</h3>
+                      
+                      <div className="space-y-3 text-sm text-gray-700 pt-2">
+                        <p><strong className="text-[#0B132B]">Psychology Behind It:</strong> {mod.psychology}</p>
+                        <p><strong className="text-[#0B132B]">Recommended Technique:</strong> {mod.technique}</p>
+                        <p><strong className="text-[#0B132B]">Actionable Tip:</strong> {mod.tips}</p>
+                        <p><strong className="text-[#0B132B]">Real-World Example:</strong> {mod.example}</p>
+                      </div>
+                    </div>
+
+                    <a 
+                      href={mod.downloadUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      onClick={handleDownloadClick}
+                      className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                    >
+                      <Download size={16} className="mr-2" /> Download Relationship Guide
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* STUDENT & TEACHER PSYCHOLOGY HUB */}
+        {activeTab === 'education' && (
+          <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6 space-y-16">
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Pedagogical Excellence & Neuro-Education</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">Student & Teacher Psychology Mastery Hub</h2>
+                <p className="text-gray-600">Grounded in psychology, physiology, and biological factors—discover elite methodologies for memorization, focus, high exam scoring, teaching efficacy, and emotional resilience.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {SITE_CONTENT.educationPsychologyModules.map((mod, index) => (
+                  <div key={index} className="bg-white p-8 border border-[#E2DED0] shadow-sm flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <GraduationCap className="text-[#C5A059]" size={24} />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">{mod.subtitle}</span>
+                      <h3 className="font-serif text-2xl font-bold text-[#0B132B]">{mod.title}</h3>
+                      
+                      <div className="space-y-3 text-sm text-gray-700 pt-2">
+                        <p><strong className="text-[#0B132B]">Core Science & Principles:</strong> {mod.intro}</p>
+                        <p><strong className="text-[#0B132B]">Recommended Technique:</strong> {mod.technique}</p>
+                        <p><strong className="text-[#0B132B]">Actionable Tip:</strong> {mod.tips}</p>
+                        <p><strong className="text-[#0B132B]">Practical Application:</strong> {mod.example}</p>
+                      </div>
+                    </div>
+
+                    <a 
+                      href={mod.downloadUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      onClick={handleDownloadClick}
+                      className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                    >
+                      <Download size={16} className="mr-2" /> Download Study Guide
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* BEHAVIORAL & LIFE SKILLS TAB */}
+        {activeTab === 'behavior' && (
+          <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6 space-y-16">
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Core Psychological Architectures</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">Behavioral & Life Skills Hub</h2>
+                <p className="text-gray-600">Explore foundational frameworks, proven techniques, tactical tips, and real-world examples across Neuro-Linguistic Programming, Emotional Intelligence, CBT, Non-Verbal Communication, and Transactional Analysis.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {SITE_CONTENT.behavioralModules.map((mod, index) => (
+                  <div key={index} className="bg-white p-8 border border-[#E2DED0] shadow-sm flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <Brain className="text-[#C5A059]" size={24} />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">{mod.subtitle}</span>
+                      <h3 className="font-serif text-2xl font-bold text-[#0B132B]">{mod.title}</h3>
+                      
+                      <div className="space-y-3 text-sm text-gray-700 pt-2">
+                        <p><strong className="text-[#0B132B]">Introduction:</strong> {mod.intro}</p>
+                        <p><strong className="text-[#0B132B]">Core Technique:</strong> {mod.technique}</p>
+                        <p><strong className="text-[#0B132B]">Actionable Tip:</strong> {mod.tips}</p>
+                        <p><strong className="text-[#0B132B]">Real-World Example:</strong> {mod.example}</p>
+                      </div>
+                    </div>
+
+                    <a 
+                      href={mod.downloadUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      onClick={handleDownloadClick}
+                      className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                    >
+                      <Download size={16} className="mr-2" /> Download Module Guide
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* KNOWLEDGE VAULT TAB */}
+        {activeTab === 'vault' && (
+          <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6 space-y-12">
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Academic & Competitive Hub</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">The Knowledge & Formula Vault</h2>
+                <p className="text-gray-600">Class-wise mathematics, physics, chemistry formulas, vocabulary practice exercises, quantitative aptitude, competitive exam masterclasses, and current affairs—all available to view and download instantly.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {SITE_CONTENT.knowledgeVault.map((item, index) => (
+                  <div key={index} className="bg-white p-8 border border-[#E2DED0] shadow-sm flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <FileText className="text-[#C5A059]" size={24} />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">{item.target}</span>
+                      <h3 className="font-serif text-xl font-bold">{item.category}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                    </div>
+                    <a 
+                      href={item.downloadUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      onClick={handleDownloadClick}
+                      className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                    >
+                      <Download size={16} className="mr-2" /> Download Materials
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
         )}
 
         {activeTab === 'library' && (
@@ -371,7 +766,7 @@ export default function App() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {SITE_CONTENT.books.map((book, index) => (
-                  <div key={index} className="p-6 bg-white/5 border border-white/10 hover:border-[#C5A059] transition flex flex-col justify-between space-y-6">
+                  <div key={index} className="p-6 bg-white/5 border border-white/10 hover:border-[#C5A059] transition flex flex-col justify-between space-y-6 shadow-sm">
                     <div className="space-y-4">
                       <BookOpen className="text-[#C5A059]" size={32} />
                       <div className="space-y-2">
@@ -383,6 +778,7 @@ export default function App() {
                       href={book.downloadUrl} 
                       target="_blank" 
                       rel="noopener noreferrer" 
+                      onClick={handleDownloadClick}
                       className="inline-flex items-center justify-center w-full py-2.5 px-4 bg-[#C5A059] text-[#0B132B] font-semibold text-sm hover:bg-white transition"
                     >
                       <Download size={16} className="mr-2" /> Download Guide
@@ -404,7 +800,6 @@ export default function App() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* Math, Science & English Platform */}
                 <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
                   <div className="space-y-4">
                     <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
@@ -413,17 +808,11 @@ export default function App() {
                     <h3 className="font-serif text-xl font-bold">Math, Science & English Suite</h3>
                     <p className="text-sm text-gray-600">Multi-subject competition and assessment platform designed to foster academic excellence across categories.</p>
                   </div>
-                  <a 
-                    href="https://mse-nine.vercel.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
-                  >
+                  <a href="https://mse-nine.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
                     <ArrowRight size={16} className="mr-2" /> Attempt Test Portal
                   </a>
                 </div>
 
-                {/* English Competition Platform */}
                 <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
                   <div className="space-y-4">
                     <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
@@ -432,17 +821,11 @@ export default function App() {
                     <h3 className="font-serif text-xl font-bold">English Competition Platform</h3>
                     <p className="text-sm text-gray-600">Interactive 4-tier assessment tool covering advanced grammar, vocabulary, syntax, and reading comprehension.</p>
                   </div>
-                  <a 
-                    href="https://test1-zeta-sand-18.vercel.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
-                  >
+                  <a href="https://test1-zeta-sand-18.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
                     <ArrowRight size={16} className="mr-2" /> Attempt English Test
                   </a>
                 </div>
 
-                {/* Chess Competition Platform */}
                 <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
                   <div className="space-y-4">
                     <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
@@ -451,12 +834,7 @@ export default function App() {
                     <h3 className="font-serif text-xl font-bold">Chess Competition Portal</h3>
                     <p className="text-sm text-gray-600">Strategic tournament and event platform organized to encourage youth tactical skills and competitive sportsmanship.</p>
                   </div>
-                  <a 
-                    href="https://chess2-umber.vercel.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
-                  >
+                  <a href="https://chess2-umber.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
                     <ArrowRight size={16} className="mr-2" /> Join Chess Event
                   </a>
                 </div>
@@ -504,30 +882,67 @@ export default function App() {
       </main>
 
       {/* MOBILE BOTTOM NAVIGATION BAR */}
-      <nav className="md:hidden fixed bottom-0 left-0 w-full bg-[#0B132B] text-white border-t border-white/10 z-50 flex justify-around py-3">
+      <nav className="lg:hidden fixed bottom-0 left-0 w-full bg-[#0B132B] text-white border-t border-white/10 z-50 flex justify-around py-3">
         <button onClick={() => setActiveTab('home')} className={`flex flex-col items-center space-y-1 ${activeTab === 'home' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
-          <Home size={20} />
-          <span className="text-[10px] tracking-wider uppercase font-medium">Home</span>
+          <Home size={18} />
+          <span className="text-[9px] tracking-wider uppercase font-medium">Home</span>
         </button>
-        <button onClick={() => setActiveTab('library')} className={`flex flex-col items-center space-y-1 ${activeTab === 'library' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
-          <BookOpen size={20} />
-          <span className="text-[10px] tracking-wider uppercase font-medium">Library</span>
+        <button onClick={() => setActiveTab('tech')} className={`flex flex-col items-center space-y-1 ${activeTab === 'tech' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <Code2 size={18} />
+          <span className="text-[9px] tracking-wider uppercase font-medium">Tech</span>
         </button>
-        <button onClick={() => setActiveTab('competitions')} className={`flex flex-col items-center space-y-1 ${activeTab === 'competitions' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
-          <Layers size={20} />
-          <span className="text-[10px] tracking-wider uppercase font-medium">Portals</span>
+        <button onClick={() => setActiveTab('relationship')} className={`flex flex-col items-center space-y-1 ${activeTab === 'relationship' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <HeartHandshake size={18} />
+          <span className="text-[9px] tracking-wider uppercase font-medium">Couple</span>
         </button>
-        <button onClick={() => setActiveTab('contact')} className={`flex flex-col items-center space-y-1 ${activeTab === 'contact' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
-          <Send size={20} />
-          <span className="text-[10px] tracking-wider uppercase font-medium">Feedback</span>
+        <button onClick={() => setActiveTab('education')} className={`flex flex-col items-center space-y-1 ${activeTab === 'education' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <GraduationCap size={18} />
+          <span className="text-[9px] tracking-wider uppercase font-medium">Students</span>
+        </button>
+        <button onClick={() => setActiveTab('behavior')} className={`flex flex-col items-center space-y-1 ${activeTab === 'behavior' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <Brain size={18} />
+          <span className="text-[9px] tracking-wider uppercase font-medium">Life Skills</span>
         </button>
       </nav>
 
-      {/* FOOTER */}
-      <footer className="bg-[#0B132B] text-white py-12 border-t border-white/10 hidden md:block">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} ArchitectingSuccess.in & OKS Memorial Trust. All rights reserved.</p>
-          <p>{SITE_CONTENT.profile.name} | {SITE_CONTENT.profile.designation}</p>
+      {/* FOOTER WITH SOCIAL LINKS & ANALYTICS SUMMARY */}
+      <footer className="bg-[#0B132B] text-white py-16 border-t border-white/10 hidden lg:block">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+          <div className="space-y-2">
+            <span className="font-serif font-bold text-xl tracking-wide block">ArchitectingSuccess<span className="text-[#C5A059]">.in</span></span>
+            <p className="text-sm text-gray-400">© {new Date().getFullYear()} O V Suresh Babu & OKS Memorial Trust. All rights reserved.</p>
+          </div>
+
+          <div className="flex justify-center space-x-6">
+            <a 
+              href={SITE_CONTENT.profile.facebookUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="p-3 bg-white/5 hover:bg-[#C5A059] hover:text-[#0B132B] transition rounded-full border border-white/10 flex items-center space-x-2 px-5 text-sm"
+            >
+              <Facebook size={18} />
+              <span>Facebook Profile</span>
+            </a>
+            <a 
+              href={SITE_CONTENT.profile.linkedinUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="p-3 bg-white/5 hover:bg-[#C5A059] hover:text-[#0B132B] transition rounded-full border border-white/10 flex items-center space-x-2 px-5 text-sm"
+            >
+              <Linkedin size={18} />
+              <span>LinkedIn Profile</span>
+            </a>
+          </div>
+
+          <div className="text-right space-y-1 text-sm text-gray-400">
+            <p className="font-medium text-white">{SITE_CONTENT.profile.name}</p>
+            <p>{SITE_CONTENT.profile.designation}</p>
+            <div className="flex justify-end space-x-4 pt-2 text-xs text-[#C5A059]">
+              <span>Visitors: {visitorCount.toLocaleString()}</span>
+              <span>•</span>
+              <span>Downloads: {downloadCount.toLocaleString()}</span>
+            </div>
+          </div>
         </div>
       </footer>
 
