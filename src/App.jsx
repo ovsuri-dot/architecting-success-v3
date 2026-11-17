@@ -69,42 +69,48 @@ const SITE_CONTENT = {
       subtitle: "Memory management, pointers, and foundational computational logic.",
       principles: "Procedural determinism, explicit memory management, and hardware-level efficiency.",
       teachingApproach: "Building from basic variables and loops up to pointer arithmetic, dynamic memory allocation (`malloc`/`free`), and data structures.",
-      technique: "Visualizing stack vs. heap memory layouts and tracing pointer references line by line."
+      technique: "Visualizing stack vs. heap memory layouts and tracing pointer references line by line.",
+      driveUrl: "https://drive.google.com/file/d/1dj63MBaSRjYH0OOhKexJZ6Q_5fAp8l9n/view?usp=drivesdk"
     },
     {
       title: "Java & Object-Oriented Architecture",
       subtitle: "Robust enterprise development, inheritance, polymorphism, and JVM mechanics.",
       principles: "Write Once, Run Anywhere (WORA), encapsulation, SOLID design principles, and strict type safety.",
       teachingApproach: "Deconstructing real-world entities into classes, interfaces, exception handling, and multithreading.",
-      technique: "Applying design patterns (Factory, Singleton, Observer) to maintain loosely coupled, highly maintainable codebases."
+      technique: "Applying design patterns (Factory, Singleton, Observer) to maintain loosely coupled, highly maintainable codebases.",
+      driveUrl: "https://drive.google.com/file/d/19oSCgAuyIV2BeoQ3SWvBubig2fqkCyVN/view?usp=drivesdk"
     },
     {
       title: "JavaScript & Modern Web Dynamics",
       subtitle: "Asynchronous programming, event loops, DOM manipulation, and ES6+ features.",
       principles: "Non-blocking asynchronous execution, event-driven architecture, and functional reactivity.",
       teachingApproach: "Mastering closures, promises, `async/await`, and component-driven UI development.",
-      technique: "Tracing the JavaScript Event Loop (Call Stack, Web APIs, Callback Queue) to prevent rendering bottlenecks."
+      technique: "Tracing the JavaScript Event Loop (Call Stack, Web APIs, Callback Queue) to prevent rendering bottlenecks.",
+      driveUrl: "https://drive.google.com/file/d/18KxSquvA-nXtPw4nDK0nxj9DE5o5mfnv/view?usp=drivesdk"
     },
     {
       title: "HTML5, CSS & Semantic Web Layouts",
       subtitle: "Accessible structuring, responsive grid systems, and high-contrast aesthetics.",
       principles: "Semantic markup, mobile-first design, accessibility (WCAG), and clean visual hierarchy.",
       teachingApproach: "Teaching structural tags (header, main, section) paired with modern Flexbox and Grid styling systems.",
-      technique: "Using glassmorphism principles and high-contrast color overlays for professional UI polish."
+      technique: "Using glassmorphism principles and high-contrast color overlays for professional UI polish.",
+      driveUrl: "https://drive.google.com/file/d/1pmxCXmnfE1BgnNy2V50Ew18PU1zVf50M/view?usp=drivesdk"
     },
     {
       title: "Python & Advanced Scripting Ecosystems",
       subtitle: "Clean syntax, rapid prototyping, data science, and backend automation.",
       principles: "Readability counts, explicit is better than implicit, and pythonic data manipulation.",
       teachingApproach: "Guiding learners through list comprehensions, object-oriented python, API integrations, and modular architecture.",
-      technique: "Leveraging virtual environments (`venv`) and robust testing suites (`pytest`) for clean deployments."
+      technique: "Leveraging virtual environments (`venv`) and robust testing suites (`pytest`) for clean deployments.",
+      driveUrl: "https://drive.google.com/file/d/1zGt6tZRvQgVpNc2EGcYmRyTA-Hp1Pz88/view?usp=drivesdk"
     },
     {
       title: "Latest Technologies & AI Integration",
       subtitle: "Full-stack PWAs, cloud deployments, and AI-assisted engineering workflows.",
       principles: "Scalability, serverless computing, real-time synchronization, and AI prompt engineering.",
       teachingApproach: "Transitioning traditional developers into modern full-stack builders utilizing React, Vercel, Git, and LLM APIs.",
-      technique: "Packaging web applications into offline-ready Progressive Web Apps (PWAs) and native Android/iOS containers."
+      technique: "Packaging web applications into offline-ready Progressive Web Apps (PWAs) and native Android/iOS containers.",
+      driveUrl: "https://drive.google.com/file/d/1WhJC3_WHrt8vH6dMRcSiOxay15iHnCf6/view?usp=drivesdk" // Mapped to masterclass / latest tech
     }
   ],
   relationshipModules: [
@@ -114,7 +120,8 @@ const SITE_CONTENT = {
       psychology: "Attachment Theory & Gottman Emotional Bank Account. Couples thrive when partners attune to each other's vulnerable emotional bids rather than retreating into defensiveness.",
       technique: "The 'Mirror and Validate' Protocol",
       tips: "Before offering solutions, repeat back what your partner felt in your own words: 'It sounds like today was deeply exhausting for you.'",
-      example: "A husband pausing work to look directly into his wife's eyes, validating her daily stress instead of instantly troubleshooting."
+      example: "A husband pausing work to look directly into his wife's eyes, validating her daily stress instead of instantly troubleshooting.",
+      driveUrl: "https://drive.google.com/file/d/1yupo8dqr441PC-0b-ys7f5_iPCkLl3st/view?usp=drivesdk"
     },
     {
       title: "De-escalating Conflict & Softened Startups",
@@ -122,7 +129,8 @@ const SITE_CONTENT = {
       psychology: "Physiological flooding (when heart rate exceeds 100 bpm) shuts down the prefrontal cortex, triggering fight-or-flight responses between spouses.",
       technique: "Softened Startup & The 20-Minute Time-Out",
       tips: "Start sensitive discussions with 'I feel...' and 'I need...' statements rather than 'You always...' accusations. Take a 20-minute physical pause if heart rates spike.",
-      example: "Agreeing to pause a heated evening debate to cool down, returning later with calm, affectionate communication."
+      example: "Agreeing to pause a heated evening debate to cool down, returning later with calm, affectionate communication.",
+      driveUrl: "https://drive.google.com/file/d/18x2ImDadl3jkKz7BKMP_7ouFRPgN6mr2/view?usp=drivesdk"
     },
     {
       title: "Love Languages & Behavioral Appreciation",
@@ -130,7 +138,8 @@ const SITE_CONTENT = {
       psychology: "Dr. Gary Chapman’s Love Languages framework indicates that emotional disconnection often stems from partners giving love in *their own* preferred language rather than receiving it in their partner's.",
       technique: "Weekly Love Language Audit",
       tips: "Identify whether your spouse values Words of Affirmation, Quality Time, Receiving Gifts, Acts of Service, or Physical Touch, and intentionally practice one daily.",
-      example: "A husband taking over household chores (Acts of Service) because his wife's primary tank fills through shared burden-sharing."
+      example: "A husband taking over household chores (Acts of Service) because his wife's primary tank fills through shared burden-sharing.",
+      driveUrl: "https://drive.google.com/file/d/1iNKHD_O8DdA5wv9DMbFxaJMUBm7uzzbz/view?usp=drivesdk"
     },
     {
       title: "Rebuilding Intimacy & Mutual Vulnerability",
@@ -138,7 +147,8 @@ const SITE_CONTENT = {
       psychology: "Vulnerability is the cornerstone of lasting intimacy. Brené Brown’s research shows that shame and emotional armor destroy marital closeness, whereas shared ritualized connection builds unbreakable bonds.",
       technique: "The Daily Stress-Reducing Conversation & Rituals of Connection",
       tips: "Spend 15 minutes every evening discussing day-to-day life *outside* of household logistics or children, maintaining a zero-blame environment.",
-      example: "Setting aside dedicated weekend tech-free walks to reconnect emotionally and intellectually as partners."
+      example: "Setting aside dedicated weekend tech-free walks to reconnect emotionally and intellectually as partners.",
+      driveUrl: "https://drive.google.com/file/d/1BCEmXX7nbWbKsHqpSKZZBNoWMotxKP7y/view?usp=drivesdk"
     }
   ],
   behavioralModules: [
@@ -148,7 +158,8 @@ const SITE_CONTENT = {
       intro: "NLP explores the fundamental dynamics between mind (neuro), language (linguistic), and behavioral patterns learned through experience (programming).",
       technique: "Anchoring & Reframing",
       tips: "Identify limiting self-talk and replace internal dialogue with empowering somatic anchors.",
-      example: "Using the STEPPA model to reframe a stressful corporate deadline into an exciting strategic challenge."
+      example: "Using the STEPPA model to reframe a stressful corporate deadline into an exciting strategic challenge.",
+      driveUrl: "https://drive.google.com/file/d/18d2UFS7JErKMH8zD4nU2rAzpzwH9NP15/view?usp=drivesdk"
     },
     {
       title: "Emotional Intelligence (EQ)",
@@ -156,7 +167,8 @@ const SITE_CONTENT = {
       intro: "EQ is the capacity to recognize our own emotions and those of others, guiding thinking, behavior, and interpersonal bonding.",
       technique: "ABC-DE-EF Emotional Audit",
       tips: "Pause before reacting; separate the triggering event from your emotional interpretation.",
-      example: "A leader diffusing a heated team conflict by acknowledging underlying frustrations rather than reacting defensively."
+      example: "A leader diffusing a heated team conflict by acknowledging underlying frustrations rather than reacting defensively.",
+      driveUrl: "https://drive.google.com/file/d/11kHy_9SV9uFF2uUqZ9YLaRMeSZo3X4H8/view?usp=drivesdk"
     },
     {
       title: "Cognitive Behavioral Therapy (CBT)",
@@ -164,7 +176,8 @@ const SITE_CONTENT = {
       intro: "CBT focuses on identifying dysfunctional thoughts, beliefs, and emotional loops, replacing them with objective, constructive cognitive frameworks.",
       technique: "Thought Record & Cognitive Restructuring",
       tips: "Catch negative automatic thoughts (NATs), examine the evidence objectively, and reframe them into balanced perspectives.",
-      example: "Transforming 'I always fail under exam pressure' into 'With systematic revision and timed practice, I can manage exam scenarios effectively.'"
+      example: "Transforming 'I always fail under exam pressure' into 'With systematic revision and timed practice, I can manage exam scenarios effectively.'",
+      driveUrl: "https://drive.google.com/file/d/1NVdhtwPA9XmVynVsRHa_x6lieWsWYolW/view?usp=drivesdk"
     },
     {
       title: "Non-Verbal Gestures & 'Zero-Vocals'",
@@ -172,7 +185,8 @@ const SITE_CONTENT = {
       intro: "Over 75% of human communication is non-verbal. Mastering body language projects authority, calmness, and profound trustworthiness.",
       technique: "Open Posture & Congruent Micro-Expressions",
       tips: "Maintain steady eye contact, keep hands open and relaxed, and eliminate nervous fidgeting.",
-      example: "Entering a boardroom with a grounded posture and measured spatial presence to command immediate respect without raising your voice."
+      example: "Entering a boardroom with a grounded posture and measured spatial presence to command immediate respect without raising your voice.",
+      driveUrl: "https://drive.google.com/file/d/1W-b5x82MrWS2VwdkJmYhpjretFcc6_DS/view?usp=drivesdk"
     },
     {
       title: "Transactional Analysis (TA)",
@@ -180,7 +194,8 @@ const SITE_CONTENT = {
       intro: "Developed by Eric Berne, TA analyzes human interactions and behavioral transactions to diagnose psychological communication barriers.",
       technique: "Adult-to-Adult Dialogue Alignment",
       tips: "Recognize when a conversation slips into critical parent or defensive child mode, and consciously pivot back to objective Adult reasoning.",
-      example: "Responding to an agitated client complaint with calm, objective data (Adult ego state) instead of defensiveness."
+      example: "Responding to an agitated client complaint with calm, objective data (Adult ego state) instead of defensiveness.",
+      driveUrl: "https://drive.google.com/file/d/1JzQtAfwUG_5wnA24Nl6_EStOYq9dwkly/view?usp=drivesdk"
     }
   ],
   educationPsychologyModules: [
@@ -190,7 +205,8 @@ const SITE_CONTENT = {
       intro: "Memory is not just fixed; it is constructed through synaptic plasticity. Leveraging biological sleep cycles and spaced intervals locks information into long-term potentiation (LTP).",
       technique: "The Feynman Technique & Spaced Repetition",
       tips: "Teach concepts simply in your own words. Review study material at 1-day, 3-day, and 7-day intervals.",
-      example: "Using mnemonic memory palaces to memorize complex scientific formulas effortlessly."
+      example: "Using mnemonic memory palaces to memorize complex scientific formulas effortlessly.",
+      driveUrl: "https://drive.google.com/file/d/18d2UFS7JErKMH8zD4nU2rAzpzwH9NP15/view?usp=drivesdk"
     },
     {
       title: "Focus, Attention Span & Physiological Priming",
@@ -198,7 +214,8 @@ const SITE_CONTENT = {
       intro: "Focus is governed by neurochemistry (dopamine and norepinephrine). Aligning study blocks with ultradian rhythms (90-minute focus cycles) prevents burnout.",
       technique: "The 90-Minute Focus Protocol with Somatic Resets",
       tips: "Hydrate adequately, eliminate digital notifications, and take 5-minute physiological sigh breaks to reset nervous system arousal.",
-      example: "Switching off all mobile distractions 30 minutes before deep study to preserve prefrontal cortex executive control."
+      example: "Switching off all mobile distractions 30 minutes before deep study to preserve prefrontal cortex executive control.",
+      driveUrl: "https://drive.google.com/file/d/1wNPhbst-yZ_YRuHMCt5E8KBeEyOOxbSo/view?usp=drivesdk"
     },
     {
       title: "Student & Teacher Psychology Mastery",
@@ -206,7 +223,8 @@ const SITE_CONTENT = {
       intro: "Anxiety spikes cortisol, which directly impairs hippocampal memory retrieval. Creating an environment of psychological safety allows students to transition from survival mode to learning mode.",
       technique: "Reframing Test Anxiety as Physiological Excitement",
       tips: "Teachers should praise effort rather than fixed intelligence; students should reframe racing heartbeats before exams as physical readiness.",
-      example: "A teacher using positive reinforcement and Socratic questioning rather than punitive correction to boost student confidence."
+      example: "A teacher using positive reinforcement and Socratic questioning rather than punitive correction to boost student confidence.",
+      driveUrl: "https://drive.google.com/file/d/1W-b5x82MrWS2VwdkJmYhpjretFcc6_DS/view?usp=drivesdk"
     },
     {
       title: "High-Scoring Exam Strategies & Biological Optimization",
@@ -214,34 +232,40 @@ const SITE_CONTENT = {
       intro: "Cognitive output is directly tied to physiological health: blood glucose regulation, cardiovascular oxygenation, and REM sleep architecture dictate exam day success.",
       technique: "Strategic Time-Boxing & Pre-Exam Neurological Priming",
       tips: "Get 8 hours of sleep before exam day (sleep consolidates memory); scan the question paper fully before answering.",
-      example: "Allocating the first 5 minutes to prioritize high-yield questions, maximizing score output with minimal cognitive fatigue."
+      example: "Allocating the first 5 minutes to prioritize high-yield questions, maximizing score output with minimal cognitive fatigue.",
+      driveUrl: "https://drive.google.com/file/d/15-fC0VayZEDwjvsbyCoMgHWJNfQVfQaU/view?usp=drivesdk"
     }
   ],
   knowledgeVault: [
     {
       category: "K-12 Math & Science Formulas",
       description: "Class-wise crucial formulas in Mathematics, Physics, and Chemistry from Class 1 to PUC.",
-      target: "Class 1 to PUC / CBSE & State"
+      target: "Class 1 to PUC / CBSE & State",
+      driveUrl: "https://drive.google.com/file/d/1Ms0axPF3U2W7Hkg0MZDVVyLTWZ6fMNef/view?usp=drivesdk"
     },
     {
       category: "English Vocabulary & Exercises",
       description: "Class-wise high-yield vocabulary with synonyms, antonyms, fill-in-the-blanks, jumbles, and fun word activities.",
-      target: "All Classes (Primary to High School)"
+      target: "All Classes (Primary to High School)",
+      driveUrl: "https://drive.google.com/file/d/1Pip27qrsKLBhaepuShZH4eC7MIlCMVbE/view?usp=drivesdk"
     },
     {
       category: "Aptitude & Logical Reasoning Formulas",
       description: "Quantitative aptitude and reasoning shortcut formulas with solved examples up to degree level.",
-      target: "High School, Degree & Aspirants"
+      target: "High School, Degree & Aspirants",
+      driveUrl: "https://drive.google.com/file/d/1uL3Tp-iLbkyqBOmqr8t93iwYRRFybU6C/view?usp=drivesdk"
     },
     {
       category: "Competitive Exams Masterclass",
       description: "High-priority topics, formulas, and strategies for Bank PO, GRE, TOEFL, UPSC Civils, and State Group exams.",
-      target: "Competitive Aspirants"
+      target: "Competitive Aspirants",
+      driveUrl: "https://drive.google.com/file/d/1WhJC3_WHrt8vH6dMRcSiOxay15iHnCf6/view?usp=drivesdk"
     },
     {
       category: "Current Affairs & GK Question Bank",
       description: "Curated general knowledge questions, answers, and monthly current affairs compilations.",
-      target: "General & Exam Aspirants"
+      target: "General & Exam Aspirants",
+      driveUrl: "https://drive.google.com/file/d/11kHy_9SV9uFF2uUqZ9YLaRMeSZo3X4H8/view?usp=drivesdk"
     }
   ],
   books: [
@@ -284,33 +308,6 @@ export default function App() {
 
   const handleDownloadClick = () => {
     setDownloadCount(prev => prev + 1);
-  };
-
-  // Helper function to dynamically generate and download custom text material files
-  const downloadGeneratedMaterial = (title, contentObj) => {
-    handleDownloadClick();
-    const content = `==================================================
-ARCHITECTING SUCCESS - OFFICIAL STUDY & GUIDANCE MATERIAL
-Author / Facilitator: O V Suresh Babu
-Topic: ${title}
-==================================================
-
-${Object.entries(contentObj).map(([key, val]) => `[${key.toUpperCase()}]\n${val}\n`).join('\n')}
-
---------------------------------------------------
-Published by O V Suresh Babu & OKS Memorial Trust
-Website: https://architectingsuccess.in
-==================================================`;
-
-    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `${title.replace(/[^a-zA-Z0-9]/g, '_')}_Guide.txt`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
   };
 
   const handleSubmit = async (e) => {
@@ -584,18 +581,15 @@ Website: https://architectingsuccess.in
                       </div>
                     </div>
 
-                    <button 
-                      onClick={() => downloadGeneratedMaterial(tech.title, {
-                        "Subtitle": tech.subtitle,
-                        "Core Principles": tech.principles,
-                        "Teaching Methodology": tech.teachingApproach,
-                        "Advanced Technique": tech.technique,
-                        "Guidance Notes": "Compiled by O V Suresh Babu for rigorous engineering execution and software architecture mastery."
-                      })}
+                    <a 
+                      href={tech.driveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={handleDownloadClick}
                       className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
                     >
-                      <Download size={16} className="mr-2" /> Download Tech Material (.txt)
-                    </button>
+                      <Download size={16} className="mr-2" /> Access Master Guide PDF
+                    </a>
                   </div>
                 ))}
               </div>
@@ -631,19 +625,15 @@ Website: https://architectingsuccess.in
                       </div>
                     </div>
 
-                    <button 
-                      onClick={() => downloadGeneratedMaterial(mod.title, {
-                        "Subtitle": mod.subtitle,
-                        "Psychology Behind It": mod.psychology,
-                        "Recommended Technique": mod.technique,
-                        "Actionable Tip": mod.tips,
-                        "Real-World Example": mod.example,
-                        "Coaching Note": "Authored as part of O V Suresh Babu's Professional Relationship Coaching framework."
-                      })}
+                    <a 
+                      href={mod.driveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={handleDownloadClick}
                       className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
                     >
-                      <Download size={16} className="mr-2" /> Download Relationship Guide (.txt)
-                    </button>
+                      <Download size={16} className="mr-2" /> Access Relationship Guide PDF
+                    </a>
                   </div>
                 ))}
               </div>
@@ -679,19 +669,15 @@ Website: https://architectingsuccess.in
                       </div>
                     </div>
 
-                    <button 
-                      onClick={() => downloadGeneratedMaterial(mod.title, {
-                        "Subtitle": mod.subtitle,
-                        "Core Science & Principles": mod.intro,
-                        "Recommended Technique": mod.technique,
-                        "Actionable Tip": mod.tips,
-                        "Practical Application": mod.example,
-                        "Mentorship Summary": "Developed for student success and teacher excellence under OKS Memorial Trust."
-                      })}
+                    <a 
+                      href={mod.driveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={handleDownloadClick}
                       className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
                     >
-                      <Download size={16} className="mr-2" /> Download Student Material (.txt)
-                    </button>
+                      <Download size={16} className="mr-2" /> Access Student Master Guide PDF
+                    </a>
                   </div>
                 ))}
               </div>
@@ -727,19 +713,15 @@ Website: https://architectingsuccess.in
                       </div>
                     </div>
 
-                    <button 
-                      onClick={() => downloadGeneratedMaterial(mod.title, {
-                        "Subtitle": mod.subtitle,
-                        "Introduction": mod.intro,
-                        "Core Technique": mod.technique,
-                        "Actionable Tip": mod.tips,
-                        "Real-World Example": mod.example,
-                        "Architecture Overview": "Structured by O V Suresh Babu, NLP Master Trainer & Behavioral Architect."
-                      })}
+                    <a 
+                      href={mod.driveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={handleDownloadClick}
                       className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
                     >
-                      <Download size={16} className="mr-2" /> Download Life Skill Guide (.txt)
-                    </button>
+                      <Download size={16} className="mr-2" /> Access Life Skill Guide PDF
+                    </a>
                   </div>
                 ))}
               </div>
@@ -768,17 +750,15 @@ Website: https://architectingsuccess.in
                       <h3 className="font-serif text-xl font-bold">{item.category}</h3>
                       <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
                     </div>
-                    <button 
-                      onClick={() => downloadGeneratedMaterial(item.category, {
-                        "Target Audience": item.target,
-                        "Description": item.description,
-                        "Vault Compilation": "Curated formulas, practice exercises, and high-yield strategic questions.",
-                        "Instruction": "Use this reference compilation for systematic revision and competitive exam preparation."
-                      })}
+                    <a 
+                      href={item.driveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={handleDownloadClick}
                       className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
                     >
-                      <Download size={16} className="mr-2" /> Download Vault Material (.txt)
-                    </button>
+                      <Download size={16} className="mr-2" /> Access Vault PDF Guide
+                    </a>
                   </div>
                 ))}
               </div>
