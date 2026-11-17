@@ -29,7 +29,7 @@ const SITE_CONTENT = {
     designation: "Deputy General Manager, BEML Limited",
     role: "Executive Coach, Behavioral Architect & NLP Master Trainer",
     experience: "15+ Years of Transformational Leadership",
-    photoUrl: "https://drive.google.com/thumbnail?id=1Ku7vuSj3C_oF7v3UjfR9zkH_R_exnMMd&sz=w500",
+    photoUrl: "https://drive.google.com/thumbnail?id=1dJM69iDS_czMjBSyOFxadJHj8qRiSW83&sz=w500",
     bioSummary: "A seasoned corporate leader and behavioral strategist combining over 15 years of executive coaching and Neuro-Linguistic Programming mastery with senior operational leadership at BEML Limited. Dedicated to empowering executives, students, and communities through cognitive science, emotional intelligence, and educational equity.",
     email: "ovsuri@gmail.com",
     phone: "+91 9481311666",
@@ -136,8 +136,13 @@ export default function App() {
       <header className="sticky top-0 z-50 bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#E2DED0]">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('home')}>
-            <div className="w-10 h-10 rounded-full bg-[#0B132B] text-[#C5A059] flex items-center justify-center font-serif font-bold text-lg shadow-md">
-              SB
+            {/* Header profile circle matching SB size */}
+            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#C5A059] bg-[#0B132B] shadow-md shrink-0">
+              <img 
+                src={SITE_CONTENT.profile.photoUrl} 
+                alt={SITE_CONTENT.profile.name} 
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div>
               <span className="font-serif font-bold text-xl tracking-wide block">ArchitectingSuccess<span className="text-[#C5A059]">.in</span></span>
@@ -242,7 +247,7 @@ export default function App() {
               </div>
             </section>
 
-            {/* VIDEOS SHOWCASE SECTION (VISIBLE IMMEDIATELY ON HOME PAGE) */}
+            {/* VIDEOS SHOWCASE SECTION */}
             <section id="videos-section" className="py-20 bg-white border-y border-[#E2DED0]">
               <div className="max-w-7xl mx-auto px-6 space-y-12">
                 <div className="text-center max-w-2xl mx-auto space-y-4">
@@ -316,7 +321,7 @@ export default function App() {
               </div>
             </section>
 
-            {/* FEEDBACK & INQUIRY SECTION (ALSO VISIBLE ON HOME PAGE) */}
+            {/* FEEDBACK & INQUIRY SECTION */}
             <section className="py-20 bg-white border-t border-[#E2DED0]">
               <div className="max-w-4xl mx-auto px-6">
                 <div className="bg-[#FAF9F6] p-8 md:p-12 border border-[#E2DED0] shadow-sm space-y-8">
@@ -498,7 +503,7 @@ export default function App() {
         )}
       </main>
 
-      {/* MOBILE BOTTOM NAVIGATION BAR (Super App Bottom Bar) */}
+      {/* MOBILE BOTTOM NAVIGATION BAR */}
       <nav className="md:hidden fixed bottom-0 left-0 w-full bg-[#0B132B] text-white border-t border-white/10 z-50 flex justify-around py-3">
         <button onClick={() => setActiveTab('home')} className={`flex flex-col items-center space-y-1 ${activeTab === 'home' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
           <Home size={20} />
