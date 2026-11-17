@@ -29,7 +29,9 @@ import {
   Globe,
   Linkedin,
   Facebook,
-  Calculator
+  Calculator,
+  Mic,
+  Trophy
 } from 'lucide-react';
 
 // ==========================================
@@ -803,86 +805,154 @@ export default function App() {
 
         {activeTab === 'competitions' && (
           <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
-            <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <div className="max-w-7xl mx-auto px-6 space-y-16">
+              <div className="text-center max-w-3xl mx-auto space-y-4">
                 <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">OKS Memorial Trust Hub</span>
                 <h2 className="font-serif text-3xl md:text-4xl font-bold">Live Competitions & Assessment Portals</h2>
-                <p className="text-gray-600">Direct access to state-level assessment platforms for students across KGF and Bangarpet.</p>
+                <p className="text-gray-600">Categorized access to state-level assessment platforms, voice vocabulary masterclasses, aptitude tests, and tournament portals for students and aspirants.</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                {/* English Vocabulary Flashcards */}
-                <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
-                      <Sparkles size={24} className="text-[#C5A059]" />
-                    </div>
-                    <h3 className="font-serif text-xl font-bold">English Vocabulary Flashcards</h3>
-                    <p className="text-sm text-gray-600">Category-wise interactive flashcards with revealable answers, touch swipe, and navigation for vocabulary mastery.</p>
-                  </div>
-                  <a href="https://fc-sand.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
-                    <ArrowRight size={16} className="mr-2" /> Launch Flashcards
-                  </a>
+              {/* CATEGORY 1: VOICE VOCABULARY MASTERCLASSES */}
+              <div className="space-y-6">
+                <div className="border-b border-[#E2DED0] pb-3 flex items-center justify-between">
+                  <h3 className="font-serif font-bold text-xl text-[#0B132B] flex items-center gap-2">
+                    <Mic className="text-[#C5A059]" size={22} /> Voice-Enabled Vocabulary Masterclass Portals
+                  </h3>
+                  <span className="text-xs font-semibold text-gray-500 uppercase">Spoken AI Assessment</span>
                 </div>
 
-                {/* Quantitative Aptitude Test */}
-                <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
-                      <Calculator size={24} className="text-[#C5A059]" />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {/* Voice Vocabulary App 1 */}
+                  <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <Mic size={24} className="text-[#C5A059]" />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Speech Recognition Suite</span>
+                      <h3 className="font-serif text-xl font-bold">Voice Vocabulary Masterclass I</h3>
+                      <p className="text-sm text-gray-600">Interactive voice-powered spoken vocabulary assessment suite with real-time audio evaluation and scorecards.</p>
                     </div>
-                    <h3 className="font-serif text-xl font-bold">Quantitative Aptitude Test</h3>
-                    <p className="text-sm text-gray-600">Advanced quantitative aptitude and reasoning test platform designed for competitive exam aspirants.</p>
+                    <a href="https://voice1.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                      <ArrowRight size={16} className="mr-2" /> Launch Voice App I
+                    </a>
                   </div>
-                  <a href="https://qat1.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
-                    <ArrowRight size={16} className="mr-2" /> Launch Aptitude Test
-                  </a>
-                </div>
 
-                {/* Math, Science & English Suite */}
-                <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
-                      <Sparkles size={24} className="text-[#C5A059]" />
+                  {/* Voice Vocabulary App 2 */}
+                  <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <Mic size={24} className="text-[#C5A059]" />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Advanced Spoken Engine</span>
+                      <h3 className="font-serif text-xl font-bold">Voice Vocabulary Masterclass II</h3>
+                      <p className="text-sm text-gray-600">Advanced voice-enabled vocabulary championship featuring multi-category difficulty scaling and WhatsApp dispatch.</p>
                     </div>
-                    <h3 className="font-serif text-xl font-bold">Math, Science & English Suite</h3>
-                    <p className="text-sm text-gray-600">Multi-subject competition and assessment platform designed to foster academic excellence across categories.</p>
+                    <a href="https://voice2-rose.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                      <ArrowRight size={16} className="mr-2" /> Launch Voice App II
+                    </a>
                   </div>
-                  <a href="https://mse-nine.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
-                    <ArrowRight size={16} className="mr-2" /> Attempt Test Portal
-                  </a>
                 </div>
-
-                {/* English Competition Platform */}
-                <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
-                      <BookOpen size={24} className="text-[#C5A059]" />
-                    </div>
-                    <h3 className="font-serif text-xl font-bold">English Competition Platform</h3>
-                    <p className="text-sm text-gray-600">Interactive 4-tier assessment tool covering advanced grammar, vocabulary, syntax, and reading comprehension.</p>
-                  </div>
-                  <a href="https://test1-zeta-sand-18.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
-                    <ArrowRight size={16} className="mr-2" /> Attempt English Test
-                  </a>
-                </div>
-
-                {/* Chess Competition Portal */}
-                <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
-                      <Award size={24} className="text-[#C5A059]" />
-                    </div>
-                    <h3 className="font-serif text-xl font-bold">Chess Competition Portal</h3>
-                    <p className="text-sm text-gray-600">Strategic tournament and event platform organized to encourage youth tactical skills and competitive sportsmanship.</p>
-                  </div>
-                  <a href="https://chess2-umber.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
-                    <ArrowRight size={16} className="mr-2" /> Join Chess Event
-                  </a>
-                </div>
-
               </div>
+
+              {/* CATEGORY 2: ACADEMIC & APTITUDE ASSESSMENTS */}
+              <div className="space-y-6 pt-6">
+                <div className="border-b border-[#E2DED0] pb-3 flex items-center justify-between">
+                  <h3 className="font-serif font-bold text-xl text-[#0B132B] flex items-center gap-2">
+                    <GraduationCap className="text-[#C5A059]" size={22} /> Academic, Math & Aptitude Portals
+                  </h3>
+                  <span className="text-xs font-semibold text-gray-500 uppercase">Competitive Exams</span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {/* English Vocabulary Flashcards */}
+                  <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <Sparkles size={24} className="text-[#C5A059]" />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Interactive Flashcards</span>
+                      <h3 className="font-serif text-xl font-bold">English Vocabulary Flashcards</h3>
+                      <p className="text-sm text-gray-600">Category-wise interactive flashcards with revealable answers, touch swipe, and navigation for vocabulary mastery.</p>
+                    </div>
+                    <a href="https://fc-sand.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                      <ArrowRight size={16} className="mr-2" /> Launch Flashcards
+                    </a>
+                  </div>
+
+                  {/* Quantitative Aptitude Test */}
+                  <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <Calculator size={24} className="text-[#C5A059]" />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Quantitative Aptitude</span>
+                      <h3 className="font-serif text-xl font-bold">Quantitative Aptitude Test</h3>
+                      <p className="text-sm text-gray-600">Advanced quantitative aptitude and reasoning test platform designed for competitive exam aspirants.</p>
+                    </div>
+                    <a href="https://qat1.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                      <ArrowRight size={16} className="mr-2" /> Launch Aptitude Test
+                    </a>
+                  </div>
+
+                  {/* Math, Science & English Suite */}
+                  <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <Sparkles size={24} className="text-[#C5A059]" />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Multi-Subject Suite</span>
+                      <h3 className="font-serif text-xl font-bold">Math, Science & English Suite</h3>
+                      <p className="text-sm text-gray-600">Multi-subject competition and assessment platform designed to foster academic excellence across categories.</p>
+                    </div>
+                    <a href="https://mse-nine.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                      <ArrowRight size={16} className="mr-2" /> Attempt Test Portal
+                    </a>
+                  </div>
+
+                  {/* English Competition Platform */}
+                  <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <BookOpen size={24} className="text-[#C5A059]" />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Grammar & Comprehension</span>
+                      <h3 className="font-serif text-xl font-bold">English Competition Platform</h3>
+                      <p className="text-sm text-gray-600">Interactive 4-tier assessment tool covering advanced grammar, vocabulary, syntax, and reading comprehension.</p>
+                    </div>
+                    <a href="https://test1-zeta-sand-18.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                      <ArrowRight size={16} className="mr-2" /> Attempt English Test
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* CATEGORY 3: TOURNAMENTS & STRATEGIC GAMES */}
+              <div className="space-y-6 pt-6">
+                <div className="border-b border-[#E2DED0] pb-3 flex items-center justify-between">
+                  <h3 className="font-serif font-bold text-xl text-[#0B132B] flex items-center gap-2">
+                    <Trophy className="text-[#C5A059]" size={22} /> Tournaments & Strategic Portals
+                  </h3>
+                  <span className="text-xs font-semibold text-gray-500 uppercase">Cognitive Sport</span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {/* Chess Competition Portal */}
+                  <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <Award size={24} className="text-[#C5A059]" />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Strategic Tournament</span>
+                      <h3 className="font-serif text-xl font-bold">Chess Competition Portal</h3>
+                      <p className="text-sm text-gray-600">Strategic tournament and event platform organized to encourage youth tactical skills and competitive sportsmanship.</p>
+                    </div>
+                    <a href="https://chess2-umber.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                      <ArrowRight size={16} className="mr-2" /> Join Chess Event
+                    </a>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </section>
         )}
