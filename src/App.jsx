@@ -363,7 +363,7 @@ export default function App() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-3 text-xs xl:text-sm font-medium tracking-wide">
+          <nav className="hidden lg:flex items-center space-x-2 xl:space-x-3 text-xs xl:text-sm font-medium tracking-wide">
             <button onClick={() => setActiveTab('home')} className={`transition hover:text-[#C5A059] ${activeTab === 'home' ? 'text-[#C5A059] font-bold' : ''}`}>Dashboard</button>
             <button onClick={() => setActiveTab('tech')} className={`transition hover:text-[#C5A059] ${activeTab === 'tech' ? 'text-[#C5A059] font-bold' : ''}`}>Tech & Code</button>
             <button onClick={() => setActiveTab('relationship')} className={`transition hover:text-[#C5A059] ${activeTab === 'relationship' ? 'text-[#C5A059] font-bold' : ''}`}>Relationships</button>
@@ -372,6 +372,7 @@ export default function App() {
             <button onClick={() => setActiveTab('vault')} className={`transition hover:text-[#C5A059] ${activeTab === 'vault' ? 'text-[#C5A059] font-bold' : ''}`}>Vault</button>
             <button onClick={() => setActiveTab('library')} className={`transition hover:text-[#C5A059] ${activeTab === 'library' ? 'text-[#C5A059] font-bold' : ''}`}>Library</button>
             <button onClick={() => setActiveTab('competitions')} className={`transition hover:text-[#C5A059] ${activeTab === 'competitions' ? 'text-[#C5A059] font-bold' : ''}`}>Portals</button>
+            <button onClick={() => setActiveTab('generation')} className={`transition hover:text-[#C5A059] ${activeTab === 'generation' ? 'text-[#C5A059] font-bold' : ''}`}>Generation</button>
           </nav>
 
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden text-[#0B132B]">
@@ -390,6 +391,7 @@ export default function App() {
             <button onClick={() => { setActiveTab('vault'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Knowledge Vault</button>
             <button onClick={() => { setActiveTab('library'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Digital Library</button>
             <button onClick={() => { setActiveTab('competitions'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">OKS Portals</button>
+            <button onClick={() => { setActiveTab('generation'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Generation Hub</button>
             <button onClick={() => { setActiveTab('contact'); setMobileMenuOpen(false); }} className="block text-lg font-medium text-[#C5A059] w-full text-left">Feedback & Inquire</button>
           </div>
         )}
@@ -464,8 +466,8 @@ export default function App() {
                     <button onClick={() => setActiveTab('tech')} className="inline-flex items-center justify-center px-8 py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition">
                       Explore Tech & Code Hub <ArrowRight className="ml-2" size={18} />
                     </button>
-                    <button onClick={() => setActiveTab('relationship')} className="inline-flex items-center justify-center px-8 py-4 border border-[#0B132B] text-[#0B132B] font-medium hover:bg-[#0B132B] hover:text-white transition">
-                      Relationship Guide
+                    <button onClick={() => setActiveTab('generation')} className="inline-flex items-center justify-center px-8 py-4 border border-[#0B132B] text-[#0B132B] font-medium hover:bg-[#0B132B] hover:text-white transition">
+                      Generation Hub (GS1)
                     </button>
                   </div>
                 </div>
@@ -957,6 +959,39 @@ export default function App() {
           </section>
         )}
 
+        {/* GENERATION HUB TAB (GS1) */}
+        {activeTab === 'generation' && (
+          <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
+            <div className="max-w-5xl mx-auto px-6 space-y-12">
+              <div className="text-center max-w-2xl mx-auto space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Generation Hub (GS1)</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">GS1 Generation Portal</h2>
+                <p className="text-gray-600">Access the dedicated GS1 generation platform directly via our integrated web portal.</p>
+              </div>
+
+              <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 text-center">
+                <div className="w-16 h-16 bg-[#FAF9F6] border border-[#E2DED0] mx-auto flex items-center justify-center text-[#0B132B]">
+                  <Globe className="text-[#C5A059]" size={32} />
+                </div>
+                <div className="space-y-2 max-w-xl mx-auto">
+                  <h3 className="font-serif text-2xl font-bold">GS1 Neon Portal</h3>
+                  <p className="text-sm text-gray-600">Explore advanced generation tools, resources, and live applications hosted on the GS1 platform.</p>
+                </div>
+                <div className="pt-4">
+                  <a 
+                    href="https://gs1-neon.vercel.app" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                  >
+                    Launch GS1 Portal <ExternalLink className="ml-2" size={18} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {activeTab === 'contact' && (
           <section className="py-20 max-w-4xl mx-auto px-6 min-h-[80vh]">
             <div className="bg-white p-8 md:p-12 border border-[#E2DED0] shadow-sm space-y-8">
@@ -1013,9 +1048,9 @@ export default function App() {
           <GraduationCap size={18} />
           <span className="text-[9px] tracking-wider uppercase font-medium">Students</span>
         </button>
-        <button onClick={() => setActiveTab('behavior')} className={`flex flex-col items-center space-y-1 ${activeTab === 'behavior' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
-          <Brain size={18} />
-          <span className="text-[9px] tracking-wider uppercase font-medium">Life Skills</span>
+        <button onClick={() => setActiveTab('generation')} className={`flex flex-col items-center space-y-1 ${activeTab === 'generation' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <Globe size={18} />
+          <span className="text-[9px] tracking-wider uppercase font-medium">GS1</span>
         </button>
       </nav>
 
