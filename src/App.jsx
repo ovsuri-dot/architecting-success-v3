@@ -860,7 +860,7 @@ export default function App() {
                       <h3 className="font-serif text-xl font-bold">Voice Vocabulary Masterclass I</h3>
                       <p className="text-sm text-gray-600">Interactive voice-powered spoken vocabulary assessment suite with real-time audio evaluation and scorecards.</p>
                     </div>
-                    <a https://voice3-theta.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                    <a href="https://voice3-theta.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
                       <ArrowRight size={16} className="mr-2" /> Launch Voice App I
                     </a>
                   </div>
