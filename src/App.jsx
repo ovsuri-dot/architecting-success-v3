@@ -15,8 +15,9 @@ import {
   UserCheck,
   Home,
   Layers,
-  FileText,
-  Send
+  Video,
+  Send,
+  Play
 } from 'lucide-react';
 
 // ==========================================
@@ -44,26 +45,11 @@ const SITE_CONTENT = {
     { title: "Certified Body Language Expert", org: "Behavioral Posture Analysis" },
     { title: "Relationship Coach Diploma", org: "Complementary Therapists Accredited Association" }
   ],
-  pillars: [
-    {
-      id: "executive",
-      title: "Executive Coaching & Leadership",
-      subtitle: "Architecting high-performance corporate cultures and elite professional behavior.",
-      description: "Rooted in rigorous behavioral science and the STEPPA coaching framework, empowering leaders to navigate complex organizational dynamics with emotional poise and strategic clarity."
-    },
-    {
-      id: "behavioral",
-      title: "Behavioral Architecture & NLP",
-      subtitle: "Rewiring cognitive patterns for unbreakable resilience and executive presence.",
-      description: "Leveraging advanced Neuro-Linguistic Programming and Cognitive Behavioral principles to dismantle mental roadblocks, refine non-verbal micro-expressions, and elevate leadership influence."
-    },
-    {
-      id: "trust",
-      title: "OKS Memorial Trust Initiatives",
-      subtitle: "Community empowerment, youth public speaking, and academic excellence.",
-      description: "Championing educational equity, organizing multi-subject math, science, and English competitions, and sponsoring student growth across Karnataka."
-    }
-  ],
+  videos: {
+    serviceActivities: "https://drive.google.com/file/d/1MFT4paa71KRKDIB1y5_o5522mx3q0_xZ/preview",
+    trainingPrograms: "https://drive.google.com/file/d/1IVU0FLtDixXbjybEI_bLDJZvzoLLsJG8/preview",
+    recognitions: "https://drive.google.com/file/d/1zvrn_JH1sNQWkgJ9WjZppaIjnPGZ9x5y/preview"
+  },
   books: [
     { 
       title: "Architecting Success through Neuro-Linguistic Programming", 
@@ -131,7 +117,7 @@ export default function App() {
       const data = await response.json();
 
       if (data.success) {
-        setFormStatus({ submitted: true, message: 'Thank you. Your inquiry has been successfully sent to O V Suresh Babu.' });
+        setFormStatus({ submitted: true, message: 'Thank you! Your feedback has been successfully sent to O V Suresh Babu.' });
         e.target.reset();
       } else {
         setFormStatus({ submitted: false, message: data.message || 'Something went wrong. Please try again.' });
@@ -164,7 +150,7 @@ export default function App() {
             <button onClick={() => setActiveTab('home')} className={`transition hover:text-[#C5A059] ${activeTab === 'home' ? 'text-[#C5A059] font-bold' : ''}`}>Dashboard</button>
             <button onClick={() => setActiveTab('library')} className={`transition hover:text-[#C5A059] ${activeTab === 'library' ? 'text-[#C5A059] font-bold' : ''}`}>Digital Library</button>
             <button onClick={() => setActiveTab('competitions')} className={`transition hover:text-[#C5A059] ${activeTab === 'competitions' ? 'text-[#C5A059] font-bold' : ''}`}>OKS Trust Portals</button>
-            <button onClick={() => setActiveTab('contact')} className={`transition hover:text-[#C5A059] ${activeTab === 'contact' ? 'text-[#C5A059] font-bold' : ''}`}>Inquire</button>
+            <button onClick={() => setActiveTab('contact')} className={`transition hover:text-[#C5A059] ${activeTab === 'contact' ? 'text-[#C5A059] font-bold' : ''}`}>Feedback & Inquire</button>
           </nav>
 
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden text-[#0B132B]">
@@ -178,12 +164,12 @@ export default function App() {
             <button onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Dashboard</button>
             <button onClick={() => { setActiveTab('library'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Digital Library</button>
             <button onClick={() => { setActiveTab('competitions'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">OKS Trust Portals</button>
-            <button onClick={() => { setActiveTab('contact'); setMobileMenuOpen(false); }} className="block text-lg font-medium text-[#C5A059] w-full text-left">Inquire</button>
+            <button onClick={() => { setActiveTab('contact'); setMobileMenuOpen(false); }} className="block text-lg font-medium text-[#C5A059] w-full text-left">Feedback & Inquire</button>
           </div>
         )}
       </header>
 
-      {/* MAIN VIEW AREA (TAB SWITCHER) */}
+      {/* MAIN VIEW AREA */}
       <main>
         {activeTab === 'home' && (
           <div>
@@ -216,11 +202,11 @@ export default function App() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-2">
-                    <button onClick={() => setActiveTab('competitions')} className="inline-flex items-center justify-center px-8 py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition">
-                      Access Test Portals <ArrowRight className="ml-2" size={18} />
-                    </button>
-                    <button onClick={() => setActiveTab('library')} className="inline-flex items-center justify-center px-8 py-4 border border-[#0B132B] text-[#0B132B] font-medium hover:bg-[#0B132B] hover:text-white transition">
-                      Explore Digital Library
+                    <a href="#videos-section" className="inline-flex items-center justify-center px-8 py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                      Watch Videos Below <Play className="ml-2" size={18} />
+                    </a>
+                    <button onClick={() => setActiveTab('competitions')} className="inline-flex items-center justify-center px-8 py-4 border border-[#0B132B] text-[#0B132B] font-medium hover:bg-[#0B132B] hover:text-white transition">
+                      Access Test Portals
                     </button>
                   </div>
                 </div>
@@ -256,8 +242,63 @@ export default function App() {
               </div>
             </section>
 
+            {/* VIDEOS SHOWCASE SECTION (VISIBLE IMMEDIATELY ON HOME PAGE) */}
+            <section id="videos-section" className="py-20 bg-white border-y border-[#E2DED0]">
+              <div className="max-w-7xl mx-auto px-6 space-y-12">
+                <div className="text-center max-w-2xl mx-auto space-y-4">
+                  <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Visual Showcase</span>
+                  <h2 className="font-serif text-3xl md:text-4xl font-bold">Training Programs, Service Activities & Recognitions</h2>
+                  <p className="text-gray-600">Watch our highlights and media updates directly as you open the platform.</p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                  {/* Training Programs Video */}
+                  <div className="bg-[#FAF9F6] p-6 border border-[#E2DED0] shadow-sm space-y-4">
+                    <h3 className="font-serif font-bold text-xl text-[#0B132B]">Training Programs</h3>
+                    <p className="text-xs text-gray-500">Executive coaching & behavioral architecture sessions.</p>
+                    <div className="aspect-video w-full bg-black/10 rounded overflow-hidden border border-[#E2DED0]">
+                      <iframe 
+                        src={SITE_CONTENT.videos.trainingPrograms} 
+                        title="Training Programs" 
+                        className="w-full h-full"
+                        allow="autoplay"
+                      ></iframe>
+                    </div>
+                  </div>
+
+                  {/* Service Activities Video */}
+                  <div className="bg-[#FAF9F6] p-6 border border-[#E2DED0] shadow-sm space-y-4">
+                    <h3 className="font-serif font-bold text-xl text-[#0B132B]">Service Activities</h3>
+                    <p className="text-xs text-gray-500">OKS Memorial Trust community initiatives & events.</p>
+                    <div className="aspect-video w-full bg-black/10 rounded overflow-hidden border border-[#E2DED0]">
+                      <iframe 
+                        src={SITE_CONTENT.videos.serviceActivities} 
+                        title="Service Activities" 
+                        className="w-full h-full"
+                        allow="autoplay"
+                      ></iframe>
+                    </div>
+                  </div>
+
+                  {/* Recognitions Video */}
+                  <div className="bg-[#FAF9F6] p-6 border border-[#E2DED0] shadow-sm space-y-4">
+                    <h3 className="font-serif font-bold text-xl text-[#0B132B]">Recognitions & Honors</h3>
+                    <p className="text-xs text-gray-500">Awards, accolades, and milestone recognitions.</p>
+                    <div className="aspect-video w-full bg-black/10 rounded overflow-hidden border border-[#E2DED0]">
+                      <iframe 
+                        src={SITE_CONTENT.videos.recognitions} 
+                        title="Recognitions" 
+                        className="w-full h-full"
+                        allow="autoplay"
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* CREDENTIALS BADGES */}
-            <section className="py-20 bg-white border-y border-[#E2DED0]">
+            <section className="py-20 bg-[#FAF9F6]">
               <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
                   <h2 className="font-serif text-3xl font-bold">Accreditations & Certifications</h2>
@@ -265,12 +306,50 @@ export default function App() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {SITE_CONTENT.credentials.map((cred, index) => (
-                    <div key={index} className="p-6 bg-[#FAF9F6] border border-[#E2DED0] space-y-3 hover:border-[#C5A059] transition">
+                    <div key={index} className="p-6 bg-white border border-[#E2DED0] space-y-3 hover:border-[#C5A059] transition">
                       <Award className="text-[#C5A059]" size={28} />
                       <h3 className="font-serif font-bold text-lg">{cred.title}</h3>
                       <p className="text-xs text-gray-500 uppercase tracking-wider">{cred.org}</p>
                     </div>
                   ))}
+                </div>
+              </div>
+            </section>
+
+            {/* FEEDBACK & INQUIRY SECTION (ALSO VISIBLE ON HOME PAGE) */}
+            <section className="py-20 bg-white border-t border-[#E2DED0]">
+              <div className="max-w-4xl mx-auto px-6">
+                <div className="bg-[#FAF9F6] p-8 md:p-12 border border-[#E2DED0] shadow-sm space-y-8">
+                  <div className="text-center space-y-2">
+                    <h2 className="font-serif text-3xl font-bold">Feedback & Inquiries</h2>
+                    <p className="text-gray-600 text-sm">Share your viewer feedback or send an inquiry securely routed to O V Suresh Babu.</p>
+                  </div>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Full Name</label>
+                      <input required type="text" name="name" className="w-full p-4 bg-white border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your name" />
+                    </div>
+                    <div>
+                      <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Email Address</label>
+                      <input required type="email" name="email" className="w-full p-4 bg-white border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your email" />
+                    </div>
+                    <div>
+                      <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Your Feedback / Message</label>
+                      <textarea required rows={4} name="message" className="w-full p-4 bg-white border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Share your feedback on our training programs, service activities, or coaching requirements"></textarea>
+                    </div>
+                    <button 
+                      type="submit" 
+                      disabled={isSubmitting}
+                      className="w-full py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition disabled:opacity-50"
+                    >
+                      {isSubmitting ? 'Sending Feedback...' : 'Submit Feedback / Inquiry'}
+                    </button>
+                    {formStatus.message && (
+                      <p className={`text-sm font-medium text-center ${formStatus.submitted ? 'text-green-700' : 'text-red-600'}`}>
+                        {formStatus.message}
+                      </p>
+                    )}
+                  </form>
                 </div>
               </div>
             </section>
@@ -385,8 +464,8 @@ export default function App() {
           <section className="py-20 max-w-4xl mx-auto px-6 min-h-[80vh]">
             <div className="bg-white p-8 md:p-12 border border-[#E2DED0] shadow-sm space-y-8">
               <div className="text-center space-y-2">
-                <h2 className="font-serif text-3xl font-bold">Initiate Your Transformation</h2>
-                <p className="text-gray-600 text-sm">Send a direct inquiry routed securely to O V Suresh Babu.</p>
+                <h2 className="font-serif text-3xl font-bold">Feedback & Inquiries</h2>
+                <p className="text-gray-600 text-sm">Share your viewer feedback or send an inquiry securely routed to O V Suresh Babu.</p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -398,15 +477,15 @@ export default function App() {
                   <input required type="email" name="email" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your email" />
                 </div>
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Message or Inquiry</label>
-                  <textarea required rows={4} name="message" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Describe your coaching or program requirements"></textarea>
+                  <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Your Feedback / Message</label>
+                  <textarea required rows={4} name="message" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Share your feedback on our training programs, service activities, or coaching requirements"></textarea>
                 </div>
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
                   className="w-full py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition disabled:opacity-50"
                 >
-                  {isSubmitting ? 'Sending Inquiry...' : 'Submit Inquiry'}
+                  {isSubmitting ? 'Sending Feedback...' : 'Submit Feedback / Inquiry'}
                 </button>
                 {formStatus.message && (
                   <p className={`text-sm font-medium text-center ${formStatus.submitted ? 'text-green-700' : 'text-red-600'}`}>
@@ -435,7 +514,7 @@ export default function App() {
         </button>
         <button onClick={() => setActiveTab('contact')} className={`flex flex-col items-center space-y-1 ${activeTab === 'contact' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
           <Send size={20} />
-          <span className="text-[10px] tracking-wider uppercase font-medium">Inquire</span>
+          <span className="text-[10px] tracking-wider uppercase font-medium">Feedback</span>
         </button>
       </nav>
 
