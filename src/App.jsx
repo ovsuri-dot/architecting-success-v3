@@ -28,8 +28,7 @@ import {
   Eye,
   Globe,
   Linkedin,
-  Facebook,
-  Calculator
+  Facebook
 } from 'lucide-react';
 
 // ==========================================
@@ -41,7 +40,7 @@ const SITE_CONTENT = {
     designation: "Deputy General Manager, BEML Limited",
     role: "Executive Coach, Behavioral Architect & NLP Master Trainer",
     experience: "30+ Years of Engineering Execution & Transformational Leadership",
-    photoUrl: "https://drive.google.com/thumbnail?id=1ej9PfzBi5aR0aytErRjDRJ0-Vn9-xzpv&sz=w500",
+    photoUrl: "https://drive.google.com/thumbnail?id=1dJM69iDS_czMjBSyOFxadJHj8qRiSW83&sz=w500",
     bioSummary: "A seasoned corporate leader and engineering execution veteran combining over 30 years of high-stakes industrial project leadership with executive coaching and Neuro-Linguistic Programming mastery. Dedicated to bridging rigorous technical engineering principles with human excellence, cognitive science, and educational equity.",
     email: "ovsuri@gmail.com",
     phone: "+91 9481311666",
@@ -111,7 +110,7 @@ const SITE_CONTENT = {
       principles: "Scalability, serverless computing, real-time synchronization, and AI prompt engineering.",
       teachingApproach: "Transitioning traditional developers into modern full-stack builders utilizing React, Vercel, Git, and LLM APIs.",
       technique: "Packaging web applications into offline-ready Progressive Web Apps (PWAs) and native Android/iOS containers.",
-      driveUrl: "https://drive.google.com/file/d/1WhJC3_WHrt8vH6dMRcSiOxay15iHnCf6/view?usp=drivesdk"
+      driveUrl: "https://drive.google.com/file/d/1WhJC3_WHrt8vH6dMRcSiOxay15iHnCf6/view?usp=drivesdk" // Mapped to masterclass / latest tech
     }
   ],
   relationshipModules: [
@@ -810,20 +809,7 @@ export default function App() {
                 <p className="text-gray-600">Direct access to state-level assessment platforms for students across KGF and Bangarpet.</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
-                      <Calculator size={24} className="text-[#C5A059]" />
-                    </div>
-                    <h3 className="font-serif text-xl font-bold">Quantitative Aptitude Championship</h3>
-                    <p className="text-sm text-gray-600">60-minute master-level quantitative aptitude & logical reasoning championship engine with verified certification.</p>
-                  </div>
-                  <a href="https://qattest1.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
-                    <ArrowRight size={16} className="mr-2" /> Launch Aptitude Test
-                  </a>
-                </div>
-
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
                   <div className="space-y-4">
                     <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
