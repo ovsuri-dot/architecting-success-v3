@@ -1,683 +1,977 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  BookOpen, Code, Brain, Heart, Award, FileText, Download, 
-  ExternalLink, Menu, X, Sparkles, Terminal, Cpu, Layout, 
-  Layers, ChevronRight, CheckCircle2, Search, Star, Users, 
-  Globe, ShieldCheck, Compass, ArrowUpRight, Play, Video, Image as ImageIcon
+  ShieldCheck, 
+  Brain, 
+  BookOpen, 
+  Award, 
+  Mail, 
+  Phone, 
+  MapPin, 
+  Menu, 
+  X, 
+  ArrowRight, 
+  Download, 
+  Sparkles,
+  UserCheck,
+  Home,
+  Layers,
+  Video,
+  Send,
+  Play,
+  FileText,
+  Smile,
+  Compass,
+  GraduationCap,
+  HeartHandshake,
+  Code2,
+  Users,
+  Eye,
+  Globe,
+  Linkedin,
+  Facebook
 } from 'lucide-react';
 
+// ==========================================
+// CENTRALIZED SITE CONTENT CONFIGURATION
+// ==========================================
+const SITE_CONTENT = {
+  profile: {
+    name: "O V Suresh Babu",
+    designation: "Deputy General Manager, BEML Limited",
+    role: "Executive Coach, Behavioral Architect & NLP Master Trainer",
+    experience: "30+ Years of Engineering Execution & Transformational Leadership",
+    photoUrl: "https://drive.google.com/thumbnail?id=1dJM69iDS_czMjBSyOFxadJHj8qRiSW83&sz=w500",
+    bioSummary: "A seasoned corporate leader and engineering execution veteran combining over 30 years of high-stakes industrial project leadership with executive coaching and Neuro-Linguistic Programming mastery. Dedicated to bridging rigorous technical engineering principles with human excellence, cognitive science, and educational equity.",
+    email: "ovsuri@gmail.com",
+    phone: "+91 9481311666",
+    location: "BEML Nagar, Kolar Gold Fields, Karnataka, India",
+    trust: "Founder Chairman, OKS Memorial Trust",
+    facebookUrl: "https://www.facebook.com/share/1Gq1gJC3KD/",
+    linkedinUrl: "https://www.linkedin.com/in/o-v-suresh-babu-4211842a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+  },
+  credentials: [
+    { title: "NLP Master Trainer", org: "Advanced Behavioral Science" },
+    { title: "Certified Emotional Intelligence Coach", org: "EQ Practitioner Framework" },
+    { title: "Certified Cognitive Behavioral Coach", org: "CBT Systems" },
+    { title: "Certified Communication & Behavior Practitioner", org: "Non-Verbal & Micro-Expressions" },
+    { title: "Certified Child Psychologist", org: "Virtued Academy International" },
+    { title: "Certified Body Language Expert", org: "Behavioral Posture Analysis" },
+    { title: "Relationship Coach Diploma", org: "Complementary Therapists Accredited Association" }
+  ],
+  videos: {
+    serviceActivities: "https://drive.google.com/file/d/1MFT4paa71KRKDIB1y5_o5522mx3q0_xZ/preview",
+    trainingPrograms: "https://drive.google.com/file/d/1IVU0FLtDixXbjybEI_bLDJZvzoLLsJG8/preview",
+    recognitions: "https://drive.google.com/file/d/1zvrn_JH1sNQWkgJ9WjZppaIjnPGZ9x5y/preview"
+  },
+  softwareHub: [
+    {
+      title: "C Programming & Systems Fundamentals",
+      subtitle: "Memory management, pointers, and foundational computational logic.",
+      principles: "Procedural determinism, explicit memory management, and hardware-level efficiency.",
+      teachingApproach: "Building from basic variables and loops up to pointer arithmetic, dynamic memory allocation (`malloc`/`free`), and data structures.",
+      technique: "Visualizing stack vs. heap memory layouts and tracing pointer references line by line."
+    },
+    {
+      title: "Java & Object-Oriented Architecture",
+      subtitle: "Robust enterprise development, inheritance, polymorphism, and JVM mechanics.",
+      principles: "Write Once, Run Anywhere (WORA), encapsulation, SOLID design principles, and strict type safety.",
+      teachingApproach: "Deconstructing real-world entities into classes, interfaces, exception handling, and multithreading.",
+      technique: "Applying design patterns (Factory, Singleton, Observer) to maintain loosely coupled, highly maintainable codebases."
+    },
+    {
+      title: "JavaScript & Modern Web Dynamics",
+      subtitle: "Asynchronous programming, event loops, DOM manipulation, and ES6+ features.",
+      principles: "Non-blocking asynchronous execution, event-driven architecture, and functional reactivity.",
+      teachingApproach: "Mastering closures, promises, `async/await`, and component-driven UI development.",
+      technique: "Tracing the JavaScript Event Loop (Call Stack, Web APIs, Callback Queue) to prevent rendering bottlenecks."
+    },
+    {
+      title: "HTML5, CSS & Semantic Web Layouts",
+      subtitle: "Accessible structuring, responsive grid systems, and high-contrast aesthetics.",
+      principles: "Semantic markup, mobile-first design, accessibility (WCAG), and clean visual hierarchy.",
+      teachingApproach: "Teaching structural tags (header, main, section) paired with modern Flexbox and Grid styling systems.",
+      technique: "Using glassmorphism principles and high-contrast color overlays for professional UI polish."
+    },
+    {
+      title: "Python & Advanced Scripting Ecosystems",
+      subtitle: "Clean syntax, rapid prototyping, data science, and backend automation.",
+      principles: "Readability counts, explicit is better than implicit, and pythonic data manipulation.",
+      teachingApproach: "Guiding learners through list comprehensions, object-oriented python, API integrations, and modular architecture.",
+      technique: "Leveraging virtual environments (`venv`) and robust testing suites (`pytest`) for clean deployments."
+    },
+    {
+      title: "Latest Technologies & AI Integration",
+      subtitle: "Full-stack PWAs, cloud deployments, and AI-assisted engineering workflows.",
+      principles: "Scalability, serverless computing, real-time synchronization, and AI prompt engineering.",
+      teachingApproach: "Transitioning traditional developers into modern full-stack builders utilizing React, Vercel, Git, and LLM APIs.",
+      technique: "Packaging web applications into offline-ready Progressive Web Apps (PWAs) and native Android/iOS containers."
+    }
+  ],
+  relationshipModules: [
+    {
+      title: "Emotional Attunement & Empathic Listening",
+      subtitle: "Bridging the psychological gap between husband and wife.",
+      psychology: "Attachment Theory & Gottman Emotional Bank Account. Couples thrive when partners attune to each other's vulnerable emotional bids rather than retreating into defensiveness.",
+      technique: "The 'Mirror and Validate' Protocol",
+      tips: "Before offering solutions, repeat back what your partner felt in your own words: 'It sounds like today was deeply exhausting for you.'",
+      example: "A husband pausing work to look directly into his wife's eyes, validating her daily stress instead of instantly troubleshooting."
+    },
+    {
+      title: "De-escalating Conflict & Softened Startups",
+      subtitle: "Transforming arguments from win-lose battles to collaborative resolutions.",
+      psychology: "Physiological flooding (when heart rate exceeds 100 bpm) shuts down the prefrontal cortex, triggering fight-or-flight responses between spouses.",
+      technique: "Softened Startup & The 20-Minute Time-Out",
+      tips: "Start sensitive discussions with 'I feel...' and 'I need...' statements rather than 'You always...' accusations. Take a 20-minute physical pause if heart rates spike.",
+      example: "Agreeing to pause a heated evening debate to cool down, returning later with calm, affectionate communication."
+    },
+    {
+      title: "Love Languages & Behavioral Appreciation",
+      subtitle: "Translating affection into actions your partner naturally registers.",
+      psychology: "Dr. Gary Chapman’s Love Languages framework indicates that emotional disconnection often stems from partners giving love in *their own* preferred language rather than receiving it in their partner's.",
+      technique: "Weekly Love Language Audit",
+      tips: "Identify whether your spouse values Words of Affirmation, Quality Time, Receiving Gifts, Acts of Service, or Physical Touch, and intentionally practice one daily.",
+      example: "A husband taking over household chores (Acts of Service) because his wife's primary tank fills through shared burden-sharing."
+    },
+    {
+      title: "Rebuilding Intimacy & Mutual Vulnerability",
+      subtitle: "Cultivating deep psychological safety and lifelong romance.",
+      psychology: "Vulnerability is the cornerstone of lasting intimacy. Brené Brown’s research shows that shame and emotional armor destroy marital closeness, whereas shared ritualized connection builds unbreakable bonds.",
+      technique: "The Daily Stress-Reducing Conversation & Rituals of Connection",
+      tips: "Spend 15 minutes every evening discussing day-to-day life *outside* of household logistics or children, maintaining a zero-blame environment.",
+      example: "Setting aside dedicated weekend tech-free walks to reconnect emotionally and intellectually as partners."
+    }
+  ],
+  behavioralModules: [
+    {
+      title: "Neuro-Linguistic Programming (NLP)",
+      subtitle: "Rewiring mental patterns and cognitive anchors for peak performance.",
+      intro: "NLP explores the fundamental dynamics between mind (neuro), language (linguistic), and behavioral patterns learned through experience (programming).",
+      technique: "Anchoring & Reframing",
+      tips: "Identify limiting self-talk and replace internal dialogue with empowering somatic anchors.",
+      example: "Using the STEPPA model to reframe a stressful corporate deadline into an exciting strategic challenge."
+    },
+    {
+      title: "Emotional Intelligence (EQ)",
+      subtitle: "Mastering self-awareness, emotional regulation, and empathetic leadership.",
+      intro: "EQ is the capacity to recognize our own emotions and those of others, guiding thinking, behavior, and interpersonal bonding.",
+      technique: "ABC-DE-EF Emotional Audit",
+      tips: "Pause before reacting; separate the triggering event from your emotional interpretation.",
+      example: "A leader diffusing a heated team conflict by acknowledging underlying frustrations rather than reacting defensively."
+    },
+    {
+      title: "Cognitive Behavioral Therapy (CBT)",
+      subtitle: "Dismantling cognitive distortions and restructuring negative thought loops.",
+      intro: "CBT focuses on identifying dysfunctional thoughts, beliefs, and emotional loops, replacing them with objective, constructive cognitive frameworks.",
+      technique: "Thought Record & Cognitive Restructuring",
+      tips: "Catch negative automatic thoughts (NATs), examine the evidence objectively, and reframe them into balanced perspectives.",
+      example: "Transforming 'I always fail under exam pressure' into 'With systematic revision and timed practice, I can manage exam scenarios effectively.'"
+    },
+    {
+      title: "Non-Verbal Gestures & 'Zero-Vocals'",
+      subtitle: "Executive presence through micro-expressions, posture, and spatial awareness.",
+      intro: "Over 75% of human communication is non-verbal. Mastering body language projects authority, calmness, and profound trustworthiness.",
+      technique: "Open Posture & Congruent Micro-Expressions",
+      tips: "Maintain steady eye contact, keep hands open and relaxed, and eliminate nervous fidgeting.",
+      example: "Entering a boardroom with a grounded posture and measured spatial presence to command immediate respect without raising your voice."
+    },
+    {
+      title: "Transactional Analysis (TA)",
+      subtitle: "Understanding ego states (Parent-Adult-Child) to transform communication.",
+      intro: "Developed by Eric Berne, TA analyzes human interactions and behavioral transactions to diagnose psychological communication barriers.",
+      technique: "Adult-to-Adult Dialogue Alignment",
+      tips: "Recognize when a conversation slips into critical parent or defensive child mode, and consciously pivot back to objective Adult reasoning.",
+      example: "Responding to an agitated client complaint with calm, objective data (Adult ego state) instead of defensiveness."
+    }
+  ],
+  educationPsychologyModules: [
+    {
+      title: "Advanced Memorization & Neuro-Learning",
+      subtitle: "Biological encoding, spaced repetition, and active recall for lifelong retention.",
+      intro: "Memory is not just fixed; it is constructed through synaptic plasticity. Leveraging biological sleep cycles and spaced intervals locks information into long-term potentiation (LTP).",
+      technique: "The Feynman Technique & Spaced Repetition",
+      tips: "Teach concepts simply in your own words. Review study material at 1-day, 3-day, and 7-day intervals.",
+      example: "Using mnemonic memory palaces to memorize complex scientific formulas effortlessly."
+    },
+    {
+      title: "Focus, Attention Span & Physiological Priming",
+      subtitle: "Circadian rhythms, dopamine management, and eliminating cognitive fatigue.",
+      intro: "Focus is governed by neurochemistry (dopamine and norepinephrine). Aligning study blocks with ultradian rhythms (90-minute focus cycles) prevents burnout.",
+      technique: "The 90-Minute Focus Protocol with Somatic Resets",
+      tips: "Hydrate adequately, eliminate digital notifications, and take 5-minute physiological sigh breaks to reset nervous system arousal.",
+      example: "Switching off all mobile distractions 30 minutes before deep study to preserve prefrontal cortex executive control."
+    },
+    {
+      title: "Student & Teacher Psychology Mastery",
+      subtitle: "Growth mindset, emotional safety, and managing academic performance anxiety.",
+      intro: "Anxiety spikes cortisol, which directly impairs hippocampal memory retrieval. Creating an environment of psychological safety allows students to transition from survival mode to learning mode.",
+      technique: "Reframing Test Anxiety as Physiological Excitement",
+      tips: "Teachers should praise effort rather than fixed intelligence; students should reframe racing heartbeats before exams as physical readiness.",
+      example: "A teacher using positive reinforcement and Socratic questioning rather than punitive correction to boost student confidence."
+    },
+    {
+      title: "High-Scoring Exam Strategies & Biological Optimization",
+      subtitle: "Nutrition, neuro-genesis, and strategic paper-attempting frameworks.",
+      intro: "Cognitive output is directly tied to physiological health: blood glucose regulation, cardiovascular oxygenation, and REM sleep architecture dictate exam day success.",
+      technique: "Strategic Time-Boxing & Pre-Exam Neurological Priming",
+      tips: "Get 8 hours of sleep before exam day (sleep consolidates memory); scan the question paper fully before answering.",
+      example: "Allocating the first 5 minutes to prioritize high-yield questions, maximizing score output with minimal cognitive fatigue."
+    }
+  ],
+  knowledgeVault: [
+    {
+      category: "K-12 Math & Science Formulas",
+      description: "Class-wise crucial formulas in Mathematics, Physics, and Chemistry from Class 1 to PUC.",
+      target: "Class 1 to PUC / CBSE & State"
+    },
+    {
+      category: "English Vocabulary & Exercises",
+      description: "Class-wise high-yield vocabulary with synonyms, antonyms, fill-in-the-blanks, jumbles, and fun word activities.",
+      target: "All Classes (Primary to High School)"
+    },
+    {
+      category: "Aptitude & Logical Reasoning Formulas",
+      description: "Quantitative aptitude and reasoning shortcut formulas with solved examples up to degree level.",
+      target: "High School, Degree & Aspirants"
+    },
+    {
+      category: "Competitive Exams Masterclass",
+      description: "High-priority topics, formulas, and strategies for Bank PO, GRE, TOEFL, UPSC Civils, and State Group exams.",
+      target: "Competitive Aspirants"
+    },
+    {
+      category: "Current Affairs & GK Question Bank",
+      description: "Curated general knowledge questions, answers, and monthly current affairs compilations.",
+      target: "General & Exam Aspirants"
+    }
+  ],
+  books: [
+    { 
+      title: "Architecting Success through Neuro-Linguistic Programming", 
+      category: "NLP & Mastery", 
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1BelUlS4iDLinaCKsQcqY7kc6Pj8tV8oI" 
+    },
+    { 
+      title: "Architecting Success through Emotional Intelligence", 
+      category: "EQ Leadership", 
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1tnSouZUINYnJ1d34q6p0fxvRxX1eMFXV" 
+    },
+    { 
+      title: "The Architecture of Lasting Love", 
+      category: "Relationship Dynamics", 
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1giygkYWzKFMXrq6HWNMNqd9shrCU2YyK" 
+    },
+    { 
+      title: "The Pressure-Proof Student", 
+      category: "Child Psychology & Youth", 
+      downloadUrl: "https://drive.google.com/uc?export=download&id=1SQ8C_23mQGgl4I5jcy4G9Au88JqR4mrL" 
+    }
+  ]
+};
+
 export default function App() {
+  const [activeTab, setActiveTab] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
-  
-  // Live Counters State simulation
-  const [visitorCount, setVisitorCount] = useState(15420);
-  const [downloadCount, setDownloadCount] = useState(51240);
+  const [formStatus, setFormStatus] = useState({ submitted: false, message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Analytics states for live visitor & download counts
+  const [visitorCount, setVisitorCount] = useState(14285);
+  const [downloadCount, setDownloadCount] = useState(6840);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setVisitorCount(prev => prev + Math.floor(Math.random() * 3));
-      setDownloadCount(prev => prev + Math.floor(Math.random() * 5));
-    }, 4000);
-    return () => clearInterval(interval);
+    setVisitorCount(prev => prev + 1);
   }, []);
 
-  // Resource Categories & Items including all generated Google Drive Master Guides
-  const resources = [
-    // Academics & STEM
-    {
-      id: 1,
-      title: "English Vocabulary Masterclass (Class 1 - Degree)",
-      category: "academics",
-      badge: "Masterclass PDF",
-      description: "Comprehensive class-wise vocabulary with meanings, etymological root words, synonyms, antonyms, and 30 exhaustive exercise modules.",
-      link: "https://drive.google.com/file/d/1Pip27qrsKLBhaepuShZH4eC7MIlCMVbE/view?usp=drivesdk",
-      icon: <BookOpen className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 2,
-      title: "K-12 STEM Master Formula Compendium",
-      category: "academics",
-      badge: "Complete Formulas",
-      description: "Every major formula, law, and principle across Mathematics, Physics, and Chemistry for Classes 1 through 12 with chapter-wise problem-solving techniques.",
-      link: "https://drive.google.com/file/d/1Ms0axPF3U2W7Hkg0MZDVVyLTWZ6fMNef/view?usp=drivesdk",
-      icon: <Cpu className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 3,
-      title: "Quantitative Aptitude & Logical Reasoning Master Guide",
-      category: "academics",
-      badge: "Complete Details",
-      description: "Class-wise and chapter-wise formulas, shortcuts, and step-by-step solved methodologies covering every aptitude and logical reasoning topic.",
-      link: "https://drive.google.com/file/d/1uL3Tp-iLbkyqBOmqr8t93iwYRRFybU6C/view?usp=drivesdk",
-      icon: <Layers className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 4,
-      title: "Competitive Exams Masterclass & GK / Current Affairs",
-      category: "academics",
-      badge: "Exam Strategy",
-      description: "High-scoring exam strategies, biological optimization, pre-exam neurological priming, strategic paper-attempting frameworks, and current affairs.",
-      link: "https://drive.google.com/file/d/1zLRYv0_UTvk3bwhSrnIQtcac7Dt4L7PK/view?usp=drivesdk",
-      icon: <Award className="w-6 h-6 text-[#C5A059]" />
-    },
+  const handleDownloadClick = () => {
+    setDownloadCount(prev => prev + 1);
+  };
 
-    // Behavioral Architecture & Psychology
-    {
-      id: 5,
-      title: "Transactional Analysis (TA) & Behavioral Frameworks",
-      category: "psychology",
-      badge: "Behavioral Science",
-      description: "Structural analysis, ego states, life positions, transactions, and psychological games for executive leadership and organizational dynamics.",
-      link: "https://drive.google.com/file/d/1WhJC3_WHrt8vH6dMRcSiOxay15iHnCf6/view?usp=drivesdk",
-      icon: <Brain className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 6,
-      title: "Cognitive Behavioral Therapy (CBT) Masterclass",
-      category: "psychology",
-      badge: "Therapeutic Tools",
-      description: "Cognitive restructuring, identifying cognitive distortions, behavioral experiments, and structured ABC-DE-EF models for mental mastery.",
-      link: "https://drive.google.com/file/d/11kHy_9SV9uFF2uUqZ9YLaRMeSZo3X4H8/view?usp=drivesdk",
-      icon: <ShieldCheck className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 7,
-      title: "Advanced Memorization & Neuro-Learning Protocols",
-      category: "psychology",
-      badge: "Neuro-Learning",
-      description: "Memory palaces, spaced repetition systems, dual-coding theory, and cognitive load management for accelerated skill acquisition.",
-      link: "https://drive.google.com/file/d/1JzQtAfwUG_5wnA24Nl6_EStOYq9dwkly/view?usp=drivesdk",
-      icon: <Sparkles className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 8,
-      title: "Focus Priming & Attention Architecture",
-      category: "psychology",
-      badge: "Deep Focus",
-      description: "Dopamine regulation, environmental design, ultradian rhythm alignment, and distraction-shielding frameworks for peak productivity.",
-      link: "https://drive.google.com/file/d/1NVdhtwPA9XmVynVsRHa_x6lieWsWYolW/view?usp=drivesdk",
-      icon: <Compass className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 9,
-      title: "Student-Teacher Psychology & Pressure-Proofing",
-      category: "psychology",
-      badge: "Child Psychology",
-      description: "Pedagogical frameworks, emotional regulation in classrooms, student pressure-proofing, and positive reinforcement methodologies.",
-      link: "https://drive.google.com/file/d/18d2UFS7JErKMH8zD4nU2rAzpzwH9NP15/view?usp=drivesdk",
-      icon: <Users className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 10,
-      title: "High-Scoring Exam Strategy & Biological Optimization",
-      category: "psychology",
-      badge: "Performance",
-      description: "Sleep architecture, nutritional fueling, pre-exam state management, and cognitive endurance techniques for competitive examinations.",
-      link: "https://drive.google.com/file/d/1wNPhbst-yZ_YRuHMCt5E8KBeEyOOxbSo/view?usp=drivesdk",
-      icon: <Award className="w-6 h-6 text-[#C5A059]" />
-    },
+  // Helper function to dynamically generate and download custom text material files
+  const downloadGeneratedMaterial = (title, contentObj) => {
+    handleDownloadClick();
+    const content = `==================================================
+ARCHITECTING SUCCESS - OFFICIAL STUDY & GUIDANCE MATERIAL
+Author / Facilitator: O V Suresh Babu
+Topic: ${title}
+==================================================
 
-    // Relationship & Emotional Intelligence
-    {
-      id: 11,
-      title: "Emotional Attunement & Empathic Listening",
-      category: "relationships",
-      badge: "EQ & Empathy",
-      description: "Mirror-and-validate protocols, Gottman emotional bank account principles, non-verbal micro-expressions, and deep active listening.",
-      link: "https://drive.google.com/file/d/1W-b5x82MrWS2VwdkJmYhpjretFcc6_DS/view?usp=drivesdk",
-      icon: <Heart className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 12,
-      title: "De-escalating Conflict & Softened Startups",
-      category: "relationships",
-      badge: "Conflict Resolution",
-      description: "Physiological flooding management, Dr. John Gottman's softened startup framework, the 20-minute time-out protocol, and de-escalation.",
-      link: "https://drive.google.com/file/d/15-fC0VayZEDwjvsbyCoMgHWJNfQVfQaU/view?usp=drivesdk",
-      icon: <ShieldCheck className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 13,
-      title: "Love Languages & Behavioral Appreciation",
-      category: "relationships",
-      badge: "Connection",
-      description: "Dr. Gary Chapman's five love languages, transitioning from verbal praise to behavioral appreciation, and relationship action plans.",
-      link: "https://drive.google.com/file/d/1yupo8dqr441PC-0b-ys7f5_iPCkLl3st/view?usp=drivesdk",
-      icon: <Heart className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 14,
-      title: "Rebuilding Intimacy & Mutual Vulnerability",
-      category: "relationships",
-      badge: "Intimacy",
-      description: "Brené Brown's research on shame and emotional armor, daily stress-reducing conversations, and structured vulnerability rituals.",
-      link: "https://drive.google.com/file/d/18x2ImDadl3jkKz7BKMP_7ouFRPgN6mr2/view?usp=drivesdk",
-      icon: <Sparkles className="w-6 h-6 text-[#C5A059]" />
-    },
+${Object.entries(contentObj).map(([key, val]) => `[${key.toUpperCase()}]\n${val}\n`).join('\n')}
 
-    // Tech & Engineering Stacks
-    {
-      id: 15,
-      title: "C Programming & Systems Fundamentals",
-      category: "tech",
-      badge: "Systems",
-      description: "Procedural determinism, memory management, pointer arithmetic, stack vs. heap allocation, and low-level debugging techniques.",
-      link: "https://drive.google.com/file/d/1iNKHD_O8DdA5wv9DMbFxaJMUBm7uzzbz/view?usp=drivesdk",
-      icon: <Terminal className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 16,
-      title: "Java & Object-Oriented Architecture",
-      category: "tech",
-      badge: "OOP & Enterprise",
-      description: "WORA principles, four pillars of OOP, SOLID design principles, multithreading mechanics, and enterprise software architecture.",
-      link: "https://drive.google.com/file/d/1BCEmXX7nbWbKsHqpSKZZBNoWMotxKP7y/view?usp=drivesdk",
-      icon: <Code className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 17,
-      title: "JavaScript & Modern Web Dynamics",
-      category: "tech",
-      badge: "Web Frontend",
-      description: "ES6+ features, asynchronous programming, promises, async/await, closures, the event loop, and DOM manipulation best practices.",
-      link: "https://drive.google.com/file/d/1dj63MBaSRjYH0OOhKexJZ6Q_5fAp8l9n/view?usp=drivesdk",
-      icon: <Layout className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 18,
-      title: "HTML5, CSS & Semantic Web Layouts",
-      category: "tech",
-      badge: "UI & Layout",
-      description: "Semantic markup, accessibility (WCAG), modern Flexbox and Grid layout systems, and high-contrast UI design principles.",
-      link: "https://drive.google.com/file/d/19oSCgAuyIV2BeoQ3SWvBubig2fqkCyVN/view?usp=drivesdk",
-      icon: <Globe className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 19,
-      title: "Python & Advanced Scripting Ecosystems",
-      category: "tech",
-      badge: "Scripting & AI",
-      description: "PEP 8 style guidelines, list comprehensions, decorators, generators, OOP in Python, and virtual environment orchestration.",
-      link: "https://drive.google.com/file/d/18KxSquvA-nXtPw4nDK0nxj9DE5o5mfnv/view?usp=drivesdk",
-      icon: <Terminal className="w-6 h-6 text-[#C5A059]" />
-    },
-    {
-      id: 20,
-      title: "Latest Technologies & AI Integration Masterclass",
-      category: "tech",
-      badge: "Artificial Intelligence",
-      description: "Large Language Models (LLMs), Generative AI workflows, Retrieval-Augmented Generation (RAG), neural networks, and AI ethics.",
-      link: "https://drive.google.com/file/d/1pmxCXmnfE1BgnNy2V50Ew18PU1zVf50M/view?usp=drivesdk",
-      icon: <Cpu className="w-6 h-6 text-[#C5A059]" />
+--------------------------------------------------
+Published by O V Suresh Babu & OKS Memorial Trust
+Website: https://architectingsuccess.in
+==================================================`;
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${title.replace(/[^a-zA-Z0-9]/g, '_')}_Guide.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setFormStatus({ submitted: false, message: '' });
+
+    const formData = new FormData(e.target);
+    formData.append("access_key", "99445c6e-1616-4dff-b6a1-7acf8f7f4b4d");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormStatus({ submitted: true, message: 'Thank you! Your feedback has been successfully sent to O V Suresh Babu.' });
+        e.target.reset();
+      } else {
+        setFormStatus({ submitted: false, message: data.message || 'Something went wrong. Please try again.' });
+      }
+    } catch (error) {
+      setFormStatus({ submitted: false, message: 'Network error. Please check your connection and try again.' });
+    } finally {
+      setIsSubmitting(false);
     }
-  ];
-
-  const filteredResources = resources.filter(res => {
-    const matchesTab = activeTab === 'all' || res.category === activeTab;
-    const matchesSearch = res.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          res.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesTab && matchesSearch;
-  });
+  };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-[#0B132B] font-sans selection:bg-[#C5A059] selection:text-white">
+    <div className="min-h-screen bg-[#FAF9F6] text-[#0B132B] font-sans selection:bg-[#C5A059] selection:text-white pb-20 md:pb-0">
       
-      {/* Top Header & Navigation */}
-      <header className="sticky top-0 z-50 bg-[#0B132B] text-white border-b border-[#C5A059]/30 backdrop-blur-md bg-opacity-95">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          
-          {/* Logo / Branding */}
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#C5A059] to-[#8E6F30] flex items-center justify-center shadow-lg">
-              <Sparkles className="w-6 h-6 text-white" />
+      {/* SUPER APP HEADER / NAVBAR */}
+      <header className="sticky top-0 z-50 bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#E2DED0]">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('home')}>
+            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#C5A059] bg-[#0B132B] shadow-md shrink-0">
+              <img 
+                src={SITE_CONTENT.profile.photoUrl} 
+                alt={SITE_CONTENT.profile.name} 
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div>
-              <span className="text-xl font-bold tracking-tight text-white block">ArchitectingSuccess<span className="text-[#C5A059]">.in</span></span>
-              <span className="text-xs text-gray-300 tracking-wider uppercase font-medium">O V Suresh Babu Super App</span>
+              <span className="font-serif font-bold text-xl tracking-wide block">ArchitectingSuccess<span className="text-[#C5A059]">.in</span></span>
+              <span className="text-xs text-gray-600 tracking-wider uppercase">Super App Hub</span>
             </div>
           </div>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
-            <a href="#about" className="hover:text-[#C5A059] transition-colors">About Founder</a>
-            <a href="#media" className="hover:text-[#C5A059] transition-colors">Photo & Video Gallery</a>
-            <a href="#resources" className="hover:text-[#C5A059] transition-colors">Master Guides</a>
-            <a href="#portals" className="hover:text-[#C5A059] transition-colors">Student Portals</a>
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-3 text-xs xl:text-sm font-medium tracking-wide">
+            <button onClick={() => setActiveTab('home')} className={`transition hover:text-[#C5A059] ${activeTab === 'home' ? 'text-[#C5A059] font-bold' : ''}`}>Dashboard</button>
+            <button onClick={() => setActiveTab('tech')} className={`transition hover:text-[#C5A059] ${activeTab === 'tech' ? 'text-[#C5A059] font-bold' : ''}`}>Tech & Code</button>
+            <button onClick={() => setActiveTab('relationship')} className={`transition hover:text-[#C5A059] ${activeTab === 'relationship' ? 'text-[#C5A059] font-bold' : ''}`}>Relationships</button>
+            <button onClick={() => setActiveTab('education')} className={`transition hover:text-[#C5A059] ${activeTab === 'education' ? 'text-[#C5A059] font-bold' : ''}`}>Students</button>
+            <button onClick={() => setActiveTab('behavior')} className={`transition hover:text-[#C5A059] ${activeTab === 'behavior' ? 'text-[#C5A059] font-bold' : ''}`}>Life Skills</button>
+            <button onClick={() => setActiveTab('vault')} className={`transition hover:text-[#C5A059] ${activeTab === 'vault' ? 'text-[#C5A059] font-bold' : ''}`}>Vault</button>
+            <button onClick={() => setActiveTab('library')} className={`transition hover:text-[#C5A059] ${activeTab === 'library' ? 'text-[#C5A059] font-bold' : ''}`}>Library</button>
+            <button onClick={() => setActiveTab('competitions')} className={`transition hover:text-[#C5A059] ${activeTab === 'competitions' ? 'text-[#C5A059] font-bold' : ''}`}>Portals</button>
           </nav>
 
-          {/* Action Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <a 
-              href="https://www.linkedin.com/in/o-v-suresh-babu-4211842a?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-lg bg-[#C5A059] text-white font-medium text-sm hover:bg-[#b08c47] transition-all shadow-md flex items-center space-x-2"
-            >
-              <span>LinkedIn Profile</span>
-              <ExternalLink className="w-4 h-4" />
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-white hover:text-[#C5A059] focus:outline-none"
-            >
-              {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-            </button>
-          </div>
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden text-[#0B132B]">
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Dropdown */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#0B132B] border-b border-[#C5A059]/20 px-4 pt-2 pb-6 space-y-3">
-            <a 
-              href="#about" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium text-gray-200 hover:text-[#C5A059]"
-            >
-              About Founder
-            </a>
-            <a 
-              href="#media" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium text-gray-200 hover:text-[#C5A059]"
-            >
-              Photo & Video Gallery
-            </a>
-            <a 
-              href="#resources" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium text-gray-200 hover:text-[#C5A059]"
-            >
-              Master Guides
-            </a>
-            <a 
-              href="#portals" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium text-gray-200 hover:text-[#C5A059]"
-            >
-              Student Portals
-            </a>
-            <div className="pt-2">
-              <a 
-                href="https://www.linkedin.com/in/o-v-suresh-babu-4211842a?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-full py-2.5 rounded-lg bg-[#C5A059] text-white font-medium text-center flex items-center justify-center space-x-2"
-              >
-                <span>LinkedIn Profile</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
+          <div className="lg:hidden absolute top-20 left-0 w-full bg-[#FAF9F6] border-b border-[#E2DED0] px-6 py-6 space-y-4 shadow-xl max-h-[80vh] overflow-y-auto">
+            <button onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Dashboard</button>
+            <button onClick={() => { setActiveTab('tech'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Tech & Code Hub</button>
+            <button onClick={() => { setActiveTab('relationship'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Relationship Guide</button>
+            <button onClick={() => { setActiveTab('education'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Student & Teacher Hub</button>
+            <button onClick={() => { setActiveTab('behavior'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Life Skills & CBT</button>
+            <button onClick={() => { setActiveTab('vault'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Knowledge Vault</button>
+            <button onClick={() => { setActiveTab('library'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">Digital Library</button>
+            <button onClick={() => { setActiveTab('competitions'); setMobileMenuOpen(false); }} className="block text-lg font-medium w-full text-left">OKS Portals</button>
+            <button onClick={() => { setActiveTab('contact'); setMobileMenuOpen(false); }} className="block text-lg font-medium text-[#C5A059] w-full text-left">Feedback & Inquire</button>
           </div>
         )}
       </header>
 
-      {/* Introduction Banner & Mission Statement */}
-      <section className="bg-gradient-to-b from-[#0B132B] to-[#141f3d] text-white py-16 px-4 sm:px-6 lg:px-8 border-b border-[#C5A059]/20">
-        <div className="max-w-5xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#C5A059]/20 border border-[#C5A059]/40 text-[#C5A059] text-xs font-semibold tracking-wider uppercase">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Excellence in Engineering, Behavioral Science & Education</span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-            Empowering Minds, Architecting Success & <span className="text-[#C5A059]">Transforming Futures</span>
-          </h1>
-          <p className="text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
-            Welcome to the digital super app hub of <strong>O V Suresh Babu</strong>—Deputy General Manager at BEML, NLP Master Trainer, Executive Leadership Coach, and Founder Chairman of OKS Memorial Trust. Explore curated downloadable mastery guides spanning STEM education, behavioural architecture, emotional intelligence, and advanced programming stacks.
-          </p>
-
-          {/* Live Counters Bar */}
-          <div className="pt-6 grid grid-cols-2 gap-4 max-w-lg mx-auto">
-            <div className="bg-white/5 border border-white/10 rounded-xl p-4 backdrop-blur-sm text-center">
-              <span className="block text-2xl sm:text-3xl font-bold text-[#C5A059]">{visitorCount.toLocaleString()}</span>
-              <span className="text-xs text-gray-400 uppercase tracking-wider">Total Platform Visits</span>
-            </div>
-            <div className="bg-white/5 border border-white/10 rounded-xl p-4 backdrop-blur-sm text-center">
-              <span className="block text-2xl sm:text-3xl font-bold text-[#C5A059]">{downloadCount.toLocaleString()}</span>
-              <span className="text-xs text-gray-400 uppercase tracking-wider">Guides Downloaded</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Interactive Photo & Video Showcase Section */}
-      <section id="media" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#C5A059]">Visual Insights & Highlights</span>
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#0B132B] mt-2">Executive Seminars, Workshops & Community Impact</h2>
-          <p className="text-gray-600 text-sm mt-2">A glimpse into our leadership training sessions, public speaking competitions, and community outreach programs.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          {/* Media Card 1: Seminar Keynote */}
-          <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all group">
-            <div className="h-48 bg-gradient-to-br from-[#0B132B] to-[#1e293b] relative flex items-center justify-center p-6">
-              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]"></div>
-              <div className="text-center relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-[#C5A059] text-white flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 transition-transform">
-                  <Video className="w-7 h-7" />
-                </div>
-                <span className="text-xs font-semibold text-[#C5A059] uppercase tracking-wider">Keynote Address</span>
-              </div>
-            </div>
-            <div className="p-6">
-              <h3 className="text-lg font-bold text-[#0B132B] mb-2">Behavioral Architecture & Executive Presence</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Delivering high-impact leadership training focusing on non-verbal communication, emotional attunement, and Zero-Vocals executive presence.
-              </p>
-              <div className="flex items-center text-xs font-semibold text-[#C5A059]">
-                <span>Watch Session Highlights</span>
-                <ChevronRight className="w-4 h-4 ml-1" />
-              </div>
-            </div>
-          </div>
-
-          {/* Media Card 2: Student Workshop */}
-          <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all group">
-            <div className="h-48 bg-gradient-to-br from-[#141f3d] to-[#0B132B] relative flex items-center justify-center p-6">
-              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]"></div>
-              <div className="text-center relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-[#C5A059] text-white flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 transition-transform">
-                  <ImageIcon className="w-7 h-7" />
-                </div>
-                <span className="text-xs font-semibold text-[#C5A059] uppercase tracking-wider">OKS Memorial Trust</span>
-              </div>
-            </div>
-            <div className="p-6">
-              <h3 className="text-lg font-bold text-[#0B132B] mb-2">Public Speaking & Youth Enrichment</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Organizing public speaking workshops and drawing competitions for children at BEML Nagar in coordination with Telugu Kala Samithi.
-              </p>
-              <div className="flex items-center text-xs font-semibold text-[#C5A059]">
-                <span>View Photo Gallery</span>
-                <ChevronRight className="w-4 h-4 ml-1" />
-              </div>
-            </div>
-          </div>
-
-          {/* Media Card 3: Engineering Leadership */}
-          <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all group">
-            <div className="h-48 bg-gradient-to-br from-[#0B132B] to-[#24345e] relative flex items-center justify-center p-6">
-              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]"></div>
-              <div className="text-center relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-[#C5A059] text-white flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 transition-transform">
-                  <Cpu className="w-7 h-7" />
-                </div>
-                <span className="text-xs font-semibold text-[#C5A059] uppercase tracking-wider">BEML Engineering</span>
-              </div>
-            </div>
-            <div className="p-6">
-              <h3 className="text-lg font-bold text-[#0B132B] mb-2">High-Stakes Engineering Execution</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Directing complex engineering projects with over 30 years of industrial expertise, combining technical rigor with strategic team leadership.
-              </p>
-              <div className="flex items-center text-xs font-semibold text-[#C5A059]">
-                <span>Explore Technical Guides</span>
-                <ChevronRight className="w-4 h-4 ml-1" />
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Main Content Area: Resource Repository */}
-      <main id="resources" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        
-        {/* Section Heading & Search / Filter Controls */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+      {/* MAIN VIEW AREA */}
+      <main>
+        {activeTab === 'home' && (
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B132B]">Exhaustive Master Guides</h2>
-            <p className="text-gray-600 text-sm mt-1">Select any guide below to instantly read or download high-resolution educational PDFs.</p>
-          </div>
+            {/* WEBSITE INTRODUCTION BANNER */}
+            <section className="bg-[#0B132B] text-white py-12 border-b border-[#C5A059]/30">
+              <div className="max-w-6xl mx-auto px-6 space-y-4 text-center">
+                <span className="text-[#C5A059] text-xs font-semibold tracking-widest uppercase">About ArchitectingSuccess.in</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">Empowering Human Excellence & Technical Mastery</h2>
+                <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed text-sm md:text-base">
+                  <strong>ArchitectingSuccess.in</strong> is the premier professional hub created by <strong>O V Suresh Babu</strong> (Deputy General Manager at BEML Limited, NLP Master Trainer, Behavioral Architect, and Founder Chairman of OKS Memorial Trust). This platform integrates over 30 years of industrial engineering execution with advanced behavioral science, cognitive psychology, and educational mentorship to empower executives, students, couples, and technologists worldwide.
+                </p>
+              </div>
+            </section>
 
-          {/* Search Bar */}
-          <div className="relative w-full md:w-80">
-            <Search className="absolute left-3.5 top-3 w-4 h-4 text-gray-400" />
-            <input 
-              type="text"
-              placeholder="Search guides or topics..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#C5A059] shadow-sm"
-            />
-          </div>
-        </div>
-
-        {/* Category Filter Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8 border-b border-gray-200 pb-4">
-          <button 
-            onClick={() => setActiveTab('all')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'all' ? 'bg-[#0B132B] text-white shadow' : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'}`}
-          >
-            All Resources ({resources.length})
-          </button>
-          <button 
-            onClick={() => setActiveTab('academics')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'academics' ? 'bg-[#0B132B] text-white shadow' : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'}`}
-          >
-            Academics & STEM
-          </button>
-          <button 
-            onClick={() => setActiveTab('psychology')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'psychology' ? 'bg-[#0B132B] text-white shadow' : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'}`}
-          >
-            Behavioral Architecture & Mind
-          </button>
-          <button 
-            onClick={() => setActiveTab('relationships')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'relationships' ? 'bg-[#0B132B] text-white shadow' : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'}`}
-          >
-            Emotional & Relationship Intelligence
-          </button>
-          <button 
-            onClick={() => setActiveTab('tech')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'tech' ? 'bg-[#0B132B] text-white shadow' : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'}`}
-          >
-            Tech & AI Stacks
-          </button>
-        </div>
-
-        {/* Resource Cards Grid */}
-        {filteredResources.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-2xl border border-gray-200 shadow-sm">
-            <BookOpen className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-            <h3 className="text-lg font-semibold text-gray-700">No matching guides found</h3>
-            <p className="text-gray-500 text-sm mt-1">Try adjusting your search terms or category filter.</p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredResources.map((res) => (
-              <div 
-                key={res.id} 
-                className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-[#C5A059]/50"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="p-3 bg-[#FAF9F6] rounded-xl border border-gray-100 group-hover:scale-110 transition-transform">
-                      {res.icon}
-                    </div>
-                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#C5A059]/10 text-[#C5A059] border border-[#C5A059]/20">
-                      {res.badge}
-                    </span>
+            {/* HERO & INTRODUCTION */}
+            <section className="relative overflow-hidden py-16 md:py-24 bg-gradient-to-b from-[#FAF9F6] to-[#F2EFE9]">
+              <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div className="lg:col-span-7 space-y-6">
+                  <div className="inline-flex items-center space-x-2 px-3 py-1 bg-[#C5A059]/10 text-[#C5A059] text-xs font-semibold tracking-widest uppercase border border-[#C5A059]/20">
+                    <Sparkles size={14} />
+                    <span>{SITE_CONTENT.profile.role}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-[#0B132B] mb-2 group-hover:text-[#C5A059] transition-colors">
-                    {res.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                    {res.description}
+                  
+                  <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0B132B]">
+                    Mastering the Blueprint of <span className="text-[#C5A059] italic">Human & Technical Excellence</span>.
+                  </h1>
+                  
+                  <p className="text-lg text-gray-700 leading-relaxed font-sans">
+                    {SITE_CONTENT.profile.bioSummary}
                   </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div className="p-4 bg-white border border-[#E2DED0] shadow-sm">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Engineering Leadership</span>
+                      <span className="font-serif font-bold text-base text-[#0B132B]">{SITE_CONTENT.profile.designation}</span>
+                    </div>
+                    <div className="p-4 bg-white border border-[#E2DED0] shadow-sm">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">Social Impact</span>
+                      <span className="font-serif font-bold text-base text-[#0B132B]">{SITE_CONTENT.profile.trust}</span>
+                    </div>
+                  </div>
+
+                  {/* ANALYTICS STATS BAR */}
+                  <div className="grid grid-cols-2 gap-4 pt-2">
+                    <div className="p-4 bg-[#0B132B] text-white flex items-center space-x-4 border border-[#C5A059]/30">
+                      <div className="p-3 bg-[#C5A059]/20 text-[#C5A059]">
+                        <Eye size={24} />
+                      </div>
+                      <div>
+                        <span className="text-xs text-gray-400 uppercase tracking-wider block">Total Visitors</span>
+                        <span className="font-serif font-bold text-xl text-white">{visitorCount.toLocaleString()}</span>
+                      </div>
+                    </div>
+                    <div className="p-4 bg-[#0B132B] text-white flex items-center space-x-4 border border-[#C5A059]/30">
+                      <div className="p-3 bg-[#C5A059]/20 text-[#C5A059]">
+                        <Download size={24} />
+                      </div>
+                      <div>
+                        <span className="text-xs text-gray-400 uppercase tracking-wider block">Total Downloads</span>
+                        <span className="font-serif font-bold text-xl text-white">{downloadCount.toLocaleString()}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-2">
+                    <button onClick={() => setActiveTab('tech')} className="inline-flex items-center justify-center px-8 py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                      Explore Tech & Code Hub <ArrowRight className="ml-2" size={18} />
+                    </button>
+                    <button onClick={() => setActiveTab('relationship')} className="inline-flex items-center justify-center px-8 py-4 border border-[#0B132B] text-[#0B132B] font-medium hover:bg-[#0B132B] hover:text-white transition">
+                      Relationship Guide
+                    </button>
+                  </div>
                 </div>
 
-                <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
-                  <span className="text-xs font-medium text-gray-400">PDF Document</span>
-                  <a 
-                    href={res.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-[#0B132B] text-white text-xs font-semibold hover:bg-[#C5A059] transition-colors shadow-sm"
-                  >
-                    <span>Access PDF</span>
-                    <Download className="w-3.5 h-3.5" />
+                {/* Portrait Card */}
+                <div className="lg:col-span-5">
+                  <div className="bg-[#0B132B] p-8 text-white shadow-2xl relative overflow-hidden border border-[#C5A059]/30">
+                    <div className="absolute top-0 right-0 w-48 h-48 bg-[#C5A059]/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div className="w-52 h-52 sm:w-56 sm:h-56 mx-auto mb-6 rounded-lg overflow-hidden border-2 border-[#C5A059]/60 bg-[#16213E] shadow-lg">
+                      <img 
+                        src={SITE_CONTENT.profile.photoUrl} 
+                        alt={SITE_CONTENT.profile.name}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                    <div className="text-center space-y-1">
+                      <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Executive Profile</span>
+                      <h3 className="font-serif text-2xl font-bold">{SITE_CONTENT.profile.name}</h3>
+                      <p className="text-sm text-gray-300">{SITE_CONTENT.profile.designation}</p>
+                    </div>
+                    <div className="border-t border-white/10 mt-6 pt-5 space-y-3 text-sm text-gray-300">
+                      <div className="flex items-center space-x-3">
+                        <UserCheck size={16} className="text-[#C5A059] shrink-0" />
+                        <span>{SITE_CONTENT.profile.trust}</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <ShieldCheck size={16} className="text-[#C5A059] shrink-0" />
+                        <span>{SITE_CONTENT.profile.experience}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* VIDEOS SHOWCASE SECTION */}
+            <section id="videos-section" className="py-20 bg-white border-y border-[#E2DED0]">
+              <div className="max-w-7xl mx-auto px-6 space-y-12">
+                <div className="text-center max-w-2xl mx-auto space-y-4">
+                  <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Visual Showcase</span>
+                  <h2 className="font-serif text-3xl md:text-4xl font-bold">Training Programs, Service Activities & Recognitions</h2>
+                  <p className="text-gray-600">Watch our highlights and media updates directly as you open the platform.</p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                  <div className="bg-[#FAF9F6] p-6 border border-[#E2DED0] shadow-sm space-y-4">
+                    <h3 className="font-serif font-bold text-xl text-[#0B132B]">Training Programs</h3>
+                    <p className="text-xs text-gray-500">Executive coaching & behavioral architecture sessions.</p>
+                    <div className="aspect-video w-full bg-black/10 rounded overflow-hidden border border-[#E2DED0]">
+                      <iframe src={SITE_CONTENT.videos.trainingPrograms} title="Training Programs" className="w-full h-full" allow="autoplay"></iframe>
+                    </div>
+                  </div>
+                  <div className="bg-[#FAF9F6] p-6 border border-[#E2DED0] shadow-sm space-y-4">
+                    <h3 className="font-serif font-bold text-xl text-[#0B132B]">Service Activities</h3>
+                    <p className="text-xs text-gray-500">OKS Memorial Trust community initiatives & events.</p>
+                    <div className="aspect-video w-full bg-black/10 rounded overflow-hidden border border-[#E2DED0]">
+                      <iframe src={SITE_CONTENT.videos.serviceActivities} title="Service Activities" className="w-full h-full" allow="autoplay"></iframe>
+                    </div>
+                  </div>
+                  <div className="bg-[#FAF9F6] p-6 border border-[#E2DED0] shadow-sm space-y-4">
+                    <h3 className="font-serif font-bold text-xl text-[#0B132B]">Recognitions & Honors</h3>
+                    <p className="text-xs text-gray-500">Awards, accolades, and milestone recognitions.</p>
+                    <div className="aspect-video w-full bg-black/10 rounded overflow-hidden border border-[#E2DED0]">
+                      <iframe src={SITE_CONTENT.videos.recognitions} title="Recognitions" className="w-full h-full" allow="autoplay"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* CREDENTIALS BADGES */}
+            <section className="py-20 bg-[#FAF9F6]">
+              <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                  <h2 className="font-serif text-3xl font-bold">Accreditations & Certifications</h2>
+                  <p className="text-gray-600">Globally recognized credentials in cognitive frameworks and human psychology.</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {SITE_CONTENT.credentials.map((cred, index) => (
+                    <div key={index} className="p-6 bg-white border border-[#E2DED0] space-y-3 hover:border-[#C5A059] transition shadow-sm">
+                      <Award className="text-[#C5A059]" size={28} />
+                      <h3 className="font-serif font-bold text-lg">{cred.title}</h3>
+                      <p className="text-xs text-gray-500 uppercase tracking-wider">{cred.org}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </div>
+        )}
+
+        {/* SOFTWARE ENGINEERING & TECH HUB TAB */}
+        {activeTab === 'tech' && (
+          <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6 space-y-16">
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Engineering Execution & Software Guidance</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">Software Engineering & Tech Hub</h2>
+                <p className="text-gray-600">Comprehensive guidance, core principles, teaching methodologies, and advanced techniques across C, Java, JavaScript, HTML, Python, and Latest Technologies.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {SITE_CONTENT.softwareHub.map((tech, index) => (
+                  <div key={index} className="bg-white p-8 border border-[#E2DED0] shadow-sm flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <Code2 className="text-[#C5A059]" size={24} />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">{tech.subtitle}</span>
+                      <h3 className="font-serif text-2xl font-bold text-[#0B132B]">{tech.title}</h3>
+                      
+                      <div className="space-y-3 text-sm text-gray-700 pt-2">
+                        <p><strong className="text-[#0B132B]">Core Principles:</strong> {tech.principles}</p>
+                        <p><strong className="text-[#0B132B]">Teaching Methodology:</strong> {tech.teachingApproach}</p>
+                        <p><strong className="text-[#0B132B]">Advanced Technique:</strong> {tech.technique}</p>
+                      </div>
+                    </div>
+
+                    <button 
+                      onClick={() => downloadGeneratedMaterial(tech.title, {
+                        "Subtitle": tech.subtitle,
+                        "Core Principles": tech.principles,
+                        "Teaching Methodology": tech.teachingApproach,
+                        "Advanced Technique": tech.technique,
+                        "Guidance Notes": "Compiled by O V Suresh Babu for rigorous engineering execution and software architecture mastery."
+                      })}
+                      className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                    >
+                      <Download size={16} className="mr-2" /> Download Tech Material (.txt)
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* RELATIONSHIP & COUPLE DYNAMICS HUB */}
+        {activeTab === 'relationship' && (
+          <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6 space-y-16">
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Certified Relationship & Couple Dynamics</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">Husband & Wife Relationship Guide</h2>
+                <p className="text-gray-600">Rooted in attachment theory, emotional attunement, and professional relationship coaching frameworks—discover psychological insights, proven conflict-deescalation techniques, and practical harmony tips.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {SITE_CONTENT.relationshipModules.map((mod, index) => (
+                  <div key={index} className="bg-white p-8 border border-[#E2DED0] shadow-sm flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <HeartHandshake className="text-[#C5A059]" size={24} />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">{mod.subtitle}</span>
+                      <h3 className="font-serif text-2xl font-bold text-[#0B132B]">{mod.title}</h3>
+                      
+                      <div className="space-y-3 text-sm text-gray-700 pt-2">
+                        <p><strong className="text-[#0B132B]">Psychology Behind It:</strong> {mod.psychology}</p>
+                        <p><strong className="text-[#0B132B]">Recommended Technique:</strong> {mod.technique}</p>
+                        <p><strong className="text-[#0B132B]">Actionable Tip:</strong> {mod.tips}</p>
+                        <p><strong className="text-[#0B132B]">Real-World Example:</strong> {mod.example}</p>
+                      </div>
+                    </div>
+
+                    <button 
+                      onClick={() => downloadGeneratedMaterial(mod.title, {
+                        "Subtitle": mod.subtitle,
+                        "Psychology Behind It": mod.psychology,
+                        "Recommended Technique": mod.technique,
+                        "Actionable Tip": mod.tips,
+                        "Real-World Example": mod.example,
+                        "Coaching Note": "Authored as part of O V Suresh Babu's Professional Relationship Coaching framework."
+                      })}
+                      className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                    >
+                      <Download size={16} className="mr-2" /> Download Relationship Guide (.txt)
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* STUDENT & TEACHER PSYCHOLOGY HUB */}
+        {activeTab === 'education' && (
+          <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6 space-y-16">
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Pedagogical Excellence & Neuro-Education</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">Student & Teacher Psychology Mastery Hub</h2>
+                <p className="text-gray-600">Grounded in psychology, physiology, and biological factors—discover elite methodologies for memorization, focus, high exam scoring, teaching efficacy, and emotional resilience.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {SITE_CONTENT.educationPsychologyModules.map((mod, index) => (
+                  <div key={index} className="bg-white p-8 border border-[#E2DED0] shadow-sm flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <GraduationCap className="text-[#C5A059]" size={24} />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">{mod.subtitle}</span>
+                      <h3 className="font-serif text-2xl font-bold text-[#0B132B]">{mod.title}</h3>
+                      
+                      <div className="space-y-3 text-sm text-gray-700 pt-2">
+                        <p><strong className="text-[#0B132B]">Core Science & Principles:</strong> {mod.intro}</p>
+                        <p><strong className="text-[#0B132B]">Recommended Technique:</strong> {mod.technique}</p>
+                        <p><strong className="text-[#0B132B]">Actionable Tip:</strong> {mod.tips}</p>
+                        <p><strong className="text-[#0B132B]">Practical Application:</strong> {mod.example}</p>
+                      </div>
+                    </div>
+
+                    <button 
+                      onClick={() => downloadGeneratedMaterial(mod.title, {
+                        "Subtitle": mod.subtitle,
+                        "Core Science & Principles": mod.intro,
+                        "Recommended Technique": mod.technique,
+                        "Actionable Tip": mod.tips,
+                        "Practical Application": mod.example,
+                        "Mentorship Summary": "Developed for student success and teacher excellence under OKS Memorial Trust."
+                      })}
+                      className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                    >
+                      <Download size={16} className="mr-2" /> Download Student Material (.txt)
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* BEHAVIORAL & LIFE SKILLS TAB */}
+        {activeTab === 'behavior' && (
+          <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6 space-y-16">
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Core Psychological Architectures</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">Behavioral & Life Skills Hub</h2>
+                <p className="text-gray-600">Explore foundational frameworks, proven techniques, tactical tips, and real-world examples across Neuro-Linguistic Programming, Emotional Intelligence, CBT, Non-Verbal Communication, and Transactional Analysis.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {SITE_CONTENT.behavioralModules.map((mod, index) => (
+                  <div key={index} className="bg-white p-8 border border-[#E2DED0] shadow-sm flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <Brain className="text-[#C5A059]" size={24} />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">{mod.subtitle}</span>
+                      <h3 className="font-serif text-2xl font-bold text-[#0B132B]">{mod.title}</h3>
+                      
+                      <div className="space-y-3 text-sm text-gray-700 pt-2">
+                        <p><strong className="text-[#0B132B]">Introduction:</strong> {mod.intro}</p>
+                        <p><strong className="text-[#0B132B]">Core Technique:</strong> {mod.technique}</p>
+                        <p><strong className="text-[#0B132B]">Actionable Tip:</strong> {mod.tips}</p>
+                        <p><strong className="text-[#0B132B]">Real-World Example:</strong> {mod.example}</p>
+                      </div>
+                    </div>
+
+                    <button 
+                      onClick={() => downloadGeneratedMaterial(mod.title, {
+                        "Subtitle": mod.subtitle,
+                        "Introduction": mod.intro,
+                        "Core Technique": mod.technique,
+                        "Actionable Tip": mod.tips,
+                        "Real-World Example": mod.example,
+                        "Architecture Overview": "Structured by O V Suresh Babu, NLP Master Trainer & Behavioral Architect."
+                      })}
+                      className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                    >
+                      <Download size={16} className="mr-2" /> Download Life Skill Guide (.txt)
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* KNOWLEDGE VAULT TAB */}
+        {activeTab === 'vault' && (
+          <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6 space-y-12">
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Academic & Competitive Hub</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">The Knowledge & Formula Vault</h2>
+                <p className="text-gray-600">Class-wise mathematics, physics, chemistry formulas, vocabulary practice exercises, quantitative aptitude, competitive exam masterclasses, and current affairs—all available to view and download instantly.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {SITE_CONTENT.knowledgeVault.map((item, index) => (
+                  <div key={index} className="bg-white p-8 border border-[#E2DED0] shadow-sm flex flex-col justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                        <FileText className="text-[#C5A059]" size={24} />
+                      </div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059] block">{item.target}</span>
+                      <h3 className="font-serif text-xl font-bold">{item.category}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                    </div>
+                    <button 
+                      onClick={() => downloadGeneratedMaterial(item.category, {
+                        "Target Audience": item.target,
+                        "Description": item.description,
+                        "Vault Compilation": "Curated formulas, practice exercises, and high-yield strategic questions.",
+                        "Instruction": "Use this reference compilation for systematic revision and competitive exam preparation."
+                      })}
+                      className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
+                    >
+                      <Download size={16} className="mr-2" /> Download Vault Material (.txt)
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {activeTab === 'library' && (
+          <section className="py-20 bg-[#0B132B] text-white min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6">
+              <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">Published Wisdom</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">The Digital Book Library</h2>
+                <p className="text-gray-300">Download and read comprehensive guidebooks authored by O V Suresh Babu.</p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {SITE_CONTENT.books.map((book, index) => (
+                  <div key={index} className="p-6 bg-white/5 border border-white/10 hover:border-[#C5A059] transition flex flex-col justify-between space-y-6 shadow-sm">
+                    <div className="space-y-4">
+                      <BookOpen className="text-[#C5A059]" size={32} />
+                      <div className="space-y-2">
+                        <span className="text-xs text-[#C5A059] uppercase tracking-wider">{book.category}</span>
+                        <h3 className="font-serif font-bold text-lg leading-snug">{book.title}</h3>
+                      </div>
+                    </div>
+                    <a 
+                      href={book.downloadUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      onClick={handleDownloadClick}
+                      className="inline-flex items-center justify-center w-full py-2.5 px-4 bg-[#C5A059] text-[#0B132B] font-semibold text-sm hover:bg-white transition"
+                    >
+                      <Download size={16} className="mr-2" /> Download Book
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {activeTab === 'competitions' && (
+          <section className="py-20 bg-[#FAF9F6] min-h-[80vh]">
+            <div className="max-w-7xl mx-auto px-6">
+              <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span className="text-[#C5A059] text-xs tracking-widest uppercase font-semibold">OKS Memorial Trust Hub</span>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold">Live Competitions & Assessment Portals</h2>
+                <p className="text-gray-600">Direct access to state-level assessment platforms for students across KGF and Bangarpet.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                      <Sparkles size={24} className="text-[#C5A059]" />
+                    </div>
+                    <h3 className="font-serif text-xl font-bold">Math, Science & English Suite</h3>
+                    <p className="text-sm text-gray-600">Multi-subject competition and assessment platform designed to foster academic excellence across categories.</p>
+                  </div>
+                  <a href="https://mse-nine.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                    <ArrowRight size={16} className="mr-2" /> Attempt Test Portal
+                  </a>
+                </div>
+
+                <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                      <BookOpen size={24} className="text-[#C5A059]" />
+                    </div>
+                    <h3 className="font-serif text-xl font-bold">English Competition Platform</h3>
+                    <p className="text-sm text-gray-600">Interactive 4-tier assessment tool covering advanced grammar, vocabulary, syntax, and reading comprehension.</p>
+                  </div>
+                  <a href="https://test1-zeta-sand-18.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                    <ArrowRight size={16} className="mr-2" /> Attempt English Test
+                  </a>
+                </div>
+
+                <div className="bg-white p-8 border border-[#E2DED0] shadow-sm space-y-6 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 bg-[#FAF9F6] border border-[#E2DED0] flex items-center justify-center text-[#0B132B]">
+                      <Award size={24} className="text-[#C5A059]" />
+                    </div>
+                    <h3 className="font-serif text-xl font-bold">Chess Competition Portal</h3>
+                    <p className="text-sm text-gray-600">Strategic tournament and event platform organized to encourage youth tactical skills and competitive sportsmanship.</p>
+                  </div>
+                  <a href="https://chess2-umber.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full py-3 bg-[#0B132B] text-white text-sm font-semibold hover:bg-[#C5A059] hover:text-[#0B132B] transition">
+                    <ArrowRight size={16} className="mr-2" /> Join Chess Event
                   </a>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          </section>
+        )}
+
+        {activeTab === 'contact' && (
+          <section className="py-20 max-w-4xl mx-auto px-6 min-h-[80vh]">
+            <div className="bg-white p-8 md:p-12 border border-[#E2DED0] shadow-sm space-y-8">
+              <div className="text-center space-y-2">
+                <h2 className="font-serif text-3xl font-bold">Feedback & Inquiries</h2>
+                <p className="text-gray-600 text-sm">Share your viewer feedback or send an inquiry securely routed to O V Suresh Babu.</p>
+              </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Full Name</label>
+                  <input required type="text" name="name" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your name" />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Email Address</label>
+                  <input required type="email" name="email" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Enter your email" />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-wider font-semibold mb-2">Your Feedback / Message</label>
+                  <textarea required rows={4} name="message" className="w-full p-4 bg-[#FAF9F6] border border-[#E2DED0] focus:outline-none focus:border-[#0B132B]" placeholder="Share your feedback on our training programs, service activities, or coaching requirements"></textarea>
+                </div>
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-[#0B132B] text-white font-medium hover:bg-[#C5A059] hover:text-[#0B132B] transition disabled:opacity-50"
+                >
+                  {isSubmitting ? 'Sending Feedback...' : 'Submit Feedback / Inquiry'}
+                </button>
+                {formStatus.message && (
+                  <p className={`text-sm font-medium text-center ${formStatus.submitted ? 'text-green-700' : 'text-red-600'}`}>
+                    {formStatus.message}
+                  </p>
+                )}
+              </form>
+            </div>
+          </section>
         )}
       </main>
 
-      {/* Student Portals Section */}
-      <section id="portals" className="bg-white py-16 border-t border-gray-200 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#C5A059]">OKS Memorial Trust Ecosystem</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B132B] mt-2">Active Student Portals & Assessment Apps</h2>
-            <p className="text-gray-600 text-sm mt-2">Explore our web-based educational assessment tools, online quiz portals, and student competition platforms.</p>
+      {/* MOBILE BOTTOM NAVIGATION BAR */}
+      <nav className="lg:hidden fixed bottom-0 left-0 w-full bg-[#0B132B] text-white border-t border-white/10 z-50 flex justify-around py-3">
+        <button onClick={() => setActiveTab('home')} className={`flex flex-col items-center space-y-1 ${activeTab === 'home' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <Home size={18} />
+          <span className="text-[9px] tracking-wider uppercase font-medium">Home</span>
+        </button>
+        <button onClick={() => setActiveTab('tech')} className={`flex flex-col items-center space-y-1 ${activeTab === 'tech' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <Code2 size={18} />
+          <span className="text-[9px] tracking-wider uppercase font-medium">Tech</span>
+        </button>
+        <button onClick={() => setActiveTab('relationship')} className={`flex flex-col items-center space-y-1 ${activeTab === 'relationship' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <HeartHandshake size={18} />
+          <span className="text-[9px] tracking-wider uppercase font-medium">Couple</span>
+        </button>
+        <button onClick={() => setActiveTab('education')} className={`flex flex-col items-center space-y-1 ${activeTab === 'education' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <GraduationCap size={18} />
+          <span className="text-[9px] tracking-wider uppercase font-medium">Students</span>
+        </button>
+        <button onClick={() => setActiveTab('behavior')} className={`flex flex-col items-center space-y-1 ${activeTab === 'behavior' ? 'text-[#C5A059]' : 'text-gray-400'}`}>
+          <Brain size={18} />
+          <span className="text-[9px] tracking-wider uppercase font-medium">Life Skills</span>
+        </button>
+      </nav>
+
+      {/* FOOTER WITH SOCIAL LINKS & ANALYTICS SUMMARY */}
+      <footer className="bg-[#0B132B] text-white py-16 border-t border-white/10 hidden lg:block">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+          <div className="space-y-2">
+            <span className="font-serif font-bold text-xl tracking-wide block">ArchitectingSuccess<span className="text-[#C5A059]">.in</span></span>
+            <p className="text-sm text-gray-400">© {new Date().getFullYear()} O V Suresh Babu & OKS Memorial Trust. All rights reserved.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="flex justify-center space-x-6">
             <a 
-              href="https://mse-nine.vercel.app" 
+              href={SITE_CONTENT.profile.facebookUrl} 
               target="_blank" 
-              rel="noopener noreferrer"
-              className="p-6 rounded-2xl bg-[#FAF9F6] border border-gray-200 hover:border-[#C5A059] transition-all group flex flex-col justify-between"
+              rel="noopener noreferrer" 
+              className="p-3 bg-white/5 hover:bg-[#C5A059] hover:text-[#0B132B] transition rounded-full border border-white/10 flex items-center space-x-2 px-5 text-sm"
             >
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-[#0B132B] text-white flex items-center justify-center mb-4 group-hover:bg-[#C5A059] transition-colors">
-                  <Globe className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold text-[#0B132B]">MSE Student Assessment Portal</h3>
-                <p className="text-gray-600 text-sm mt-2">Interactive quiz application with real-time scoring and tab-detection security.</p>
-              </div>
-              <div className="mt-6 flex items-center text-xs font-semibold text-[#C5A059] group-hover:translate-x-1 transition-transform">
-                <span>Launch Portal</span>
-                <ChevronRight className="w-4 h-4 ml-1" />
-              </div>
+              <Facebook size={18} />
+              <span>Facebook Profile</span>
             </a>
-
             <a 
-              href="https://test1-zeta-sand-18.vercel.app" 
+              href={SITE_CONTENT.profile.linkedinUrl} 
               target="_blank" 
-              rel="noopener noreferrer"
-              className="p-6 rounded-2xl bg-[#FAF9F6] border border-gray-200 hover:border-[#C5A059] transition-all group flex flex-col justify-between"
+              rel="noopener noreferrer" 
+              className="p-3 bg-white/5 hover:bg-[#C5A059] hover:text-[#0B132B] transition rounded-full border border-white/10 flex items-center space-x-2 px-5 text-sm"
             >
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-[#0B132B] text-white flex items-center justify-center mb-4 group-hover:bg-[#C5A059] transition-colors">
-                  <Award className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold text-[#0B132B]">Academic Competition Hub</h3>
-                <p className="text-gray-600 text-sm mt-2">Online English academic competitions and Olympiad portals for school and college students.</p>
-              </div>
-              <div className="mt-6 flex items-center text-xs font-semibold text-[#C5A059] group-hover:translate-x-1 transition-transform">
-                <span>Launch Portal</span>
-                <ChevronRight className="w-4 h-4 ml-1" />
-              </div>
-            </a>
-
-            <a 
-              href="https://chess2-umber.vercel.app" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-6 rounded-2xl bg-[#FAF9F6] border border-gray-200 hover:border-[#C5A059] transition-all group flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-[#0B132B] text-white flex items-center justify-center mb-4 group-hover:bg-[#C5A059] transition-colors">
-                  <Layers className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold text-[#0B132B]">Cognitive Strategy Chess Arena</h3>
-                <p className="text-gray-600 text-sm mt-2">Strategic thinking and logical reasoning development portal for young learners.</p>
-              </div>
-              <div className="mt-6 flex items-center text-xs font-semibold text-[#C5A059] group-hover:translate-x-1 transition-transform">
-                <span>Launch Portal</span>
-                <ChevronRight className="w-4 h-4 ml-1" />
-              </div>
+              <Linkedin size={18} />
+              <span>LinkedIn Profile</span>
             </a>
           </div>
-        </div>
-      </section>
 
-      {/* About Founder Section */}
-      <section id="about" className="py-16 bg-[#FAF9F6] border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#0B132B] text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden">
-            <div className="absolute right-0 top-0 translate-x-1/3 -translate-y-1/3 w-96 h-96 bg-[#C5A059]/10 rounded-full blur-3xl pointer-events-none"></div>
-            
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-              <div className="lg:col-span-2 space-y-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#C5A059]">Leadership Profile</span>
-                <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">O V Suresh Babu</h2>
-                <p className="text-[#C5A059] font-medium text-sm sm:text-base">
-                  Deputy General Manager (BEML) | NLP Master Trainer | Behavioral Architect | Founder Chairman (OKS Memorial Trust)
-                </p>
-                <p className="text-gray-300 text-sm sm:text-base leading-relaxed pt-2">
-                  With over 30 years of high-stakes engineering execution experience combined with 15+ years in behavioral architecture, executive coaching, and NLP master training, O V Suresh Babu bridges technical rigor with emotional mastery. Through the OKS Memorial Trust, he spearheads educational enrichment, community welfare, and free digital empowerment for underprivileged students.
-                </p>
-                <div className="pt-4 flex flex-wrap gap-4">
-                  <a 
-                    href="https://www.facebook.com/share/1Gq1gJC3KD/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold flex items-center space-x-2 transition-all"
-                  >
-                    <span>Facebook Profile</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                  <a 
-                    href="https://www.linkedin.com/in/o-v-suresh-babu-4211842a?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 rounded-xl bg-[#C5A059] hover:bg-[#b08c47] text-white text-xs font-semibold flex items-center space-x-2 transition-all shadow"
-                  >
-                    <span>LinkedIn Profile</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
-
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md space-y-4">
-                <h3 className="text-lg font-bold text-[#C5A059]">Core Frameworks</h3>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#C5A059]" />
-                    <span>STEPPA & RABT Behavioral Models</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#C5A059]" />
-                    <span>ABC-DE-EF Cognitive Frameworks</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#C5A059]" />
-                    <span>9-Pillar Wellness Architecture</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#C5A059]" />
-                    <span>Zero-Vocals Executive Presence</span>
-                  </li>
-                </ul>
-              </div>
+          <div className="text-right space-y-1 text-sm text-gray-400">
+            <p className="font-medium text-white">{SITE_CONTENT.profile.name}</p>
+            <p>{SITE_CONTENT.profile.designation}</p>
+            <div className="flex justify-end space-x-4 pt-2 text-xs text-[#C5A059]">
+              <span>Visitors: {visitorCount.toLocaleString()}</span>
+              <span>•</span>
+              <span>Downloads: {downloadCount.toLocaleString()}</span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-[#0B132B] text-gray-400 py-12 border-t border-[#C5A059]/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-          <div>
-            <span className="text-white font-bold text-lg block">ArchitectingSuccess<span className="text-[#C5A059]">.in</span></span>
-            <p className="text-xs text-gray-500 mt-1">© 2026 O V Suresh Babu & OKS Memorial Trust. All rights reserved.</p>
-          </div>
-          <div className="flex items-center space-x-6 text-sm">
-            <a href="https://www.facebook.com/share/1Gq1gJC3KD/" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A059] transition-colors">Facebook</a>
-            <a href="https://www.linkedin.com/in/o-v-suresh-babu-4211842a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A059] transition-colors">LinkedIn</a>
-            <a href="#resources" className="hover:text-[#C5A059] transition-colors">Master Guides</a>
           </div>
         </div>
       </footer>
