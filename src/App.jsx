@@ -3,7 +3,7 @@ import {
   BookOpen, Code, Brain, Heart, Award, FileText, Download, 
   ExternalLink, Menu, X, Sparkles, Terminal, Cpu, Layout, 
   Layers, ChevronRight, CheckCircle2, Search, Star, Users, 
-  Globe, ShieldCheck, Compass, ArrowUpRight
+  Globe, ShieldCheck, Compass, ArrowUpRight, Play, Video, Image as ImageIcon
 } from 'lucide-react';
 
 export default function App() {
@@ -12,8 +12,8 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   
   // Live Counters State simulation
-  const [visitorCount, setVisitorCount] = useState(14285);
-  const [downloadCount, setDownloadCount] = useState(48920);
+  const [visitorCount, setVisitorCount] = useState(15420);
+  const [downloadCount, setDownloadCount] = useState(51240);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -242,9 +242,9 @@ export default function App() {
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
             <a href="#about" className="hover:text-[#C5A059] transition-colors">About Founder</a>
+            <a href="#media" className="hover:text-[#C5A059] transition-colors">Photo & Video Gallery</a>
             <a href="#resources" className="hover:text-[#C5A059] transition-colors">Master Guides</a>
             <a href="#portals" className="hover:text-[#C5A059] transition-colors">Student Portals</a>
-            <a href="#connect" className="hover:text-[#C5A059] transition-colors">Connect</a>
           </nav>
 
           {/* Action Buttons */}
@@ -282,6 +282,13 @@ export default function App() {
               About Founder
             </a>
             <a 
+              href="#media" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-base font-medium text-gray-200 hover:text-[#C5A059]"
+            >
+              Photo & Video Gallery
+            </a>
+            <a 
               href="#resources" 
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 text-base font-medium text-gray-200 hover:text-[#C5A059]"
@@ -294,13 +301,6 @@ export default function App() {
               className="block py-2 text-base font-medium text-gray-200 hover:text-[#C5A059]"
             >
               Student Portals
-            </a>
-            <a 
-              href="#connect" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium text-gray-200 hover:text-[#C5A059]"
-            >
-              Connect
             </a>
             <div className="pt-2">
               <a 
@@ -332,7 +332,7 @@ export default function App() {
           </p>
 
           {/* Live Counters Bar */}
-          <div className="pt-6 grid grid-cols-2 sm:grid-cols-2 gap-4 max-w-lg mx-auto">
+          <div className="pt-6 grid grid-cols-2 gap-4 max-w-lg mx-auto">
             <div className="bg-white/5 border border-white/10 rounded-xl p-4 backdrop-blur-sm text-center">
               <span className="block text-2xl sm:text-3xl font-bold text-[#C5A059]">{visitorCount.toLocaleString()}</span>
               <span className="text-xs text-gray-400 uppercase tracking-wider">Total Platform Visits</span>
@@ -342,6 +342,88 @@ export default function App() {
               <span className="text-xs text-gray-400 uppercase tracking-wider">Guides Downloaded</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Interactive Photo & Video Showcase Section */}
+      <section id="media" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#C5A059]">Visual Insights & Highlights</span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#0B132B] mt-2">Executive Seminars, Workshops & Community Impact</h2>
+          <p className="text-gray-600 text-sm mt-2">A glimpse into our leadership training sessions, public speaking competitions, and community outreach programs.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          {/* Media Card 1: Seminar Keynote */}
+          <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+            <div className="h-48 bg-gradient-to-br from-[#0B132B] to-[#1e293b] relative flex items-center justify-center p-6">
+              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]"></div>
+              <div className="text-center relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-[#C5A059] text-white flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 transition-transform">
+                  <Video className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-semibold text-[#C5A059] uppercase tracking-wider">Keynote Address</span>
+              </div>
+            </div>
+            <div className="p-6">
+              <h3 className="text-lg font-bold text-[#0B132B] mb-2">Behavioral Architecture & Executive Presence</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                Delivering high-impact leadership training focusing on non-verbal communication, emotional attunement, and Zero-Vocals executive presence.
+              </p>
+              <div className="flex items-center text-xs font-semibold text-[#C5A059]">
+                <span>Watch Session Highlights</span>
+                <ChevronRight className="w-4 h-4 ml-1" />
+              </div>
+            </div>
+          </div>
+
+          {/* Media Card 2: Student Workshop */}
+          <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+            <div className="h-48 bg-gradient-to-br from-[#141f3d] to-[#0B132B] relative flex items-center justify-center p-6">
+              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]"></div>
+              <div className="text-center relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-[#C5A059] text-white flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 transition-transform">
+                  <ImageIcon className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-semibold text-[#C5A059] uppercase tracking-wider">OKS Memorial Trust</span>
+              </div>
+            </div>
+            <div className="p-6">
+              <h3 className="text-lg font-bold text-[#0B132B] mb-2">Public Speaking & Youth Enrichment</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                Organizing public speaking workshops and drawing competitions for children at BEML Nagar in coordination with Telugu Kala Samithi.
+              </p>
+              <div className="flex items-center text-xs font-semibold text-[#C5A059]">
+                <span>View Photo Gallery</span>
+                <ChevronRight className="w-4 h-4 ml-1" />
+              </div>
+            </div>
+          </div>
+
+          {/* Media Card 3: Engineering Leadership */}
+          <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+            <div className="h-48 bg-gradient-to-br from-[#0B132B] to-[#24345e] relative flex items-center justify-center p-6">
+              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]"></div>
+              <div className="text-center relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-[#C5A059] text-white flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:scale-110 transition-transform">
+                  <Cpu className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-semibold text-[#C5A059] uppercase tracking-wider">BEML Engineering</span>
+              </div>
+            </div>
+            <div className="p-6">
+              <h3 className="text-lg font-bold text-[#0B132B] mb-2">High-Stakes Engineering Execution</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                Directing complex engineering projects with over 30 years of industrial expertise, combining technical rigor with strategic team leadership.
+              </p>
+              <div className="flex items-center text-xs font-semibold text-[#C5A059]">
+                <span>Explore Technical Guides</span>
+                <ChevronRight className="w-4 h-4 ml-1" />
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -586,7 +668,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer id="connect" className="bg-[#0B132B] text-gray-400 py-12 border-t border-[#C5A059]/20">
+      <footer className="bg-[#0B132B] text-gray-400 py-12 border-t border-[#C5A059]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div>
             <span className="text-white font-bold text-lg block">ArchitectingSuccess<span className="text-[#C5A059]">.in</span></span>
