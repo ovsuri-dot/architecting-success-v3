@@ -170,8 +170,7 @@ const SITE_CONTENT = {
       technique: "Thought Record & Cognitive Restructuring",
       tips: "Catch negative automatic thoughts (NATs), examine the evidence objectively, and reframe them into balanced perspectives.",
       example: "Transforming 'I always fail under exam pressure' into 'With systematic revision and timed practice, I can manage exam scenarios effectively.'",
-      driveUrl: "https://drive.google.com/file/d/1NVdhtwPA9XmVynVsRHa_x6lieWsWYolW/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/1JzQtAfwUG_5wnA24Nl6_EStOYq9dwkly/view?usp=drivesdk" },
     {
       title: "Non-Verbal Gestures & 'Zero-Vocals'",
       subtitle: "Executive presence through micro-expressions, posture, and spatial awareness.",
@@ -179,8 +178,7 @@ const SITE_CONTENT = {
       technique: "Open Posture & Congruent Micro-Expressions",
       tips: "Maintain steady eye contact, keep hands open and relaxed, and eliminate nervous fidgeting.",
       example: "Entering a boardroom with a grounded posture and measured spatial presence to command immediate respect without raising your voice.",
-      driveUrl: "https://drive.google.com/file/d/1W-b5x82MrWS2VwdkJmYhpjretFcc6_DS/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/1JzQtAfwUG_5wnA24Nl6_EStOYq9dwkly/view?usp=drivesdk" },
     {
       title: "Transactional Analysis (TA)",
       subtitle: "Understanding ego states (Parent-Adult-Child) to transform communication.",
@@ -188,8 +186,7 @@ const SITE_CONTENT = {
       technique: "Adult-to-Adult Dialogue Alignment",
       tips: "Recognize when a conversation slips into critical parent or defensive child mode, and consciously pivot back to objective Adult reasoning.",
       example: "Responding to an agitated client complaint with calm, objective data (Adult ego state) instead of defensiveness.",
-      driveUrl: "https://drive.google.com/file/d/1JzQtAfwUG_5wnA24Nl6_EStOYq9dwkly/view?usp=drivesdk"
-    }
+      driveUrl: "https://drive.google.com/file/d/11kHy_9SV9uFF2uUqZ9YLaRMeSZo3X4H8/view?usp=drivesdk" }
   ],
   educationPsychologyModules: [
     {
@@ -199,8 +196,7 @@ const SITE_CONTENT = {
       technique: "The Feynman Technique & Spaced Repetition",
       tips: "Teach concepts simply in your own words. Review study material at 1-day, 3-day, and 7-day intervals.",
       example: "Using mnemonic memory palaces to memorize complex scientific formulas effortlessly.",
-      driveUrl: "https://drive.google.com/file/d/18d2UFS7JErKMH8zD4nU2rAzpzwH9NP15/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/1NVdhtwPA9XmVynVsRHa_x6lieWsWYolW/view?usp=drivesdk" },
     {
       title: "Focus, Attention Span & Physiological Priming",
       subtitle: "Circadian rhythms, dopamine management, and eliminating cognitive fatigue.",
@@ -208,8 +204,7 @@ const SITE_CONTENT = {
       technique: "The 90-Minute Focus Protocol with Somatic Resets",
       tips: "Hydrate adequately, eliminate digital notifications, and take 5-minute physiological sigh breaks to reset nervous system arousal.",
       example: "Switching off all mobile distractions 30 minutes before deep study to preserve prefrontal cortex executive control.",
-      driveUrl: "https://drive.google.com/file/d/1wNPhbst-yZ_YRuHMCt5E8KBeEyOOxbSo/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/18d2UFS7JErKMH8zD4nU2rAzpzwH9NP15/view?usp=drivesdk" },
     {
       title: "Student & Teacher Psychology Mastery",
       subtitle: "Growth mindset, emotional safety, and managing academic performance anxiety.",
@@ -217,8 +212,7 @@ const SITE_CONTENT = {
       technique: "Reframing Test Anxiety as Physiological Excitement",
       tips: "Teachers should praise effort rather than fixed intelligence; students should reframe racing heartbeats before exams as physical readiness.",
       example: "A teacher using positive reinforcement and Socratic questioning rather than punitive correction to boost student confidence.",
-      driveUrl: "https://drive.google.com/file/d/1W-b5x82MrWS2VwdkJmYhpjretFcc6_DS/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/1wNPhbst-yZ_YRuHMCt5E8KBeEyOOxbSo/view?usp=drivesdk" },
     {
       title: "High-Scoring Exam Strategies & Biological Optimization",
       subtitle: "Nutrition, neuro-genesis, and strategic paper-attempting frameworks.",
@@ -226,28 +220,24 @@ const SITE_CONTENT = {
       technique: "Strategic Time-Boxing & Pre-Exam Neurological Priming",
       tips: "Get 8 hours of sleep before exam day (sleep consolidates memory); scan the question paper fully before answering.",
       example: "Allocating the first 5 minutes to prioritize high-yield questions, maximizing score output with minimal cognitive fatigue.",
-      driveUrl: "https://drive.google.com/file/d/15-fC0VayZEDwjvsbyCoMgHWJNfQVfQaU/view?usp=drivesdk"
-    }
+      driveUrl: "https://drive.google.com/file/d/1W-b5x82MrWS2VwdkJmYhpjretFcc6_DS/view?usp=drivesdk" }
   ],
   knowledgeVault: [
     {
       category: "K-12 Math & Science Formulas",
       description: "Class-wise crucial formulas in Mathematics, Physics, and Chemistry from Class 1 to PUC.",
       target: "Class 1 to PUC / CBSE & State",
-      driveUrl: "https://drive.google.com/file/d/1Ms0axPF3U2W7Hkg0MZDVVyLTWZ6fMNef/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/1Ms0axPF3U2W7Hkg0MZDVVyLTWZ6fMNef/view?usp=drivesdk"},
     {
       category: "English Vocabulary & Exercises",
       description: "Class-wise high-yield vocabulary with synonyms, antonyms, fill-in-the-blanks, jumbles, and fun word activities.",
       target: "All Classes (Primary to High School)",
-      driveUrl: "https://drive.google.com/file/d/1Pip27qrsKLBhaepuShZH4eC7MIlCMVbE/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/1Pip27qrsKLBhaepuShZH4eC7MIlCMVbE/view?usp=drivesdk" },
     {
       category: "Aptitude & Logical Reasoning Formulas",
       description: "Quantitative aptitude and reasoning shortcut formulas with solved examples up to degree level.",
       target: "High School, Degree & Aspirants",
-      driveUrl: "https://drive.google.com/file/d/1uL3Tp-iLbkyqBOmqr8t93iwYRRFybU6C/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/1uL3Tp-iLbkyqBOmqr8t93iwYRRFybU6C/view?usp=drivesdk" },
     {
       category: "Competitive Exams Masterclass",
       description: "High-priority topics, formulas, and strategies for Bank PO, GRE, TOEFL, UPSC Civils, and State Group exams.",
