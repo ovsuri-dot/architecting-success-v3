@@ -242,14 +242,12 @@ const SITE_CONTENT = {
       category: "Competitive Exams Masterclass",
       description: "High-priority topics, formulas, and strategies for Bank PO, GRE, TOEFL, UPSC Civils, and State Group exams.",
       target: "Competitive Aspirants",
-      driveUrl: "https://drive.google.com/file/d/1WhJC3_WHrt8vH6dMRcSiOxay15iHnCf6/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/1zLRYv0_UTvk3bwhSrnIQtcac7Dt4L7PK/view?usp=drivesdk" },
     {
       category: "Current Affairs & GK Question Bank",
       description: "Curated general knowledge questions, answers, and monthly current affairs compilations.",
       target: "General & Exam Aspirants",
-      driveUrl: "https://drive.google.com/file/d/11kHy_9SV9uFF2uUqZ9YLaRMeSZo3X4H8/view?usp=drivesdk"
-    }
+      driveUrl: "https://drive.google.com/file/d/1WhJC3_WHrt8vH6dMRcSiOxay15iHnCf6/view?usp=drivesdk" }
   ],
   books: [
     { 
