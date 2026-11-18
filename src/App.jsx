@@ -178,7 +178,7 @@ const SITE_CONTENT = {
       technique: "Open Posture & Congruent Micro-Expressions",
       tips: "Maintain steady eye contact, keep hands open and relaxed, and eliminate nervous fidgeting.",
       example: "Entering a boardroom with a grounded posture and measured spatial presence to command immediate respect without raising your voice.",
-      driveUrl: "https://drive.google.com/file/d/1JzQtAfwUG_5wnA24Nl6_EStOYq9dwkly/view?usp=drivesdk" },
+      driveUrl: "https://drive.google.com/file/d/1F6iePehQvyeG7yVXKIv0ObsfkOxPhinS/view?usp=drivesdk" },
     {
       title: "Transactional Analysis (TA)",
       subtitle: "Understanding ego states (Parent-Adult-Child) to transform communication.",
