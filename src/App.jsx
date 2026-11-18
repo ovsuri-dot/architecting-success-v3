@@ -118,8 +118,7 @@ const SITE_CONTENT = {
       technique: "The 'Mirror and Validate' Protocol",
       tips: "Before offering solutions, repeat back what your partner felt in your own words: 'It sounds like today was deeply exhausting for you.'",
       example: "A husband pausing work to look directly into his wife's eyes, validating her daily stress instead of instantly troubleshooting.",
-      driveUrl: "https://drive.google.com/file/d/1yupo8dqr441PC-0b-ys7f5_iPCkLl3st/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/15-fC0VayZEDwjvsbyCoMgHWJNfQVfQaU/view?usp=drivesdk"},
     {
       title: "De-escalating Conflict & Softened Startups",
       subtitle: "Transforming arguments from win-lose battles to collaborative resolutions.",
@@ -127,8 +126,7 @@ const SITE_CONTENT = {
       technique: "Softened Startup & The 20-Minute Time-Out",
       tips: "Start sensitive discussions with 'I feel...' and 'I need...' statements rather than 'You always...' accusations. Take a 20-minute physical pause if heart rates spike.",
       example: "Agreeing to pause a heated evening debate to cool down, returning later with calm, affectionate communication.",
-      driveUrl: "https://drive.google.com/file/d/18x2ImDadl3jkKz7BKMP_7ouFRPgN6mr2/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/1yupo8dqr441PC-0b-ys7f5_iPCkLl3st/view?usp=drivesdk" },
     {
       title: "Love Languages & Behavioral Appreciation",
       subtitle: "Translating affection into actions your partner naturally registers.",
@@ -136,8 +134,7 @@ const SITE_CONTENT = {
       technique: "Weekly Love Language Audit",
       tips: "Identify whether your spouse values Words of Affirmation, Quality Time, Receiving Gifts, Acts of Service, or Physical Touch, and intentionally practice one daily.",
       example: "A husband taking over household chores (Acts of Service) because his wife's primary tank fills through shared burden-sharing.",
-      driveUrl: "https://drive.google.com/file/d/1iNKHD_O8DdA5wv9DMbFxaJMUBm7uzzbz/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/18x2ImDadl3jkKz7BKMP_7ouFRPgN6mr2/view?usp=drivesdk" },
     {
       title: "Rebuilding Intimacy & Mutual Vulnerability",
       subtitle: "Cultivating deep psychological safety and lifelong romance.",
@@ -145,8 +142,7 @@ const SITE_CONTENT = {
       technique: "The Daily Stress-Reducing Conversation & Rituals of Connection",
       tips: "Spend 15 minutes every evening discussing day-to-day life *outside* of household logistics or children, maintaining a zero-blame environment.",
       example: "Setting aside dedicated weekend tech-free walks to reconnect emotionally and intellectually as partners.",
-      driveUrl: "https://drive.google.com/file/d/1BCEmXX7nbWbKsHqpSKZZBNoWMotxKP7y/view?usp=drivesdk"
-    }
+      driveUrl: "https://drive.google.com/file/d/1iNKHD_O8DdA5wv9DMbFxaJMUBm7uzzbz/view?usp=drivesdk" }
   ],
   behavioralModules: [
     {
