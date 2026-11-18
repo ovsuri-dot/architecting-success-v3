@@ -73,48 +73,42 @@ const SITE_CONTENT = {
       principles: "Procedural determinism, explicit memory management, and hardware-level efficiency.",
       teachingApproach: "Building from basic variables and loops up to pointer arithmetic, dynamic memory allocation (`malloc`/`free`), and data structures.",
       technique: "Visualizing stack vs. heap memory layouts and tracing pointer references line by line.",
-      driveUrl: "https://drive.google.com/file/d/1dj63MBaSRjYH0OOhKexJZ6Q_5fAp8l9n/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/1BCEmXX7nbWbKsHqpSKZZBNoWMotxKP7y/view?usp=drivesdk"  },
     {
       title: "Java & Object-Oriented Architecture",
       subtitle: "Robust enterprise development, inheritance, polymorphism, and JVM mechanics.",
       principles: "Write Once, Run Anywhere (WORA), encapsulation, SOLID design principles, and strict type safety.",
       teachingApproach: "Deconstructing real-world entities into classes, interfaces, exception handling, and multithreading.",
       technique: "Applying design patterns (Factory, Singleton, Observer) to maintain loosely coupled, highly maintainable codebases.",
-      driveUrl: "https://drive.google.com/file/d/19oSCgAuyIV2BeoQ3SWvBubig2fqkCyVN/view?usp=drivesdk"
-    },
+      driveUrl:  "https://drive.google.com/file/d/1dj63MBaSRjYH0OOhKexJZ6Q_5fAp8l9n/view?usp=drivesdk" },
     {
       title: "JavaScript & Modern Web Dynamics",
       subtitle: "Asynchronous programming, event loops, DOM manipulation, and ES6+ features.",
       principles: "Non-blocking asynchronous execution, event-driven architecture, and functional reactivity.",
       teachingApproach: "Mastering closures, promises, `async/await`, and component-driven UI development.",
       technique: "Tracing the JavaScript Event Loop (Call Stack, Web APIs, Callback Queue) to prevent rendering bottlenecks.",
-      driveUrl: "https://drive.google.com/file/d/18KxSquvA-nXtPw4nDK0nxj9DE5o5mfnv/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/19oSCgAuyIV2BeoQ3SWvBubig2fqkCyVN/view?usp=drivesdk" },
     {
       title: "HTML5, CSS & Semantic Web Layouts",
       subtitle: "Accessible structuring, responsive grid systems, and high-contrast aesthetics.",
       principles: "Semantic markup, mobile-first design, accessibility (WCAG), and clean visual hierarchy.",
       teachingApproach: "Teaching structural tags (header, main, section) paired with modern Flexbox and Grid styling systems.",
       technique: "Using glassmorphism principles and high-contrast color overlays for professional UI polish.",
-      driveUrl: "https://drive.google.com/file/d/1pmxCXmnfE1BgnNy2V50Ew18PU1zVf50M/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/18KxSquvA-nXtPw4nDK0nxj9DE5o5mfnv/view?usp=drivesdk" },
     {
       title: "Python & Advanced Scripting Ecosystems",
       subtitle: "Clean syntax, rapid prototyping, data science, and backend automation.",
       principles: "Readability counts, explicit is better than implicit, and pythonic data manipulation.",
       teachingApproach: "Guiding learners through list comprehensions, object-oriented python, API integrations, and modular architecture.",
       technique: "Leveraging virtual environments (`venv`) and robust testing suites (`pytest`) for clean deployments.",
-      driveUrl: "https://drive.google.com/file/d/1zGt6tZRvQgVpNc2EGcYmRyTA-Hp1Pz88/view?usp=drivesdk"
-    },
+      driveUrl: "https://drive.google.com/file/d/1pmxCXmnfE1BgnNy2V50Ew18PU1zVf50M/view?usp=drivesdk" },
     {
       title: "Latest Technologies & AI Integration",
       subtitle: "Full-stack PWAs, cloud deployments, and AI-assisted engineering workflows.",
       principles: "Scalability, serverless computing, real-time synchronization, and AI prompt engineering.",
       teachingApproach: "Transitioning traditional developers into modern full-stack builders utilizing React, Vercel, Git, and LLM APIs.",
       technique: "Packaging web applications into offline-ready Progressive Web Apps (PWAs) and native Android/iOS containers.",
-      driveUrl: "https://drive.google.com/file/d/1WhJC3_WHrt8vH6dMRcSiOxay15iHnCf6/view?usp=drivesdk"
-    }
+      driveUrl: "https://drive.google.com/file/d/1zGt6tZRvQgVpNc2EGcYmRyTA-Hp1Pz88/view?usp=drivesdk" }
   ],
   relationshipModules: [
     {
