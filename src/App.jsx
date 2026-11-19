@@ -1235,7 +1235,7 @@ export default function App() {
                   OKS Memorial Trust &amp; ArchitectingSuccess.in Hub
                 </span>
                 <h2 className="font-serif text-3xl md:text-4xl font-bold">
-                  7 Integrated Learning Suites &amp; Live Assessment Portals
+                  8 Integrated Learning Suites &amp; Live Assessment Portals
                 </h2>
                 <p className="text-gray-600">
                   Launch our newly integrated test series, curriculum portals, and live OKS Memorial Trust competition
