@@ -68,7 +68,7 @@ const SITE_CONTENT = {
       id: "word-power",
       title: "Word Power Made Easy (Norman Lewis)",
       badge: "Vocabulary & Etymology",
-      route: "/word-power/index.html",
+      route: "https://word-power-made-easy-oksmt-o-v-sure.vercel.app",
       categories: ["Part I: Personality & Doctors", "Part II: Speech & Insults", "Part III: Flattery & Attitudes"],
       chapters: [
         "Ch 1: Personality Types (Egoist, Altruist, Introvert, Misanthrope)",
@@ -86,7 +86,7 @@ const SITE_CONTENT = {
       id: "spelling-bee",
       title: "OKSMT Spelling Bee Championship",
       badge: "6 Categories × 20 Rounds",
-      route: "/spelling-bee/index.html",
+      route: "https://oksmt-spelling-bee-championship-o-v-lovat.vercel.app",
       categories: [
         "Cat 1: Primary Stars (Grades 1–3)",
         "Cat 2: Junior Explorers (Grades 4–5)",
@@ -111,7 +111,7 @@ const SITE_CONTENT = {
       id: "quant-aptitude",
       title: "OKSMT Quantitative Aptitude Test Series",
       badge: "21 Chapters + 10 Grand Mocks",
-      route: "/quantitative-aptitude/index.html",
+      route: "https://oksmt-quantitative-aptitude-test-se.vercel.app",
       categories: [
         "Cat 1: Primary Foundation (Grades 4–5)",
         "Cat 2: Middle School Scholars (Grades 6–8)",
@@ -137,7 +137,7 @@ const SITE_CONTENT = {
       id: "logical-reasoning",
       title: "OKSMT Logical Reasoning & Analytical Ability",
       badge: "20 Chapters + 10 Grand Mocks",
-      route: "/logical-reasoning/index.html",
+      route: "https://oksmt-logical-reasoning-analytical.vercel.app",
       categories: [
         "Cat 1–2: Foundation & Middle School Logic",
         "Cat 3–4: High School & Senior Secondary",
@@ -159,7 +159,7 @@ const SITE_CONTENT = {
       id: "science-aptitude",
       title: "OKSMT General & Applied Science Test Series",
       badge: "20 Chapters + 10 Grand Mocks",
-      route: "/science-aptitude/index.html",
+      route: "https://oksmt-general-applied-science-test.vercel.app",
       categories: [
         "Cat 1–2: Young Explorers & Junior Scientists",
         "Cat 3–4: High School & Senior Secondary",
@@ -181,7 +181,7 @@ const SITE_CONTENT = {
       id: "cbse-puc",
       title: "OKSMT CBSE & PUC Complete Mastery (Class 1–12 & 1st/2nd PUC)",
       badge: "Exercises + 5 Papers + Keys",
-      route: "/cbse-puc/index.html",
+      route: "https://oksmt-cbse-puc-complete-academic-ma.vercel.app",
       categories: [
         "Class 1 to Class 5 (Foundational & Preparatory)",
         "Class 6 to Class 10 (Middle & Secondary Board)",
@@ -203,7 +203,7 @@ const SITE_CONTENT = {
       id: "karnataka-state",
       title: "OKSMT Karnataka State Syllabus (Class 1–10 SSLC & 1st/2nd PUC)",
       badge: "English Medium & ಕನ್ನಡ ಮಾಧ್ಯಮ",
-      route: "/karnataka-state/index.html",
+      route: "https://state-beige.vercel.app",
       categories: [
         "Class 1–10 Karnataka State (SSLC Board)",
         "1st PUC & 2nd PUC (Karnataka PUE / KSEAB)",
@@ -950,19 +950,22 @@ export default function App() {
                         <p className="text-xs text-gray-600">{app.sampleItem.prompt}</p>
                       </div>
                       <div className="flex gap-2 pt-2">
-                        <button
-                          onClick={() => openAppPreview(app)}
-                          className="flex-1 py-2.5 px-3 bg-[#0B132B] text-white text-xs font-bold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
-                        >
-                          Quick Preview &amp; Practice
-                        </button>
                         <a
                           href={app.route}
-                          className="py-2.5 px-3 border border-[#0B132B] text-[#0B132B] text-xs font-bold hover:bg-[#0B132B] hover:text-white transition inline-flex items-center"
-                          title={`Open ${app.route}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 py-2.5 px-3 bg-[#0B132B] text-white text-xs font-bold hover:bg-[#C5A059] hover:text-[#0B132B] transition inline-flex items-center justify-center gap-1.5"
                         >
+                          <span>Launch Application</span>
                           <ExternalLink size={14} />
                         </a>
+                        <button
+                          onClick={() => openAppPreview(app)}
+                          className="py-2.5 px-3 border border-[#0B132B] text-[#0B132B] text-xs font-bold hover:bg-[#0B132B] hover:text-white transition"
+                          title="Quick Preview"
+                        >
+                          Preview
+                        </button>
                       </div>
                     </div>
                   ))}
@@ -1439,19 +1442,21 @@ export default function App() {
                       </div>
 
                       <div className="space-y-2 pt-2">
-                        <button
-                          onClick={() => openAppPreview(suite)}
-                          className="w-full py-2.5 px-4 bg-[#0B132B] text-white text-xs font-bold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
-                        >
-                          Interactive Module Preview &amp; Export
-                        </button>
                         <a
                           href={suite.route}
-                          className="w-full py-2 px-4 border border-[#0B132B] text-[#0B132B] text-xs font-bold hover:bg-[#0B132B] hover:text-white transition flex items-center justify-center gap-1"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full py-2.5 px-4 bg-[#0B132B] text-white text-xs font-bold hover:bg-[#C5A059] hover:text-[#0B132B] transition flex items-center justify-center gap-1.5"
                         >
-                          <span>Open Standalone Module ({suite.route})</span>
-                          <ExternalLink size={13} />
+                          <span>Launch Application</span>
+                          <ExternalLink size={14} />
                         </a>
+                        <button
+                          onClick={() => openAppPreview(suite)}
+                          className="w-full py-2 px-4 border border-[#0B132B] text-[#0B132B] text-xs font-bold hover:bg-[#0B132B] hover:text-white transition"
+                        >
+                          Quick Syllabus &amp; Sample Preview
+                        </button>
                       </div>
                     </div>
                   ))}
@@ -1871,9 +1876,11 @@ export default function App() {
               </button>
               <a
                 href={previewApp.route}
-                className="inline-flex items-center gap-2 px-4 py-2.5 border border-[#C5A059] text-[#0B132B] text-xs font-bold hover:bg-[#C5A059]/20 transition ml-auto"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#C5A059] text-[#0B132B] text-xs font-bold hover:bg-[#0B132B] hover:text-white transition ml-auto"
               >
-                Full Screen App <ExternalLink size={14} />
+                Open Application <ExternalLink size={14} />
               </a>
             </div>
           </div>
