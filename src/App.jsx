@@ -23,9 +23,6 @@ import {
   Mic,
   Trophy,
   Layers,
-  CheckCircle2,
-  Volume2,
-  Printer,
   ExternalLink
 } from 'lucide-react';
 
@@ -69,157 +66,49 @@ const SITE_CONTENT = {
       title: "Word Power Made Easy (Norman Lewis)",
       badge: "Vocabulary & Etymology",
       route: "https://word-power-made-easy-oksmt-o-v-sure.vercel.app",
-      categories: ["Part I: Personality & Doctors", "Part II: Speech & Insults", "Part III: Flattery & Attitudes"],
-      chapters: [
-        "Ch 1: Personality Types (Egoist, Altruist, Introvert, Misanthrope)",
-        "Ch 2: Doctors & Specialists (Orthopedist, Cardiologist, Ophthalmologist)",
-        "Ch 12: How to Talk About Actions & Habits",
-        "Ch 18: Everyday Attitudes & Roots"
-      ],
-      sampleItem: {
-        prompt: "Root 'EGO' + 'IST' = Egoist | Suffix '-OLOGY' = Study of",
-        tip: "OKSMT Young Learners' Coaching Note by O V Suresh Babu (ArchitectingSuccess.in): Group roots by Greek/Latin origin and complete the end-of-chapter mastery test.",
-        answerKey: "Egoist = self-centered person; -ology = branch of knowledge/study."
-      }
+      summary: "Root words, Greek/Latin etymology, personality & specialist terms, and interactive vocabulary practice."
     },
     {
       id: "spelling-bee",
       title: "OKSMT Spelling Bee Championship",
       badge: "6 Categories × 20 Rounds",
       route: "https://oksmt-spelling-bee-championship-o-v-lovat.vercel.app",
-      categories: [
-        "Cat 1: Primary Stars (Grades 1–3)",
-        "Cat 2: Junior Explorers (Grades 4–5)",
-        "Cat 3: Middle School Challengers (Grades 6–8)",
-        "Cat 4: High School Scholars (Grades 9–10)",
-        "Cat 5: Senior Secondary Masters (Grades 11–12)",
-        "Cat 6: Undergraduate & Open Champions"
-      ],
-      chapters: [
-        "Round 1: Phonics & Short/Long Vowels",
-        "Round 6: Double Consonants & Silent Letters",
-        "Round 14: Classical Roots & Borrowed Words",
-        "Grand Championship Final Mix"
-      ],
-      sampleItem: {
-        prompt: "Spell: CONSCIENTIOUS — /ˌkɒn.ʃiˈen.ʃəs/ (diligent, principled)",
-        tip: "Break into syllables (con-sci-en-tious) and check root 'scire' (to know) before locking your spelling.",
-        answerKey: "Correct Spelling: C-O-N-S-C-I-E-N-T-I-O-U-S."
-      }
+      summary: "Multi-grade spelling rounds from phonics and silent letters to classical roots and championship finals."
     },
     {
       id: "quant-aptitude",
       title: "OKSMT Quantitative Aptitude Test Series",
       badge: "21 Chapters + 10 Grand Mocks",
       route: "https://oksmt-quantitative-aptitude-test-se.vercel.app",
-      categories: [
-        "Cat 1: Primary Foundation (Grades 4–5)",
-        "Cat 2: Middle School Scholars (Grades 6–8)",
-        "Cat 3: High School Challengers (Grades 9–10)",
-        "Cat 4: Senior Secondary Masters (Grades 11–12)",
-        "Cat 5: College Placement & Campus Readiness",
-        "Cat 6: Competitive Champions (UPSC / CAT / GATE)"
-      ],
-      chapters: [
-        "Ch 1: Number System & Divisibility",
-        "Ch 4: Percentages & Successive Change",
-        "Ch 18 & 19: Geometry & 3D Mensuration",
-        "Ch 21: Vedic Maths & Mental Shortcuts ★ NEW",
-        "All-Chapters Grand Mock Test #1"
-      ],
-      sampleItem: {
-        prompt: "Vedic Ekadhikena Purvena: 75² = ? | Net % of +20% then −20% = ?",
-        tip: "Review Pre-Test Formulas & Worked Examples first; watch out for rush errors (<8s) and unit mismatches.",
-        answerKey: "75² = 5625 (7×8 = 56 + 25); +20% then −20% = 4% decrease."
-      }
+      summary: "Arithmetic, algebra, geometry, mensuration, Vedic maths shortcuts, and full-length mock tests."
     },
     {
       id: "logical-reasoning",
       title: "OKSMT Logical Reasoning & Analytical Ability",
       badge: "20 Chapters + 10 Grand Mocks",
       route: "https://oksmt-logical-reasoning-analytical.vercel.app",
-      categories: [
-        "Cat 1–2: Foundation & Middle School Logic",
-        "Cat 3–4: High School & Senior Secondary",
-        "Cat 5–6: Campus Placement & Competitive Exams"
-      ],
-      chapters: [
-        "Ch 1: Number, Letter & Alpha-Numeric Series",
-        "Ch 4: Coding-Decoding & Analogy",
-        "Ch 9: Syllogisms & Venn Diagrams",
-        "Ch 14: Blood Relations, Clocks & Directions"
-      ],
-      sampleItem: {
-        prompt: "If A is B's brother, B is C's mother, and C is D's father, how is A related to D?",
-        tip: "Draw a clean generation tree (+1 above, 0 same level, −1 below) before selecting options.",
-        answerKey: "A is D's Paternal Great-Uncle (Grandfather's brother)."
-      }
+      summary: "Number/letter series, coding-decoding, syllogisms, blood relations, clocks, directions, and mock tests."
     },
     {
       id: "science-aptitude",
       title: "OKSMT General & Applied Science Test Series",
       badge: "20 Chapters + 10 Grand Mocks",
       route: "https://oksmt-general-applied-science-test.vercel.app",
-      categories: [
-        "Cat 1–2: Young Explorers & Junior Scientists",
-        "Cat 3–4: High School & Senior Secondary",
-        "Cat 5–6: UG STEM & Competitive Science"
-      ],
-      chapters: [
-        "Ch 2: Motion, Force & Newton's Laws",
-        "Ch 8: Electricity, Circuits & Magnetism",
-        "Ch 12: Acids, Bases, Salts & Chemistry",
-        "Ch 16: Cell Biology, Human Systems & Ecology"
-      ],
-      sampleItem: {
-        prompt: "Ohm's Law (V = IR) & pH Scale: Neutral solution pH at 25°C = ?",
-        tip: "Always verify SI units (Ohm, Ampere, Volt, Newton) and eliminate misconceptions in the pre-test hub.",
-        answerKey: "Neutral pH = 7; doubling resistance at constant voltage halves current."
-      }
+      summary: "Physics, chemistry, and biology test series across school, campus, and competitive exam levels."
     },
     {
       id: "cbse-puc",
       title: "OKSMT CBSE & PUC Complete Mastery (Class 1–12 & 1st/2nd PUC)",
       badge: "Exercises + 5 Papers + Keys",
       route: "https://oksmt-cbse-puc-complete-academic-ma.vercel.app",
-      categories: [
-        "Class 1 to Class 5 (Foundational & Preparatory)",
-        "Class 6 to Class 10 (Middle & Secondary Board)",
-        "Class 11–12 & 1st / 2nd PUC (Science, Commerce, Arts)"
-      ],
-      chapters: [
-        "Textbook Concepts & Worked Examples",
-        "Textbook Exercises with Step-by-Step Answers",
-        "Important Exam Questions (1M, 2M, 3M, 4M, 5M)",
-        "5 Additional Question Papers + Separate Answer Sheets"
-      ],
-      sampleItem: {
-        prompt: "Downloadable .DOC / .TXT / PDF packs + Score Booster & 1-3-7-21 Memorization Tips",
-        tip: "Use the 1-3-7-21 spaced recall cycle and Feynman 3-line summaries before attempting the 5 extra papers.",
-        answerKey: "Separate Answer Sheet & Marking Scheme included for all 5 papers."
-      }
+      summary: "Chapter concepts, textbook exercises, exam-focused questions, practice papers, and answer keys."
     },
     {
       id: "karnataka-state",
       title: "OKSMT Karnataka State Syllabus (Class 1–10 SSLC & 1st/2nd PUC)",
       badge: "English Medium & ಕನ್ನಡ ಮಾಧ್ಯಮ",
       route: "https://state-beige.vercel.app",
-      categories: [
-        "Class 1–10 Karnataka State (SSLC Board)",
-        "1st PUC & 2nd PUC (Karnataka PUE / KSEAB)",
-        "Medium Toggle: English Medium | ಕನ್ನಡ ಮಾಧ್ಯಮ"
-      ],
-      chapters: [
-        "ಗಣಿತ / Mathematics — Chapterwise Concepts & Exercises",
-        "ವಿಜ್ಞಾನ / Science & ಸಮಾಜ ವಿಜ್ಞಾನ / Social Science",
-        "ಕನ್ನಡ / Kannada & English — Prose, Poetry & Grammar",
-        "5 Additional Question Papers + Separate Answer Sheets"
-      ],
-      sampleItem: {
-        prompt: "Bilingual / Medium Switcher (English & ಕನ್ನಡ) + Exam Focus + Downloadable Sheets",
-        tip: "Practice Karnataka SSLC / PUC high-weightage questions and export separate answer sheets for offline tests.",
-        answerKey: "Includes step-wise answers, exam tips, and printable OKSMT certificate."
-      }
+      summary: "Karnataka State SSLC and PUC learning & practice modules in English Medium and ಕನ್ನಡ ಮಾಧ್ಯಮ."
     }
   ],
   softwareHub: [
@@ -497,13 +386,6 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formStatus, setFormStatus] = useState({ submitted: false, message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // Integrated App Preview Modal state
-  const [previewApp, setPreviewApp] = useState(null);
-  const [previewCatIdx, setPreviewCatIdx] = useState(0);
-  const [previewChapIdx, setPreviewChapIdx] = useState(0);
-  const [previewLang, setPreviewLang] = useState('en');
-  const [showPreviewAnswer, setShowPreviewAnswer] = useState(false);
   const [suiteFilter, setSuiteFilter] = useState('all');
 
   // Analytics states for live visitor & download counts
@@ -516,45 +398,6 @@ export default function App() {
 
   const handleDownloadClick = () => {
     setDownloadCount((prev) => prev + 1);
-  };
-
-  const openAppPreview = (app) => {
-    setPreviewApp(app);
-    setPreviewCatIdx(0);
-    setPreviewChapIdx(0);
-    setShowPreviewAnswer(false);
-  };
-
-  const speakPreview = (text) => {
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utter = new SpeechSynthesisUtterance(text);
-      utter.rate = 0.95;
-      window.speechSynthesis.speak(utter);
-    }
-  };
-
-  const handleExportModuleDoc = (app) => {
-    handleDownloadClick();
-    const cat = app.categories[previewCatIdx] || app.categories[0];
-    const chap = app.chapters[previewChapIdx] || app.chapters[0];
-    const html = `<html><head><meta charset="utf-8"><title>${app.title}</title></head><body>
-      <h2>${app.title}</h2>
-      <p><strong>OKSMT (OKS Memorial Trust) | Curated by O V Suresh Babu | ArchitectingSuccess.in</strong></p>
-      <p><strong>Category:</strong> ${cat} | <strong>Chapter / Round:</strong> ${chap}</p>
-      <p><strong>Core Item:</strong> ${app.sampleItem.prompt}</p>
-      <p><strong>Coaching & Focus Note:</strong> ${app.sampleItem.tip}</p>
-      <p><strong>Answer / Solution Key:</strong> ${app.sampleItem.answerKey}</p>
-    </body></html>`;
-    const blob = new Blob([html], { type: 'application/msword' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${app.id}_module.doc`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
   };
 
   const filteredSuites = SITE_CONTENT.integratedApps.filter((item) => {
@@ -947,25 +790,18 @@ export default function App() {
                       <div className="space-y-2">
                         <span className="text-xs font-bold uppercase tracking-wider text-[#C5A059]">{app.badge}</span>
                         <h3 className="font-serif text-xl font-bold text-[#0B132B]">{app.title}</h3>
-                        <p className="text-xs text-gray-600">{app.sampleItem.prompt}</p>
+                        <p className="text-xs text-gray-600 leading-relaxed">{app.summary}</p>
                       </div>
-                      <div className="flex gap-2 pt-2">
+                      <div className="pt-2">
                         <a
                           href={app.route}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 py-2.5 px-3 bg-[#0B132B] text-white text-xs font-bold hover:bg-[#C5A059] hover:text-[#0B132B] transition inline-flex items-center justify-center gap-1.5"
+                          className="w-full py-2.5 px-3 bg-[#0B132B] text-white text-xs font-bold hover:bg-[#C5A059] hover:text-[#0B132B] transition inline-flex items-center justify-center gap-1.5"
                         >
                           <span>Launch Application</span>
                           <ExternalLink size={14} />
                         </a>
-                        <button
-                          onClick={() => openAppPreview(app)}
-                          className="py-2.5 px-3 border border-[#0B132B] text-[#0B132B] text-xs font-bold hover:bg-[#0B132B] hover:text-white transition"
-                          title="Quick Preview"
-                        >
-                          Preview
-                        </button>
                       </div>
                     </div>
                   ))}
@@ -1437,11 +1273,10 @@ export default function App() {
                           {suite.badge}
                         </span>
                         <h4 className="font-serif text-xl font-bold text-[#0B132B]">{suite.title}</h4>
-                        <p className="text-sm text-gray-700 font-medium">{suite.sampleItem.prompt}</p>
-                        <p className="text-xs text-gray-500">{suite.sampleItem.tip}</p>
+                        <p className="text-sm text-gray-600 leading-relaxed">{suite.summary}</p>
                       </div>
 
-                      <div className="space-y-2 pt-2">
+                      <div className="pt-2">
                         <a
                           href={suite.route}
                           target="_blank"
@@ -1451,12 +1286,6 @@ export default function App() {
                           <span>Launch Application</span>
                           <ExternalLink size={14} />
                         </a>
-                        <button
-                          onClick={() => openAppPreview(suite)}
-                          className="w-full py-2 px-4 border border-[#0B132B] text-[#0B132B] text-xs font-bold hover:bg-[#0B132B] hover:text-white transition"
-                        >
-                          Quick Syllabus &amp; Sample Preview
-                        </button>
                       </div>
                     </div>
                   ))}
@@ -1757,135 +1586,6 @@ export default function App() {
           </section>
         )}
       </main>
-
-      {/* INTERACTIVE IN-APP MODULE PREVIEW MODAL */}
-      {previewApp && (
-        <div
-          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4 overflow-y-auto"
-          onClick={() => setPreviewApp(null)}
-        >
-          <div
-            className="bg-white text-[#0B132B] max-w-2xl w-full p-6 md:p-8 border-2 border-[#C5A059] shadow-2xl space-y-5"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-start justify-between gap-4 border-b border-[#E2DED0] pb-4">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#C5A059]">
-                  OKSMT • O V Suresh Babu • ArchitectingSuccess.in
-                </span>
-                <h3 className="font-serif text-2xl font-bold">{previewApp.title}</h3>
-              </div>
-              <div className="flex items-center gap-2">
-                {['en', 'kn', 'te'].map((l) => (
-                  <button
-                    key={l}
-                    onClick={() => setPreviewLang(l)}
-                    className={`px-2.5 py-1 text-xs font-bold border ${
-                      previewLang === l ? 'bg-[#0B132B] text-white border-[#0B132B]' : 'bg-[#FAF9F6] text-gray-700'
-                    }`}
-                  >
-                    {l === 'en' ? 'EN' : l === 'kn' ? 'ಕನ್ನಡ' : 'తెలుగు'}
-                  </button>
-                ))}
-                <button onClick={() => setPreviewApp(null)} className="p-1 text-gray-600 hover:text-black">
-                  <X size={22} />
-                </button>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-bold uppercase text-gray-600 mb-1">Category / Class</label>
-                <select
-                  value={previewCatIdx}
-                  onChange={(e) => {
-                    setPreviewCatIdx(Number(e.target.value));
-                    setShowPreviewAnswer(false);
-                  }}
-                  className="w-full p-2.5 border border-[#E2DED0] bg-[#FAF9F6] text-sm font-semibold"
-                >
-                  {previewApp.categories.map((c, idx) => (
-                    <option key={c} value={idx}>
-                      {c}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className="block text-xs font-bold uppercase text-gray-600 mb-1">Chapter / Round / Paper</label>
-                <select
-                  value={previewChapIdx}
-                  onChange={(e) => {
-                    setPreviewChapIdx(Number(e.target.value));
-                    setShowPreviewAnswer(false);
-                  }}
-                  className="w-full p-2.5 border border-[#E2DED0] bg-[#FAF9F6] text-sm font-semibold"
-                >
-                  {previewApp.chapters.map((ch, idx) => (
-                    <option key={ch} value={idx}>
-                      {ch}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <div className="p-4 bg-[#FAF9F6] border-l-4 border-[#0B132B] space-y-2">
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-bold uppercase text-gray-500">
-                  {previewApp.categories[previewCatIdx]} • {previewApp.chapters[previewChapIdx]}
-                </span>
-                <button
-                  onClick={() => speakPreview(`${previewApp.sampleItem.prompt}. ${previewApp.sampleItem.tip}`)}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 bg-white border border-[#E2DED0] text-xs font-bold hover:border-[#C5A059]"
-                >
-                  <Volume2 size={14} /> Listen
-                </button>
-              </div>
-              <p className="font-bold text-base">{previewApp.sampleItem.prompt}</p>
-              <p className="text-sm text-gray-700">{previewApp.sampleItem.tip}</p>
-            </div>
-
-            <div>
-              <button
-                onClick={() => setShowPreviewAnswer(!showPreviewAnswer)}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-[#C5A059] text-[#0B132B] text-xs font-bold hover:bg-[#0B132B] hover:text-white transition"
-              >
-                <CheckCircle2 size={15} />
-                {showPreviewAnswer ? 'Hide Separate Answer Key' : 'Reveal Separate Answer Key'}
-              </button>
-              {showPreviewAnswer && (
-                <div className="mt-3 p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm font-semibold">
-                  Answer / Solution Key: {previewApp.sampleItem.answerKey}
-                </div>
-              )}
-            </div>
-
-            <div className="flex flex-wrap gap-3 pt-3 border-t border-[#E2DED0]">
-              <button
-                onClick={() => handleExportModuleDoc(previewApp)}
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0B132B] text-white text-xs font-bold hover:bg-[#C5A059] hover:text-[#0B132B] transition"
-              >
-                <Download size={15} /> Download Module (.DOC)
-              </button>
-              <button
-                onClick={() => window.print()}
-                className="inline-flex items-center gap-2 px-4 py-2.5 border border-[#0B132B] text-[#0B132B] text-xs font-bold hover:bg-[#0B132B] hover:text-white transition"
-              >
-                <Printer size={15} /> Print Sheet
-              </button>
-              <a
-                href={previewApp.route}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#C5A059] text-[#0B132B] text-xs font-bold hover:bg-[#0B132B] hover:text-white transition ml-auto"
-              >
-                Open Application <ExternalLink size={14} />
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* MOBILE BOTTOM NAVIGATION BAR */}
       <nav className="lg:hidden fixed bottom-0 left-0 w-full bg-[#0B132B] text-white border-t border-white/10 z-50 flex justify-around py-3">
