@@ -694,7 +694,7 @@ export default function App() {
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
                       Launch the OKSMT Govt School Support Portal or open any of our 8 integrated learning &amp; test
-                      series suites (Word Power, Spelling Bee, Quant, Olympieds, Reasoning, Science, CBSE/PUC &amp; Karnataka State).
+                      series suites (Word Power, Spelling Bee, Quant, Olympiads, Reasoning, Science, CBSE/PUC &amp; Karnataka State).
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <a
@@ -709,7 +709,7 @@ export default function App() {
                         onClick={() => setActiveTab('competitions')}
                         className="inline-flex items-center justify-center py-3 px-4 bg-white/10 text-white border border-[#C5A059]/50 font-bold text-sm hover:bg-[#C5A059] hover:text-[#0B132B] transition"
                       >
-                        <Layers className="mr-2" size={16} /> Open 7 Test Suites
+                        <Layers className="mr-2" size={16} /> Open 8 Test Suites
                       </button>
                     </div>
                   </div>
