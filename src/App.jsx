@@ -632,8 +632,8 @@ export default function App() {
                   <strong>ArchitectingSuccess.in</strong> is the premier learning &amp; coaching hub created by{' '}
                   <strong>O V Suresh Babu</strong> (Deputy General Manager at BEML Limited, NLP Master Trainer, Behavioral
                   Architect, and Founder Chairman of OKS Memorial Trust). It unites 30+ years of engineering execution,
-                  behavioral coaching, and 7 integrated academic &amp; test-series modules across English, Kannada, CBSE,
-                  Karnataka State (SSLC &amp; PUC), Quantitative Aptitude, Logical Reasoning, Science, and Spelling Bee.
+                  behavioral coaching, and 8 integrated academic &amp; test-series modules across English, Kannada, CBSE,
+                  Karnataka State (SSLC &amp; PUC), Quantitative Aptitude, Logical Reasoning, Science, Olympieds and Spelling Bee.
                 </p>
               </div>
             </section>
@@ -779,7 +779,7 @@ export default function App() {
                       Integrated OKSMT &amp; ArchitectingSuccess.in Modules
                     </span>
                     <h2 className="font-serif text-3xl font-bold text-[#0B132B]">
-                      7 Complete Academic, Aptitude &amp; Competition Suites
+                      8 Complete Academic, Aptitude &amp; Competition Suites
                     </h2>
                   </div>
                   <button
