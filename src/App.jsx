@@ -1251,9 +1251,9 @@ export default function App() {
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {[
-                      { id: 'all', label: 'All 7 Suites' },
+                      { id: 'all', label: 'All 8 Suites' },
                       { id: 'school', label: 'CBSE, PUC & Karnataka State' },
-                      { id: 'aptitude', label: 'Quant, Reasoning & Science' },
+                      { id: 'aptitude', label: 'Quant, Reasoning & Science, Olympiads ' },
                       { id: 'language', label: 'Word Power & Spelling Bee' }
                     ].map((f) => (
                       <button
