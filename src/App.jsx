@@ -109,7 +109,16 @@ const SITE_CONTENT = {
       badge: "English Medium & ಕನ್ನಡ ಮಾಧ್ಯಮ",
       route: "https://state-beige.vercel.app",
       summary: "Karnataka State SSLC and PUC learning & practice modules in English Medium and ಕನ್ನಡ ಮಾಧ್ಯಮ."
-    }
+    },
+    {
+    id: "olympiad-mastery",
+    title: "OKSMT Olympiad Mastery Hub (Classes 1–10)",
+    badge: "900 Olympiad Papers • IMO / IEO / NSO",
+    route: "https://olympied1.vercel.app",
+    summary:
+      "30 question papers per subject across Classes 1–10, all-chapters summary sheets, separate answer keys, score cards, and certificates.",
+  }
+
   ],
   softwareHub: [
     {
