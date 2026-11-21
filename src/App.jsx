@@ -781,7 +781,7 @@ export default function App() {
                       </span>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
-                      Launch the OKSMT Govt School Support Portal or open any of our 8 integrated learning &amp; test
+                      Launch the OKSMT Govt School Support Portal or open any of our integrated learning &amp; test
                       series suites (Word Power, Spelling Bee, Quant, Olympiads, Reasoning, Science, CBSE/PUC &amp; Karnataka State).
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
