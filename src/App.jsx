@@ -797,7 +797,7 @@ export default function App() {
                         onClick={() => setActiveTab('competitions')}
                         className="inline-flex items-center justify-center py-3 px-4 bg-white/10 text-white border border-[#C5A059]/50 font-bold text-sm hover:bg-[#C5A059] hover:text-[#0B132B] transition"
                       >
-                        <Layers className="mr-2" size={16} /> Open 8 Test Suites
+                        <Layers className="mr-2" size={16} /> Open Test Suites
                       </button>
                     </div>
                   </div>
