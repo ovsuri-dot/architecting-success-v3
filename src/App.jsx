@@ -1323,7 +1323,7 @@ export default function App() {
                   OKS Memorial Trust &amp; ArchitectingSuccess.in Hub
                 </span>
                 <h2 className="font-serif text-3xl md:text-4xl font-bold">
-                  8 Integrated Learning Suites &amp; Live Assessment Portals
+                  Integrated Learning Suites &amp; Live Assessment Portals
                 </h2>
                 <p className="text-gray-600">
                   Launch our newly integrated test series, curriculum portals, and live OKS Memorial Trust competition
@@ -1339,7 +1339,7 @@ export default function App() {
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {[
-                      { id: 'all', label: 'All 8 Suites' },
+                      { id: 'all', label: 'All Suites' },
                       { id: 'school', label: 'CBSE, PUC & Karnataka State' },
                       { id: 'aptitude', label: 'Quant, Reasoning & Science, Olympiads ' },
                       { id: 'language', label: 'Word Power & Spelling Bee' }
