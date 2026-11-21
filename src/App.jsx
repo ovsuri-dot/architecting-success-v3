@@ -70,49 +70,49 @@ const SITE_CONTENT = {
     },
     {
       id: "spelling-bee",
-      title: "OKSMT Spelling Bee Championship",
+      title: "Spelling Bee Championship",
       badge: "6 Categories × 20 Rounds",
       route: "https://oksmt-spelling-bee-championship-o-v-lovat.vercel.app",
       summary: "Multi-grade spelling rounds from phonics and silent letters to classical roots and championship finals."
     },
     {
       id: "quant-aptitude",
-      title: "OKSMT Quantitative Aptitude Test Series",
+      title: "Quantitative Aptitude Test Series",
       badge: "21 Chapters + 10 Grand Mocks",
       route: "https://oksmt-quantitative-aptitude-test-se.vercel.app",
       summary: "Arithmetic, algebra, geometry, mensuration, Vedic maths shortcuts, and full-length mock tests."
     },
     {
       id: "logical-reasoning",
-      title: "OKSMT Logical Reasoning & Analytical Ability",
+      title: "Logical Reasoning & Analytical Ability",
       badge: "20 Chapters + 10 Grand Mocks",
       route: "https://oksmt-logical-reasoning-analytical.vercel.app",
       summary: "Number/letter series, coding-decoding, syllogisms, blood relations, clocks, directions, and mock tests."
     },
     {
       id: "science-aptitude",
-      title: "OKSMT General & Applied Science Test Series",
+      title: "General & Applied Science Test Series",
       badge: "20 Chapters + 10 Grand Mocks",
       route: "https://oksmt-general-applied-science-test.vercel.app",
       summary: "Physics, chemistry, and biology test series across school, campus, and competitive exam levels."
     },
     {
       id: "cbse-puc",
-      title: "OKSMT CBSE & PUC Complete Mastery (Class 1–12 & 1st/2nd PUC)",
+      title: "CBSE & PUC Complete Mastery (Class 1–12 & 1st/2nd PUC)",
       badge: "Exercises + 5 Papers + Keys",
       route: "https://oksmt-cbse-puc-complete-academic-ma.vercel.app",
       summary: "Chapter concepts, textbook exercises, exam-focused questions, practice papers, and answer keys."
     },
     {
       id: "karnataka-state",
-      title: "OKSMT Karnataka State Syllabus (Class 1–10 SSLC & 1st/2nd PUC)",
+      title: "Karnataka State Syllabus (Class 1–10 SSLC & 1st/2nd PUC)",
       badge: "English Medium & ಕನ್ನಡ ಮಾಧ್ಯಮ",
       route: "https://state-beige.vercel.app",
       summary: "Karnataka State SSLC and PUC learning & practice modules in English Medium and ಕನ್ನಡ ಮಾಧ್ಯಮ."
     },
     {
     id: "olympiad-mastery",
-    title: "OKSMT Olympiad Mastery Hub (Classes 1–10)",
+    title: "Olympiad Mastery Hub (Classes 1–10)",
     badge: "900 Olympiad Papers • IMO / IEO / NSO",
     route: "https://olympied1.vercel.app",
     summary:
