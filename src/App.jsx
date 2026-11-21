@@ -117,6 +117,94 @@ const SITE_CONTENT = {
     route: "https://olympied1.vercel.app",
     summary:
       "30 question papers per subject across Classes 1–10, all-chapters summary sheets, separate answer keys, score cards, and certificates.",
+  },
+      {
+    id: "tte",
+    title: "Karnataka Teachers Training & Recruitment",
+    badge: "Teaching & Recruitment",
+    route: "https://karnataka-teachers-training-recruit.vercel.app",
+    summary:
+      "Teacher training, pedagogy, subject readiness, and Karnataka recruitment exam preparation.",
+  },
+  {
+    id: "lawcet",
+    title: "LAWCET Preparation & Law Admissions",
+    badge: "Law Entrance Prep",
+    route: "https://lawcet-preparation-law-admissions-s.vercel.app",
+    summary:
+      "Legal aptitude, current affairs, analytical reasoning, and law entrance admission guidance.",
+  },
+  {
+    id: "kcet",
+    title: "KCET Preparation & Behavioral Mastery",
+    badge: "Engineering & CET Prep",
+    route: "https://kcet-preparation-behavioral-mastery.vercel.app",
+    summary:
+      "Karnataka CET subject practice, exam strategy, speed-accuracy drills, and behavioral readiness.",
+  },
+  {
+    id: "neet-ug",
+    title: "NEET UG Mastery & Behavioral Prep",
+    badge: "Medical Entrance Prep",
+    route: "https://neet-ug-mastery-behavioral-prep-sui.vercel.app",
+    summary:
+      "Physics, Chemistry, and Biology revision workflows, high-yield practice, and exam stress mastery.",
+  },
+  {
+    id: "bank-po",
+    title: "Bank PO Mastery & Behavioral Prep",
+    badge: "Banking & Aptitude",
+    route: "https://bank-po-mastery-behavioral-prep-sui.vercel.app",
+    summary:
+      "Quantitative aptitude, reasoning, data interpretation, banking awareness, and interview readiness.",
+  },
+  {
+    id: "cat",
+    title: "CAT & IIM Admissions Mastery Suite",
+    badge: "MBA & B-School Prep",
+    route: "https://cat-iim-admissions-mastery-suite.vercel.app",
+    summary:
+      "VARC, DILR, and QA preparation modules alongside WAT, GD, and PI admission strategy.",
+  },
+  {
+    id: "gre",
+    title: "GRE General Test Preparation Strategy",
+    badge: "Graduate Admissions",
+    route: "https://gre-general-test-preparation-strate.vercel.app",
+    summary:
+      "Verbal reasoning, quantitative problem solving, analytical writing, and adaptive pacing strategy.",
+  },
+  {
+    id: "toefl",
+    title: "TOEFL iBT Preparation Strategy Suite",
+    badge: "English Proficiency",
+    route: "https://toefl-ibt-preparation-strategy-suit.vercel.app",
+    summary:
+      "Reading, listening, speaking, and integrated writing frameworks for international university admissions.",
+  },
+  {
+    id: "gmat",
+    title: "GMAT Preparation & B-School Strategy",
+    badge: "Management Admissions",
+    route: "https://gmat-preparation-b-school-strategy.vercel.app",
+    summary:
+      "Data insights, quantitative and verbal reasoning, and business school application strategy.",
+  },
+  {
+    id: "ielts",
+    title: "IELTS Academic & General Training Suite",
+    badge: "International English",
+    route: "https://ielts-academic-general-training-sui.vercel.app",
+    summary:
+      "Listening, reading, writing, and speaking band-building strategies for Academic and General tracks.",
+  },
+  {
+    id: "duolingo",
+    title: "Duolingo English Test (DET) Strategy",
+    badge: "Adaptive English Test",
+    route: "https://duolingo-english-test-det-strategy.vercel.app",
+    summary:
+      "Adaptive question types, literacy/comprehension/conversation/production drills, and score strategy.",
   }
 
   ],
